@@ -8,18 +8,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
         rel="stylesheet">
-    <script>
-        // Disable WebGL to force clean HTML/CSS fallback and prevent Three.js scroll crash
-        (function () {
-            var orgGetContext = HTMLCanvasElement.prototype.getContext;
-            HTMLCanvasElement.prototype.getContext = function (type) {
-                if (type === 'webgl' || type === 'webgl2' || type === 'experimental-webgl') {
-                    return null;
-                }
-                return orgGetContext.apply(this, arguments);
-            };
-        })();
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="final%20websitennn.png">
     <link rel="prefetch" href="https://digitalists.at/wp-content/themes/digitalists/loading-sprite.avif" as="image">
@@ -944,6 +932,7 @@
             }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body class="home wp-singular page-template-default page page-id-6 wp-theme-digitalists"
@@ -1410,7 +1399,7 @@
             <!-- ═══ ABOUT SECTION ═══ -->
             <div id="about-section" class="about-info-section about-section block" data-title="" data-menu="About Me">
                 <!-- Interactive Fluid Background Canvas -->
-                <canvas class="about-info__fluid-bg" id="about-fluid-bg"></canvas>
+                <canvas id="dither-canvas"></canvas>
 
                 <!-- Main Grid -->
                 <div class="about-info__main">
@@ -3554,6 +3543,7 @@
     <script src="scroll-engine.js"></script>
     <script src="about-bg-base64.js"></script>
     <script src="custom-scripts.js"></script>
+    <script src="dither-bg.js"></script>
 </body>
 
 </html>
