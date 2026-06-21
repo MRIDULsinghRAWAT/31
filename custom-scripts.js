@@ -999,6 +999,9 @@ window.addEventListener('DOMContentLoaded', function () {
             particles = [];
             
             const heroContainer = document.querySelector('.hero-header');
+            const aboutContainer = document.getElementById('about-section');
+            const aboutHeight = aboutContainer ? aboutContainer.offsetHeight : window.innerHeight;
+            
             width = window.innerWidth;
             height = window.innerHeight;
             
@@ -1009,7 +1012,7 @@ window.addEventListener('DOMContentLoaded', function () {
             canvas.style.height = '100vh';
 
             const cols = Math.ceil(width / density);
-            const rows = Math.ceil(height / density);
+            const rows = Math.ceil(Math.max(height, aboutHeight) / density);
 
             // Function to generate random fallback particles
             const generateFallback = () => {
