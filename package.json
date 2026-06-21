@@ -4,6 +4,7 @@
     "@react-three/postprocessing": "^3.0.4",
     "gsap": "^3.15.0",
     "postprocessing": "^6.39.1",
+    "puppeteer": "^25.1.0",
     "three": "^0.184.0"
   }
 }

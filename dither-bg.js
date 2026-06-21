@@ -206,13 +206,13 @@
         container.addEventListener('touchmove', (e) => handlePointerMove(e.touches[0]), { passive: true });
 
         // Animation loop
-        const clock = new THREE.Clock();
+        const startTime = performance.now();
         const animate = () => {
             requestAnimationFrame(animate);
             // Only update time if the section is in view to save performance
             const rect = container.getBoundingClientRect();
             if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                uniforms.time.value = clock.getElapsedTime();
+                uniforms.time.value = (performance.now() - startTime) * 0.001;
                 renderer.render(scene, camera);
             }
         };

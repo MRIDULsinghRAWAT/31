@@ -1,5 +1,5 @@
 // === CUSTOM PORTFOLIO LOGIC & COMPONENT ANIMATIONS ===
-const duration = 1000; // 2 seconds
+const loadingDuration = 1000; // 2 seconds
 let start = null;
 
 function animateLoading(timestamp) {
@@ -10,7 +10,7 @@ function animateLoading(timestamp) {
     const totalWidth = 200;
 
     const progress = timestamp - start;
-    const percent = Math.min(Math.floor((progress / duration) * 100), 100);
+    const percent = Math.min(Math.floor((progress / loadingDuration) * 100), 100);
 
     const blueWidth = percent / 100 * totalWidth;
 
