@@ -516,6 +516,28 @@
             margin: 0 auto !important;
         }
 
+        /* --- About Section Background --- */
+        .about-info-section {
+            position: relative !important;
+        }
+        .about-info__fluid-bg {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 0 !important;
+            pointer-events: none !important; /* Let container handle mouse events */
+        }
+        .about-info__main {
+            position: relative !important;
+            z-index: 2 !important;
+            pointer-events: none !important;
+        }
+        .about-info__main * {
+            pointer-events: auto;
+        }
+
         /* --- Experience Module --- */
         .bg-module__title {
             font-family: 'PP Fraktion Mono', monospace !important;
@@ -1840,320 +1862,451 @@
             <div id="projects-section"
                 class="references-list block block--references-list block--bg block--bg-inner block--no-margin"
                 data-title="" data-menu="Featured Projects">
+                
                 <div class="references-list__top">
-                    <span>Projects & Open Source</span>
+                    <span>Projects &amp; Open Source</span>
                     <span>Highly Technical Software Engineering</span>
                 </div>
-                <ul class="references-list__list">
-                    <li class="project-item-container">
-                        <a data-img="net_scan_picture.png" href="https://github.com/MRIDULsinghRAWAT" target="_blank">
-                            <span>01</span>
-                            <span>NET SCAN | Python, Flask, React 18, Tailwind CSS, NVD API v2.0, MITRE ATT&CK</span>
-                            <span>
-                                <img loading="lazy" decoding="async" width="1024" height="576"
-                                    src="net_scan_picture.png" class="attachment-large size-large" alt="NET SCAN"
-                                    data-mode="hover" />
-                            </span>
-                            <span>Cyber Security
-                                <button class="project-toggle-btn" aria-expanded="false"
-                                    aria-label="Toggle project details">
-                                    <span class="btn-text">Details</span>
-                                    <svg class="toggle-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        style="transition: transform 0.3s ease; display: inline-block; vertical-align: middle;">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </span>
-                            <span>Vulnerability Scanner Platform</span>
-                            <span>
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="0" y="0" width="30" height="30" fill="url(#picker-dots-pattern)" />
-                                    <g clip-path=" url(#clip0_733_200)">
-                                        <rect x="6" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="8" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="10" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="12" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="14" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="16" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="18" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="20" y="14" width="2" height="2" fill="#fff" />
-                                    </g>
-                                </svg>
-                            </span>
-                        </a>
-                        <div class="project-description-box">
-                            <ul class="project-bullets">
-                                <li>Architected a decoupled full-stack platform with a Flask REST API backend
-                                    (multi-threaded TCP scanner, banner grabber, NVD CVE enrichment pipeline) and a
-                                    React 18 frontend with real-time data streaming via Server-Sent Events.</li>
-                                <li>Engineered a heuristic Kill Chain classifier that automatically categorizes open
-                                    services into Entry Points (HTTP/FTP), Pivot Nodes (SSH/RDP), and Target Nodes
-                                    (DNS/DCs) based on attacker behavior patterns.</li>
-                                <li>Implemented a dual-algorithm Critical Paths Engine- BFS for shortest attack routes
-                                    and Dijkstra for deadliest paths weighted by CVSS severity- proving 2-hop Dijkstra
-                                    paths scored 2.2× higher risk than 1-hop BFS paths.</li>
-                                <li>Designed the Network Exposure Score: Sexp = (wcve ×Dnode)×αP, a composite risk
-                                    metric spanning four tiers (Low / Medium / High / Critical).</li>
-                                <li>Built a What-If Mitigation Engine simulating port decommissioning with instant NES
-                                    recalculation- removing SMB (Port 445) reduced NES by 20 pts vs. RPC’s 10-pt
-                                    reduction, enabling data-driven remediation prioritization.</li>
-                                <li>Validated across 8 heterogeneous environments (campus Wi-Fi, VirtualBox VMs, public
-                                    hosts) with zero false positives; confirmed topological blast radius as the dominant
-                                    risk factor.</li>
-                                <li>Integrated NVD API v2.0 for live CVE correlation with intelligent caching, enabling
-                                    real-time vulnerability enrichment across all scanned hosts.</li>
-                            </ul>
-                        </div>
-                    </li>
 
-                    <li class="project-item-container">
-                        <a data-img="blue_nexxus.png" href="https://github.com/MRIDULsinghRAWAT" target="_blank">
-                            <span>02</span>
-                            <span>BlueNexus | AWS Bedrock, Python, RAG, ChromaDB, EfficientNet-B0, FastAPI</span>
-                            <span>
-                                <img loading="lazy" decoding="async" width="1024" height="576" src="blue_nexxus.png"
-                                    class="attachment-large size-large" alt="BlueNexus" data-mode="hover" />
-                            </span>
-                            <span>Telemetry AI
-                                <button class="project-toggle-btn" aria-expanded="false"
-                                    aria-label="Toggle project details">
-                                    <span class="btn-text">Details</span>
-                                    <svg class="toggle-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        style="transition: transform 0.3s ease; display: inline-block; vertical-align: middle;">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </span>
-                            <span>AWS Bedrock & Machine Learning</span>
-                            <span>
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <pattern id="picker-dots-pattern" patternUnits="userSpaceOnUse" width="4"
-                                            height="4">
-                                            <rect x="1" y="1" width="1.75" height="1.75" fill="#7f7f7f"></rect>
-                                        </pattern>
-                                    </defs>
-                                    <rect x="0" y="0" width="30" height="30" fill="url(#picker-dots-pattern)" />
-                                    <g clip-path=" url(#clip0_733_200)">
-                                        <rect x="6" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="8" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="10" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="12" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="14" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="16" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="18" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="20" y="14" width="2" height="2" fill="#fff" />
-                                    </g>
-                                </svg>
-                            </span>
-                        </a>
-                        <div class="project-description-box">
-                            <ul class="project-bullets">
-                                <li>Developed a production-ready Multi-Agent AI system on AWS Bedrock (Amazon Nova
-                                    Premier) for real-time marine telemetry processing across 5+ concurrent data
-                                    streams.</li>
-                                <li>Engineered a Partitioned RAG architecture with domain-isolated vector stores
-                                    (ChromaDB), reducing LLM hallucination rate by over 90% in domain-specific queries.
-                                </li>
-                                <li>Integrated Computer Vision (EfficientNet-B0) for automated fish species
-                                    classification and predictive ML models for Sea Surface Temperature forecasting.
-                                </li>
-                                <li>Automated sustainability compliance by enforcing catch thresholds, resulting in an
-                                    80% reduction in manual data processing overhead.</li>
-                            </ul>
-                        </div>
-                    </li>
+                <div class="lamalama-projects-container">
+                    <style>
+                        .lamalama-projects-container {
+                            background: #0a0a0a;
+                            color: #fff;
+                            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                            padding-top: 20px;
+                            padding-bottom: 60px;
+                        }
+                        .lamalama-list {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .lamalama-item {
+                        border-bottom: 1px solid rgba(255,255,255,0.1);
+                        padding: 30px 40px;
+                        cursor: pointer;
+                        transition: background 0.3s;
+                        background: #0a0a0a;
+                        display: block;
+                    }
+                    .lamalama-item:first-child {
+                        border-top: 1px solid rgba(255,255,255,0.1);
+                    }
+                    .lamalama-item:hover {
+                        background: #111111;
+                    }
+                    .lamalama-item.open {
+                        background: #000000;
+                    }
+                    
+                    /* Top Bar: Title, Tags, Toggle, Preview Images / Description */
+                    .lamalama-top-bar {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                    }
+                    .lamalama-col-left {
+                        width: 40%;
+                    }
+                    .lamalama-title-wrap {
+                        display: flex;
+                        align-items: center;
+                        gap: 25px;
+                    }
+                    .lamalama-title {
+                        font-size: 18px;
+                        font-weight: 500;
+                        margin: 0;
+                        color: #fff;
+                        letter-spacing: -0.5px;
+                        min-width: 150px;
+                    }
+                    .lamalama-tags {
+                        display: flex;
+                        gap: 5px;
+                    }
+                    .lamalama-tag {
+                        background: #000;
+                        color: #fff;
+                        padding: 4px 8px;
+                        font-size: 9px;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                    }
+                    
+                    /* Links appearing under title */
+                    .lamalama-links {
+                        margin-top: 30px;
+                        display: flex;
+                        gap: 10px;
+                        opacity: 0;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: opacity 0.3s ease, max-height 0.3s ease;
+                    }
+                    .lamalama-btn {
+                        border: 1px solid rgba(255,255,255,0.2);
+                        padding: 8px 16px;
+                        color: #fff;
+                        text-decoration: none;
+                        font-size: 10px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        transition: 0.3s;
+                    }
+                    .lamalama-btn:hover {
+                        background: #fff;
+                        color: #000;
+                    }
 
-                    <li class="project-item-container">
-                        <a data-img="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
-                            href="https://github.com/MRIDULsinghRAWAT/supply_chain_analyzer" target="_blank">
-                            <span>03</span>
-                            <span>Supply Chain Security Analyzer | Python, Git, Pytest, REST APIs, JSON, PEP 440</span>
-                            <span>
-                                <img loading="lazy" decoding="async" width="1024" height="576"
-                                    src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
-                                    class="attachment-large size-large" alt="Supply Chain Security Analyzer"
-                                    data-mode="hover" />
-                            </span>
-                            <span>Cyber Security
-                                <button class="project-toggle-btn" aria-expanded="false"
-                                    aria-label="Toggle project details">
-                                    <span class="btn-text">Details</span>
-                                    <svg class="toggle-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        style="transition: transform 0.3s ease; display: inline-block; vertical-align: middle;">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </span>
-                            <span>Dependency Auditor Platform</span>
-                            <span>
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="0" y="0" width="30" height="30" fill="url(#picker-dots-pattern)" />
-                                    <g clip-path=" url(#clip0_733_200)">
-                                        <rect x="6" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="8" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="10" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="12" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="14" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="16" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="18" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="20" y="14" width="2" height="2" fill="#fff" />
-                                    </g>
-                                </svg>
-                            </span>
-                        </a>
-                        <div class="project-description-box">
-                            <ul class="project-bullets">
-                                <li>Developed a CLI-based security scanner in Python to audit dependencies in the Python
-                                    (requirements.txt) and Node (package.json) ecosystems.</li>
-                                <li>Constructed directed dependency graphs using adjacency lists, performing depth
-                                    computation and cycle detection via DFS three-color marking.</li>
-                                <li>Identified malicious packages using typosquatting rules like Levenshtein distance,
-                                    homoglyph mapping, and separator confusion against 145+ packages.</li>
-                                <li>Performed security checks against GitHub Advisory and NVD databases with persistent
-                                    caching, and audited Git history and files for leaked secrets.</li>
-                                <li>Calculated a 0–100 security rating based on severity-weighted deductions, generating
-                                    structured JSON and colored console reports.</li>
-                            </ul>
-                        </div>
-                    </li>
+                    .lamalama-col-center {
+                        width: 20%;
+                        text-align: center;
+                        padding-top: 5px;
+                    }
+                    .lamalama-toggle-text {
+                        font-family: monospace;
+                        font-size: 12px;
+                        letter-spacing: 2px;
+                        color: #ccc;
+                    }
 
-                    <li class="project-item-container">
-                        <a data-img="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
-                            href="https://github.com/MRIDULsinghRAWAT/aesthetic-intelligence-engine" target="_blank">
-                            <span>04</span>
-                            <span>On-Device Aesthetic Intelligence Engine | Python, TensorFlow, MobileNetV2, TFLite,
-                                OpenCV</span>
-                            <span>
-                                <img loading="lazy" decoding="async" width="1024" height="576"
-                                    src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
-                                    class="attachment-large size-large" alt="Aesthetic Intelligence Engine"
-                                    data-mode="hover" />
-                            </span>
-                            <span>Edge AI
-                                <button class="project-toggle-btn" aria-expanded="false"
-                                    aria-label="Toggle project details">
-                                    <span class="btn-text">Details</span>
-                                    <svg class="toggle-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        style="transition: transform 0.3s ease; display: inline-block; vertical-align: middle;">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </span>
-                            <span>Aesthetic Scoring Engine</span>
-                            <span>
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="0" y="0" width="30" height="30" fill="url(#picker-dots-pattern)" />
-                                    <g clip-path=" url(#clip0_733_200)">
-                                        <rect x="6" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="8" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="10" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="12" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="14" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="16" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="18" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="20" y="14" width="2" height="2" fill="#fff" />
-                                    </g>
-                                </svg>
-                            </span>
-                        </a>
-                        <div class="project-description-box">
-                            <ul class="project-bullets">
-                                <li>Designed and trained a binary aesthetic classification system using MobileNetV2
-                                    (2.4M
-                                    parameters) on the BIQ2021 dataset (12,000 real-world images), achieving 71%
-                                    validation accuracy on unseen data.</li>
-                                <li>Implemented a complete Edge AI inference pipeline by converting the trained Keras
-                                    model to TensorFlow Lite format, reducing model size from 11.54MB to 9.52MB (TFLite)
-                                    and further to 2.67MB via INT8 quantization — a 4.3x compression with no accuracy
-                                    loss.</li>
-                                <li>Benchmarked on-device inference performance achieving sub-12ms latency (11.25ms
-                                    TFLite, 11.88ms Quantized) — demonstrating real-time capability suitable for mobile
-                                    and edge deployment.</li>
-                                <li>Applied transfer learning with frozen ImageNet weights and a custom classification
-                                    head (GlobalAveragePooling → Dense 128 → Sigmoid), fine-tuned on aesthetic quality
-                                    labels derived from Mean Opinion Scores (MOS > 0.5 = Good).</li>
-                                <li>Engineered dataset preprocessing pipeline using OpenCV for batch image loading,
-                                    resizing, and normalization, with stratified train/validation split (80/20) across
-                                    2000-image subset optimized for Colab memory constraints.</li>
-                            </ul>
-                        </div>
-                    </li>
+                    .lamalama-col-right {
+                        width: 40%;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .lamalama-preview-images {
+                        display: flex;
+                        gap: 10px;
+                    }
+                    .lamalama-preview-images img {
+                        height: 120px;
+                        width: 120px;
+                        object-fit: cover;
+                        background: #000;
+                    }
+                    .lamalama-desc-text {
+                        display: none;
+                        font-size: 13px;
+                        line-height: 1.6;
+                        color: #ddd;
+                        text-align: left;
+                        max-width: 500px;
+                        animation: fadeIn 0.5s forwards;
+                    }
+                    .lamalama-desc-text ul {
+                        margin: 0; padding-left: 15px;
+                    }
+                    .lamalama-desc-text li {
+                        margin-bottom: 8px;
+                    }
 
-                    <li class="project-item-container">
-                        <a data-img="cropsense.png" href="https://github.com/v-i-n-a-y-29/CropSense" target="_blank">
-                            <span>05</span>
-                            <span>CropSense | React, Vite, Flask, Socket.io, Leaflet.js, Gemini AI</span>
-                            <span>
-                                <img loading="lazy" decoding="async" width="1024" height="576" src="cropsense.png"
-                                    class="attachment-large size-large" alt="CropSense" data-mode="hover" />
-                            </span>
-                            <span>Agri-Tech &amp; AI
-                                <button class="project-toggle-btn" aria-expanded="false"
-                                    aria-label="Toggle project details">
-                                    <span class="btn-text">Details</span>
-                                    <svg class="toggle-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        style="transition: transform 0.3s ease; display: inline-block; vertical-align: middle;">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </span>
-                            <span>Crop Residue Tracking &amp; Advisory</span>
-                            <span>
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="0" y="0" width="30" height="30" fill="url(#picker-dots-pattern)" />
-                                    <g clip-path=" url(#clip0_733_200)">
-                                        <rect x="6" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="8" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="10" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="12" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="14" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="16" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="18" y="14" width="2" height="2" fill="#fff" />
-                                        <rect x="20" y="14" width="2" height="2" fill="#fff" />
-                                    </g>
-                                </svg>
-                            </span>
-                        </a>
-                        <div class="project-description-box">
-                            <ul class="project-bullets">
-                                <li>Designed a unified digital ecosystem (Farmer, CHC Operator, and Government portals)
-                                    to eliminate stubble burning by connecting farmers with nearby Crop Residue
-                                    Management (CRM) machinery.</li>
-                                <li>Engineered hardware-free real-time tracking using Leaflet.js interactive maps and
-                                    custom state synchronization, bypassing expensive GPS hardware and reducing fleet
-                                    idle times by over 30%.</li>
-                                <li>Integrated Google Gemini AI for localized bilingual (English/Hindi) crop advisory
-                                    and real-time weather analytics to guide farmers within critical 15–20 day sowing
-                                    windows.</li>
-                                <li>Architected an Admin Dashboard (DA&amp;FW) to correlate real-time machinery
-                                    utilization with regional AQI trends, providing officials with data-driven insights
-                                    for policy-making.</li>
-                                <li>Built a real-time sync layer using Socket.io and Flask to stream live machine
-                                    statuses (Active, Available, Idle) across active portals without requiring page
-                                    reloads.</li>
-                                <li>Optimized the tech stack using React + Vite for high-performance frontend interfaces
-                                    and Flask for scalable routing, security, and AI service orchestration.</li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
+                    /* Expanded Images Row */
+                    .lamalama-expanded-images {
+                        display: flex;
+                        gap: 2px;
+                        margin-top: 0;
+                        max-height: 0;
+                        opacity: 0;
+                        overflow: hidden;
+                        transition: max-height 0.5s ease, margin-top 0.5s ease, opacity 0.5s ease;
+                    }
+                    .lamalama-expanded-images img {
+                        height: 350px;
+                        flex: 1;
+                        object-fit: cover;
+                    }
+
+                    /* OPEN STATE RULES */
+                    .lamalama-item.open .lamalama-links {
+                        opacity: 1;
+                        max-height: 100px;
+                    }
+                    .lamalama-item.open .lamalama-preview-images {
+                        display: none;
+                    }
+                    .lamalama-item.open .lamalama-desc-text {
+                        display: block;
+                    }
+                    .lamalama-item.open .lamalama-expanded-images {
+                        margin-top: 40px;
+                        max-height: 500px;
+                        opacity: 1;
+                    }
+
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+
+                    @media(max-width: 900px) {
+                        .lamalama-section-header { padding: 0 20px 30px 20px; }
+                        .lamalama-section-header h2 { font-size: 10vw; }
+                        .lamalama-top-bar {
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                        .lamalama-col-left, .lamalama-col-center, .lamalama-col-right {
+                            width: 100%;
+                            justify-content: flex-start;
+                        }
+                        .lamalama-col-center {
+                            text-align: left;
+                        }
+                        .lamalama-expanded-images {
+                            flex-direction: column;
+                        }
+                        .lamalama-expanded-images img {
+                            height: 250px;
+                        }
+                    }
+                </style>
+                <div class="lamalama-projects">
+                    <ul class="lamalama-list">
+                        
+                        <!-- Project 1 -->
+                        <li>
+                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                <div class="lamalama-top-bar">
+                                    <div class="lamalama-col-left">
+                                        <div class="lamalama-title-wrap">
+                                            <h2 class="lamalama-title">NET SCAN</h2>
+                                            <div class="lamalama-tags">
+                                                <span class="lamalama-tag">CYBER SEC</span>
+                                                <span class="lamalama-tag">PLATFORM</span>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-links">
+                                            <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                            <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="lamalama-btn">VISIT WEBSITE &nearr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-col-center">
+                                        <span class="lamalama-toggle-text">( + )</span>
+                                    </div>
+                                    <div class="lamalama-col-right">
+                                        <div class="lamalama-preview-images">
+                                            <img src="net_scan_picture.png" alt="NET SCAN"/>
+                                            <img src="net_scan_picture.png" style="filter: grayscale(100%);" alt="NET SCAN"/>
+                                            <img src="net_scan_picture.png" style="filter: sepia(100%);" alt="NET SCAN"/>
+                                        </div>
+                                        <div class="lamalama-desc-text">
+                                            <ul>
+                                                <li>Architected a decoupled full-stack platform with a Flask REST API backend (multi-threaded TCP scanner, banner grabber, NVD CVE enrichment pipeline) and a React 18 frontend with real-time data streaming via Server-Sent Events.</li>
+                                                <li>Engineered a heuristic Kill Chain classifier that automatically categorizes open services into Entry Points (HTTP/FTP), Pivot Nodes (SSH/RDP), and Target Nodes (DNS/DCs) based on attacker behavior patterns.</li>
+                                                <li>Implemented a dual-algorithm Critical Paths Engine- BFS for shortest attack routes and Dijkstra for deadliest paths weighted by CVSS severity.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lamalama-expanded-images">
+                                    <img src="net_scan_picture.png" alt="NET SCAN"/>
+                                    <img src="net_scan_picture.png" style="filter: grayscale(100%);" alt="NET SCAN"/>
+                                    <img src="net_scan_picture.png" style="filter: sepia(100%);" alt="NET SCAN"/>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Project 2 -->
+                        <li>
+                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                <div class="lamalama-top-bar">
+                                    <div class="lamalama-col-left">
+                                        <div class="lamalama-title-wrap">
+                                            <h2 class="lamalama-title">BlueNexus</h2>
+                                            <div class="lamalama-tags">
+                                                <span class="lamalama-tag">TELEMETRY</span>
+                                                <span class="lamalama-tag">AI / ML</span>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-links">
+                                            <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-col-center">
+                                        <span class="lamalama-toggle-text">( + )</span>
+                                    </div>
+                                    <div class="lamalama-col-right">
+                                        <div class="lamalama-preview-images">
+                                            <img src="blue_nexxus.png" alt="BlueNexus"/>
+                                            <img src="blue_nexxus.png" style="filter: grayscale(100%);" alt="BlueNexus"/>
+                                            <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);" alt="BlueNexus"/>
+                                        </div>
+                                        <div class="lamalama-desc-text">
+                                            <ul>
+                                                <li>Developed a production-ready Multi-Agent AI system on AWS Bedrock (Amazon Nova Premier) for real-time marine telemetry processing across 5+ concurrent data streams.</li>
+                                                <li>Engineered a Partitioned RAG architecture with domain-isolated vector stores (ChromaDB), reducing LLM hallucination rate by over 90% in domain-specific queries.</li>
+                                                <li>Integrated Computer Vision (EfficientNet-B0) for automated fish species classification and predictive ML models for Sea Surface Temperature forecasting.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lamalama-expanded-images">
+                                    <img src="blue_nexxus.png" alt="BlueNexus"/>
+                                    <img src="blue_nexxus.png" style="filter: grayscale(100%);" alt="BlueNexus"/>
+                                    <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);" alt="BlueNexus"/>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Project 3 -->
+                        <li>
+                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                <div class="lamalama-top-bar">
+                                    <div class="lamalama-col-left">
+                                        <div class="lamalama-title-wrap">
+                                            <h2 class="lamalama-title">Supply Chain</h2>
+                                            <div class="lamalama-tags">
+                                                <span class="lamalama-tag">CYBER SEC</span>
+                                                <span class="lamalama-tag">AUDITOR</span>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-links">
+                                            <a href="https://github.com/MRIDULsinghRAWAT/supply_chain_analyzer" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-col-center">
+                                        <span class="lamalama-toggle-text">( + )</span>
+                                    </div>
+                                    <div class="lamalama-col-right">
+                                        <div class="lamalama-preview-images">
+                                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" alt="Supply Chain Analyzer"/>
+                                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Supply Chain Analyzer"/>
+                                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: invert(100%);" alt="Supply Chain Analyzer"/>
+                                        </div>
+                                        <div class="lamalama-desc-text">
+                                            <ul>
+                                                <li>Developed a CLI-based security scanner in Python to audit dependencies in the Python (requirements.txt) and Node (package.json) ecosystems.</li>
+                                                <li>Constructed directed dependency graphs using adjacency lists, performing depth computation and cycle detection via DFS three-color marking.</li>
+                                                <li>Identified malicious packages using typosquatting rules like Levenshtein distance, homoglyph mapping, and separator confusion against 145+ packages.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lamalama-expanded-images">
+                                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" alt="Supply Chain Analyzer"/>
+                                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Supply Chain Analyzer"/>
+                                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: invert(100%);" alt="Supply Chain Analyzer"/>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Project 4 -->
+                        <li>
+                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                <div class="lamalama-top-bar">
+                                    <div class="lamalama-col-left">
+                                        <div class="lamalama-title-wrap">
+                                            <h2 class="lamalama-title">Aesthetic Engine</h2>
+                                            <div class="lamalama-tags">
+                                                <span class="lamalama-tag">EDGE AI</span>
+                                                <span class="lamalama-tag">ENGINE</span>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-links">
+                                            <a href="https://github.com/MRIDULsinghRAWAT/aesthetic-intelligence-engine" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-col-center">
+                                        <span class="lamalama-toggle-text">( + )</span>
+                                    </div>
+                                    <div class="lamalama-col-right">
+                                        <div class="lamalama-preview-images">
+                                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" alt="Aesthetic Engine"/>
+                                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Aesthetic Engine"/>
+                                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: sepia(100%);" alt="Aesthetic Engine"/>
+                                        </div>
+                                        <div class="lamalama-desc-text">
+                                            <ul>
+                                                <li>Designed and trained a binary aesthetic classification system using MobileNetV2 (2.4M parameters) on the BIQ2021 dataset (12,000 real-world images), achieving 71% validation accuracy on unseen data.</li>
+                                                <li>Implemented a complete Edge AI inference pipeline by converting the trained Keras model to TensorFlow Lite format, reducing model size and enabling rapid deployment.</li>
+                                                <li>Benchmarked on-device inference performance achieving sub-12ms latency, demonstrating real-time capability suitable for mobile and edge deployment.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lamalama-expanded-images">
+                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" alt="Aesthetic Engine"/>
+                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Aesthetic Engine"/>
+                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: sepia(100%);" alt="Aesthetic Engine"/>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Project 5 -->
+                        <li>
+                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                <div class="lamalama-top-bar">
+                                    <div class="lamalama-col-left">
+                                        <div class="lamalama-title-wrap">
+                                            <h2 class="lamalama-title">CropSense</h2>
+                                            <div class="lamalama-tags">
+                                                <span class="lamalama-tag">AGRI-TECH</span>
+                                                <span class="lamalama-tag">AI</span>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-links">
+                                            <a href="https://github.com/v-i-n-a-y-29/CropSense" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-col-center">
+                                        <span class="lamalama-toggle-text">( + )</span>
+                                    </div>
+                                    <div class="lamalama-col-right">
+                                        <div class="lamalama-preview-images">
+                                            <img src="cropsense.png" alt="CropSense"/>
+                                            <img src="cropsense.png" style="filter: grayscale(100%);" alt="CropSense"/>
+                                            <img src="cropsense.png" style="filter: hue-rotate(45deg);" alt="CropSense"/>
+                                        </div>
+                                        <div class="lamalama-desc-text">
+                                            <ul>
+                                                <li>Designed a unified digital ecosystem (Farmer, CHC Operator, and Government portals) to eliminate stubble burning by connecting farmers with nearby Crop Residue Management (CRM) machinery.</li>
+                                                <li>Engineered hardware-free real-time tracking using Leaflet.js interactive maps and custom state synchronization, bypassing expensive GPS hardware and reducing fleet idle times by over 30%.</li>
+                                                <li>Integrated Google Gemini AI for localized bilingual (English/Hindi) crop advisory and real-time weather analytics.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lamalama-expanded-images">
+                                    <img src="cropsense.png" alt="CropSense"/>
+                                    <img src="cropsense.png" style="filter: grayscale(100%);" alt="CropSense"/>
+                                    <img src="cropsense.png" style="filter: hue-rotate(45deg);" alt="CropSense"/>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
+
+            <script>
+                function toggleLamalamaRow(item) {
+                    const isOpen = item.classList.contains('open');
+                    
+                    // Close all others
+                    document.querySelectorAll('.lamalama-item.open').forEach(el => {
+                        if (el !== item) {
+                            el.classList.remove('open');
+                            const otherToggle = el.querySelector('.lamalama-toggle-text');
+                            if(otherToggle) otherToggle.innerText = '( + )';
+                        }
+                    });
+
+                    const toggleText = item.querySelector('.lamalama-toggle-text');
+                    
+                    // Toggle current
+                    if (isOpen) {
+                        item.classList.remove('open');
+                        if(toggleText) toggleText.innerText = '( + )';
+                    } else {
+                        item.classList.add('open');
+                        if(toggleText) toggleText.innerText = '( - )';
+                    }
+                }
+            </script>
 
             <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
             <div class="background-section block" id="background-section" data-title="" data-menu="Background">
@@ -3399,6 +3552,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="scroll-engine.js"></script>
+    <script src="about-bg-base64.js"></script>
+    <script src="custom-scripts.js"></script>
 </body>
 
 </html>

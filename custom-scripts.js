@@ -951,329 +951,286 @@ window.addEventListener('DOMContentLoaded', function () {
 })();
 
 
-// === ABOUT SECTION — INTERACTIVE DITHER WAVES SHADER BACKGROUND ===
+// === ABOUT SECTION — INTERACTIVE ASCII ART BACKGROUND ===
 (function () {
-    document.addEventListener('DOMContentLoaded', function () {
-        const canvas = document.getElementById('about-fluid-bg');
-        if (!canvas) return;
+    const canvas = document.getElementById('about-fluid-bg');
+    if (!canvas) return;
 
-        const gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) {
-            console.warn('WebGL not supported by browser. Falling back to CSS animation.');
-            
-            // Graceful CSS Fallback
-            canvas.style.display = 'none';
-            const fallback = document.createElement('div');
-            fallback.style.cssText = `
-                position: absolute; inset: 0; z-index: 0;
-                background: radial-gradient(circle at center, rgba(241, 229, 0, 0.15) 0%, transparent 70%);
-                opacity: 0.8; pointer-events: none;
-            `;
-            const scanlines = document.createElement('div');
-            scanlines.style.cssText = `
-                position: absolute; inset: 0; z-index: 0;
-                background: repeating-linear-gradient(0deg, rgba(241, 229, 0, 0.05) 0px, rgba(241, 229, 0, 0.05) 1px, transparent 1px, transparent 4px);
-                opacity: 0.5; pointer-events: none;
-            `;
-            canvas.parentElement.appendChild(fallback);
-            canvas.parentElement.appendChild(scanlines);
-            
-            return;
-        }
-
-        try {
+    const ctx = canvas.getContext('2d', { alpha: false }); // optimize for opaque bg
+        if (!ctx) return;
 
         const container = document.getElementById('about-section');
         if (!container) return;
 
-        // Shader parameters matching react component defaults
-        const params = {
-            waveSpeed: 0.05,
-            waveFrequency: 3.0,
-            waveAmplitude: 0.3,
-            waveColor: [0.9450980392156862, 0.8980392156862745, 0],
-            colorNum: 4.0,
-            pixelSize: 2.0,
-            disableAnimation: false,
-            enableMouseInteraction: true,
-            mouseRadius: 0.3
-        };
+        // Configuration
+        const density = 8; // Denser grid for smaller dots
+        const asciiChars = [' ', '.', '·', ':', '-', '=', '+', '*', 'x', 'X', '#'];
+        const mouseRadius = 120; // Smaller hover area
+        const pushForce = 0.3; // Softer push
+        const springStrength = 0.05;
+        const friction = 0.85;
+        let particles = [];
+        let mouseX = -1000;
+        let mouseY = -1000;
 
-        const bayerArray = new Float32Array([
-            0.0/64.0, 48.0/64.0, 12.0/64.0, 60.0/64.0,  3.0/64.0, 51.0/64.0, 15.0/64.0, 63.0/64.0,
-            32.0/64.0,16.0/64.0, 44.0/64.0, 28.0/64.0, 35.0/64.0,19.0/64.0, 47.0/64.0, 31.0/64.0,
-             8.0/64.0, 56.0/64.0,  4.0/64.0, 52.0/64.0, 11.0/64.0,59.0/64.0,  7.0/64.0, 55.0/64.0,
-            40.0/64.0,24.0/64.0, 36.0/64.0, 20.0/64.0, 43.0/64.0,27.0/64.0, 39.0/64.0, 23.0/64.0,
-             2.0/64.0, 50.0/64.0, 14.0/64.0, 62.0/64.0,  1.0/64.0,49.0/64.0, 13.0/64.0, 61.0/64.0,
-            34.0/64.0,18.0/64.0, 46.0/64.0, 30.0/64.0, 33.0/64.0,17.0/64.0, 45.0/64.0, 29.0/64.0,
-            10.0/64.0,58.0/64.0,  6.0/64.0, 54.0/64.0,  9.0/64.0,57.0/64.0,  5.0/64.0, 53.0/64.0,
-            42.0/64.0,26.0/64.0, 38.0/64.0, 22.0/64.0, 41.0/64.0,25.0/64.0, 37.0/64.0, 21.0/64.0
-        ]);
+        // Image to sample
+        const img = new Image();
+        img.src = typeof aboutBgBase64 !== 'undefined' ? aboutBgBase64 : 'about_bg_reference.png'; // Use Base64 to bypass local file CORS
 
-        // Vertex Shader Source
-        const vsSource = `
-            attribute vec2 position;
-            void main() {
-                gl_Position = vec4(position, 0.0, 1.0);
-            }
-        `;
+        let width = 0, height = 0;
 
-        // Fragment Shader Source (combined waves & dither effect)
-        const fsSource = `
-            precision highp float;
-            uniform vec2 resolution;
-            uniform float time;
-            uniform float waveSpeed;
-            uniform float waveFrequency;
-            uniform float waveAmplitude;
-            uniform vec3 waveColor;
-            uniform vec2 mousePos;
-            uniform int enableMouseInteraction;
-            uniform float mouseRadius;
-            uniform float colorNum;
-            uniform float pixelSize;
-            uniform float uBayer[64];
-
-            vec4 mod289(vec4 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
-            vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
-            vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
-            vec2 fade(vec2 t) { return t*t*t*(t*(t*6.0-15.0)+10.0); }
-
-            float cnoise(vec2 P) {
-                vec4 Pi = floor(P.xyxy) + vec4(0.0,0.0,1.0,1.0);
-                vec4 Pf = fract(P.xyxy) - vec4(0.0,0.0,1.0,1.0);
-                Pi = mod289(Pi);
-                vec4 ix = Pi.xzxz;
-                vec4 iy = Pi.yyww;
-                vec4 fx = Pf.xzxz;
-                vec4 fy = Pf.yyww;
-                vec4 i = permute(permute(ix) + iy);
-                vec4 gx = fract(i * (1.0/41.0)) * 2.0 - 1.0;
-                vec4 gy = abs(gx) - 0.5;
-                vec4 tx = floor(gx + 0.5);
-                gx = gx - tx;
-                vec2 g00 = vec2(gx.x, gy.x);
-                vec2 g10 = vec2(gx.y, gy.y);
-                vec2 g01 = vec2(gx.z, gy.z);
-                vec2 g11 = vec2(gx.w, gy.w);
-                vec4 norm = taylorInvSqrt(vec4(dot(g00,g00), dot(g01,g01), dot(g10,g10), dot(g11,g11)));
-                g00 *= norm.x; g01 *= norm.y; g10 *= norm.z; g11 *= norm.w;
-                float n00 = dot(g00, vec2(fx.x, fy.x));
-                float n10 = dot(g10, vec2(fx.y, fy.y));
-                float n01 = dot(g01, vec2(fx.z, fy.z));
-                float n11 = dot(g11, vec2(fx.w, fy.w));
-                vec2 fade_xy = fade(Pf.xy);
-                vec2 n_x = mix(vec2(n00, n01), vec2(n10, n11), fade_xy.x);
-                return 2.3 * mix(n_x.x, n_x.y, fade_xy.y);
-            }
-
-            const int OCTAVES = 4;
-            float fbm(vec2 p) {
-                float value = 0.0;
-                float amp = 1.0;
-                float freq = waveFrequency;
-                for (int i = 0; i < OCTAVES; i++) {
-                    value += amp * abs(cnoise(p));
-                    p *= freq;
-                    amp *= waveAmplitude;
-                }
-                return value;
-            }
-
-            float pattern(vec2 p) {
-                vec2 p2 = p - time * waveSpeed;
-                return fbm(p + fbm(p2)); 
-            }
-
-            vec3 dither(vec2 coord, vec3 color) {
-                vec2 scaledCoord = floor(coord / pixelSize);
-                int x = int(mod(scaledCoord.x, 8.0));
-                int y = int(mod(scaledCoord.y, 8.0));
-                
-                // Fetch dynamically from uniform array
-                int index = y * 8 + x;
-                float threshold = uBayer[index] - 0.25;
-                
-                float stepVal = 1.0 / (colorNum - 1.0);
-                color += threshold * stepVal;
-                float bias = 0.2;
-                color = clamp(color - bias, 0.0, 1.0);
-                return floor(color * (colorNum - 1.0) + 0.5) / (colorNum - 1.0);
-            }
-
-            void main() {
-                vec2 uv = gl_FragCoord.xy / resolution.xy;
-                vec2 waveUv = uv - 0.5;
-                waveUv.x *= resolution.x / resolution.y;
-                
-                float f = pattern(waveUv);
-                
-                if (enableMouseInteraction == 1) {
-                    vec2 mouseNDC = (mousePos / resolution - 0.5) * vec2(1.0, -1.0);
-                    mouseNDC.x *= resolution.x / resolution.y;
-                    float dist = length(waveUv - mouseNDC);
-                    float effect = 1.0 - smoothstep(0.0, mouseRadius, dist);
-                    f -= 0.5 * effect;
-                }
-                
-                vec3 col = mix(vec3(0.0), waveColor, f);
-                col = dither(gl_FragCoord.xy, col);
-                gl_FragColor = vec4(col, 1.0);
-            }
-        `;
-
-        // Helper to compile shader
-        function compileShader(source, type) {
-            const shader = gl.createShader(type);
-            gl.shaderSource(shader, source);
-            gl.compileShader(shader);
-            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                console.error('Shader compilation error:', gl.getShaderInfoLog(shader));
-                gl.deleteShader(shader);
-                return null;
-            }
-            return shader;
-        }
-
-        // Compile and link shaders
-        const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-        gl.shaderSource(vertexShader, vsSource);
-        gl.compileShader(vertexShader);
-        if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-            throw new Error('Vertex shader compile error: ' + gl.getShaderInfoLog(vertexShader));
-        }
-
-        const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-        gl.shaderSource(fragmentShader, fsSource);
-        gl.compileShader(fragmentShader);
-        if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-            throw new Error('Fragment shader compile error: ' + gl.getShaderInfoLog(fragmentShader));
-        }
-
-        const program = gl.createProgram();
-        gl.attachShader(program, vertexShader);
-        gl.attachShader(program, fragmentShader);
-        gl.linkProgram(program);
-
-        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-            throw new Error('Program linking error: ' + gl.getProgramInfoLog(program));
-        }
-
-        gl.useProgram(program);
-        
-        // Pass bayer array
-        const uBayer = gl.getUniformLocation(program, 'uBayer');
-        gl.uniform1fv(uBayer, bayerArray);
-
-        // Set up geometry (full screen quad)
-        const vertices = new Float32Array([
-            -1, -1,
-            1, -1,
-            -1, 1,
-            -1, 1,
-            1, -1,
-            1, 1
-        ]);
-
-        const buffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-        gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-
-        const positionLoc = gl.getAttribLocation(program, 'position');
-        gl.enableVertexAttribArray(positionLoc);
-        gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
-
-        // Get uniform locations
-        const uRes = gl.getUniformLocation(program, 'resolution');
-        const uTime = gl.getUniformLocation(program, 'time');
-        const uWaveSpeed = gl.getUniformLocation(program, 'waveSpeed');
-        const uWaveFrequency = gl.getUniformLocation(program, 'waveFrequency');
-        const uWaveAmplitude = gl.getUniformLocation(program, 'waveAmplitude');
-        const uWaveColor = gl.getUniformLocation(program, 'waveColor');
-        const uMousePos = gl.getUniformLocation(program, 'mousePos');
-        const uEnableMouseInteraction = gl.getUniformLocation(program, 'enableMouseInteraction');
-        const uMouseRadius = gl.getUniformLocation(program, 'mouseRadius');
-        const uColorNum = gl.getUniformLocation(program, 'colorNum');
-        const uPixelSize = gl.getUniformLocation(program, 'pixelSize');
-
-        // Track mouse
-        let mouseX = 0, mouseY = 0;
-        container.addEventListener('mousemove', function (e) {
-            const rect = container.getBoundingClientRect();
-            mouseX = e.clientX - rect.left;
-            mouseY = e.clientY - rect.top;
+        // Pre-render ascii characters for fast drawing
+        const charCanvases = {};
+        asciiChars.forEach(char => {
+            const charC = document.createElement('canvas');
+            charC.width = density * 2;
+            charC.height = density * 2;
+            const cCtx = charC.getContext('2d');
+            // Transparent background for character canvas
+            cCtx.fillStyle = 'rgba(230, 229, 207, 0.6)'; // Increased opacity for better visibility
+            cCtx.font = `400 ${density * 1.4}px 'PP Fraktion Mono', monospace`; // Slightly larger font
+            cCtx.textAlign = 'center';
+            cCtx.textBaseline = 'middle';
+            cCtx.fillText(char, density, density);
+            charCanvases[char] = charC;
         });
 
-        // Set up canvas sizing
-        let width = 0, height = 0;
-        function resize() {
-            const rect = container.getBoundingClientRect();
-            width = rect.width;
-            height = rect.height;
+        function initParticles() {
+            particles = [];
+            
+            const heroContainer = document.querySelector('.hero-header');
+            width = window.innerWidth;
+            height = window.innerHeight;
+            
             canvas.width = width;
             canvas.height = height;
-            gl.viewport(0, 0, width, height);
+            // Canvas is fixed, so no need for top overflow shifting
+            canvas.style.top = '0px';
+            canvas.style.height = '100vh';
+
+            const cols = Math.ceil(width / density);
+            const rows = Math.ceil(height / density);
+
+            // Function to generate random fallback particles
+            const generateFallback = () => {
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const char = asciiChars[Math.floor(Math.random() * asciiChars.length)];
+                        particles.push({
+                            ox: x * density + density / 2,
+                            oy: y * density + density / 2,
+                            x: x * density + density / 2,
+                            y: y * density + density / 2,
+                            vx: 0,
+                            vy: 0,
+                            randX: (Math.random() - 0.5) * 2000,
+                            randY: (Math.random() - 0.5) * 2000,
+                            char: char
+                        });
+                    }
+                }
+            };
+
+            if (!img.complete || img.naturalWidth === 0) {
+                // Image not loaded yet or failed
+                generateFallback();
+                return;
+            }
+
+            // Offscreen canvas for sampling
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = cols;
+            offCanvas.height = rows;
+            const offCtx = offCanvas.getContext('2d');
+
+            // Draw image with object-fit: cover logic
+            const imgAspect = img.naturalWidth / img.naturalHeight;
+            const canvasAspect = cols / rows;
+            let drawW, drawH, drawX, drawY;
+            
+            if (canvasAspect > imgAspect) {
+                drawW = cols;
+                drawH = cols / imgAspect;
+                drawX = 0;
+                drawY = (rows - drawH) / 2;
+            } else {
+                drawW = rows * imgAspect;
+                drawH = rows;
+                drawX = (cols - drawW) / 2;
+                drawY = 0;
+            }
+
+            try {
+                offCtx.drawImage(img, drawX, drawY, drawW, drawH);
+                const imgData = offCtx.getImageData(0, 0, cols, rows).data;
+
+                // Generate particles based on sampled brightness
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const idx = (y * cols + x) * 4;
+                        const r = imgData[idx];
+                        const g = imgData[idx + 1];
+                        const b = imgData[idx + 2];
+                        
+                        // Relative luminance
+                        const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                        
+                        // Map to character
+                        const charIdx = Math.floor(brightness * (asciiChars.length - 0.01));
+                        const char = asciiChars[charIdx];
+
+                        const finalY = y * density + density / 2;
+                        const finalX = x * density + density / 2;
+                        particles.push({
+                            ox: finalX,
+                            oy: finalY,
+                            x: finalX,
+                            y: finalY,
+                            vx: 0,
+                            vy: 0,
+                            randX: (Math.random() - 0.5) * 2000,
+                            randY: (Math.random() - 0.5) * 2000,
+                            char: char
+                        });
+                    }
+                }
+            } catch (err) {
+                // CORS or other error. Fallback to a grid of random characters
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const char = asciiChars[Math.floor(Math.random() * asciiChars.length)];
+                        const finalY = y * density + density / 2;
+                        const finalX = x * density + density / 2;
+                        particles.push({
+                            ox: finalX,
+                            oy: finalY,
+                            x: finalX,
+                            y: finalY,
+                            vx: 0,
+                            vy: 0,
+                            randX: (Math.random() - 0.5) * 2000,
+                            randY: (Math.random() - 0.5) * 2000,
+                            char: char
+                        });
+                    }
+                }
+            }
         }
 
-        resize();
+        img.onload = initParticles;
+        img.onerror = function() {
+            // Force initialization to trigger the fallback block
+            img.complete = true;
+            initParticles();
+        };
+        if (img.complete) initParticles();
+
+        window.addEventListener('resize', () => {
+            initParticles();
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
         
-        // Use ResizeObserver to catch any layout changes (like images loading)
+        container.addEventListener('mouseleave', function () {
+            mouseX = -1000;
+            mouseY = -1000;
+        });
+
+        // Resize handling
+        let resizeTimeout;
+        const onResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                initParticles();
+            }, 200);
+        };
+
         if (window.ResizeObserver) {
-            const ro = new ResizeObserver(() => resize());
+            const ro = new ResizeObserver(() => onResize());
             ro.observe(container);
         } else {
-            window.addEventListener('resize', resize);
+            window.addEventListener('resize', onResize);
         }
 
-        // Draw loop
-        const startTime = performance.now();
+        // Animation loop
         let animationFrameId;
-
         function draw() {
             animationFrameId = requestAnimationFrame(draw);
 
-            // Prevent scroll crash by only rendering when in viewport
-            const rect = canvas.getBoundingClientRect();
-            const isVisible = (
-                rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.bottom > 0
-            );
+            const heroContainer = document.querySelector('.hero-header');
+            const heroRect = heroContainer ? heroContainer.getBoundingClientRect() : { top: 0, left: 0 };
+            const containerRect = container.getBoundingClientRect();
 
-            if (!isVisible) return; // Skip rendering if off-screen
+            // Calculate global scroll progress between hero and about
+            const startScroll = 0;
+            const endScroll = Math.max(1, window.scrollY + containerRect.top - window.innerHeight * 0.1);
+            let scrollProgress = window.scrollY / endScroll;
+            if (scrollProgress < 0) scrollProgress = 0;
+            if (scrollProgress > 1) scrollProgress = 1;
+            
+            // Fade out hero image
+            const heroBg = document.querySelector('.hero-header__bg');
+            if (heroBg) {
+                // Fade out faster so it dissolves into particles
+                heroBg.style.opacity = Math.max(0, 1 - scrollProgress * 3);
+            }
 
-            const elapsed = (performance.now() - startTime) * 0.001;
+            // Scatter factor peaks at the middle of the scroll
+            const scatterFactor = Math.sin(scrollProgress * Math.PI);
 
-            // Pass uniforms
-            gl.uniform2f(uRes, width, height);
-            gl.uniform1f(uTime, params.disableAnimation ? 0.0 : elapsed);
-            gl.uniform1f(uWaveSpeed, params.waveSpeed);
-            gl.uniform1f(uWaveFrequency, params.waveFrequency);
-            gl.uniform1f(uWaveAmplitude, params.waveAmplitude);
-            gl.uniform3f(uWaveColor, params.waveColor[0], params.waveColor[1], params.waveColor[2]);
-            gl.uniform2f(uMousePos, mouseX, mouseY);
-            gl.uniform1i(uEnableMouseInteraction, params.enableMouseInteraction ? 1 : 0);
-            gl.uniform1f(uMouseRadius, params.mouseRadius); // scale radius 
-            gl.uniform1f(uColorNum, params.colorNum);
-            gl.uniform1f(uPixelSize, params.pixelSize);
+            // Clear background
+            ctx.clearRect(0, 0, width, height);
 
-            // Draw quad
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+
+                // Mouse interaction
+                const dx = mouseX - p.x;
+                const dy = mouseY - p.y;
+                const distSq = dx * dx + dy * dy;
+
+                if (distSq < mouseRadius * mouseRadius) {
+                    const dist = Math.sqrt(distSq);
+                    const force = (mouseRadius - dist) / mouseRadius;
+                    const angle = Math.atan2(dy, dx);
+                    
+                    p.vx -= Math.cos(angle) * force * pushForce;
+                    p.vy -= Math.sin(angle) * force * pushForce;
+                }
+
+                // Dynamic interpolation between Hero and About spaces
+                const heroTargetY = p.oy + heroRect.top;
+                const heroTargetX = p.ox + heroRect.left;
+                
+                const aboutTargetY = p.oy + containerRect.top;
+                const aboutTargetX = p.ox + containerRect.left;
+
+                const targetX = heroTargetX * (1 - scrollProgress) + aboutTargetX * scrollProgress + p.randX * scatterFactor;
+                const targetY = heroTargetY * (1 - scrollProgress) + aboutTargetY * scrollProgress + p.randY * scatterFactor;
+
+                p.vx += (targetX - p.x) * springStrength;
+                p.vy += (targetY - p.y) * springStrength;
+
+                // Friction
+                p.vx *= friction;
+                p.vy *= friction;
+
+                // Update pos
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Render cached text canvas
+                if (p.char !== ' ') {
+                    ctx.drawImage(charCanvases[p.char], p.x - density, p.y - density);
+                }
+            }
         }
 
         draw();
 
-        } catch (err) {
-            console.warn('WebGL Background Error:', err.message);
-            canvas.style.display = 'none';
-        }
-
-        // Handle context loss to prevent crash
-        canvas.addEventListener("webglcontextlost", function(e) {
-            e.preventDefault();
-            if (animationFrameId) cancelAnimationFrame(animationFrameId);
-            console.warn("WebGL context lost. Pausing animation.");
-        }, false);
-    });
 })();
 
 
