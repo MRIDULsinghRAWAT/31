@@ -457,6 +457,8 @@
             margin-bottom: 80px !important;
             padding-bottom: 25px !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            position: relative !important;
+            z-index: 1 !important;
         }
 
         .background-section__header span:first-child {
@@ -501,6 +503,8 @@
             max-width: 1650px !important;
             width: 100% !important;
             margin: 0 auto !important;
+            position: relative !important;
+            z-index: 1 !important;
         }
 
         /* --- About Section Background --- */
@@ -1401,7 +1405,7 @@
             <!-- ═══ ABOUT SECTION ═══ -->
             <div id="about-section" class="about-info-section about-section block" data-title="" data-menu="About Me">
                 <!-- Interactive Fluid Background Canvas -->
-                <canvas id="dither-canvas"></canvas>
+                <canvas id="dither-canvas" class="dither-canvas"></canvas>
 
                 <!-- Main Grid -->
                 <div class="about-info__main">
@@ -2597,6 +2601,9 @@
 
                 <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
                 <div class="background-section block" id="background-section" data-title="" data-menu="Background">
+                    <!-- Interactive Fluid Background Canvas -->
+                    <canvas id="background-dither-canvas" class="dither-canvas"></canvas>
+
                     <!-- SVG Noise Filter for film grain texture -->
                     <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
                         <filter id="skills-noise-filter">

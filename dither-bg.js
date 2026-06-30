@@ -128,95 +128,97 @@
     `;
 
     document.addEventListener('DOMContentLoaded', () => {
-        const canvas = document.getElementById('dither-canvas');
-        if (!canvas) return;
+        const canvases = document.querySelectorAll('.dither-canvas');
+        if (!canvases.length) return;
 
-        const container = canvas.parentElement;
-        
-        // Settings matching user's React component
-        const config = {
-            waveSpeed: 0.05,
-            waveFrequency: 3,
-            waveAmplitude: 0.3,
-            waveColor: new THREE.Color(0.5, 0.5, 0.5),
-            colorNum: 4,
-            pixelSize: 2.0,
-            enableMouseInteraction: 1,
-            mouseRadius: 0.3
-        };
+        canvases.forEach(canvas => {
+            const container = canvas.parentElement;
+            
+            // Settings matching user's React component
+            const config = {
+                waveSpeed: 0.05,
+                waveFrequency: 3,
+                waveAmplitude: 0.3,
+                waveColor: new THREE.Color(0.5, 0.5, 0.5),
+                colorNum: 4,
+                pixelSize: 2.0,
+                enableMouseInteraction: 1,
+                mouseRadius: 0.3
+            };
 
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, preserveDrawingBuffer: true, antialias: false });
-        renderer.setPixelRatio(1); // Force pixel ratio to 1 for correct dither scaling
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, preserveDrawingBuffer: true, antialias: false });
+            renderer.setPixelRatio(1); // Force pixel ratio to 1 for correct dither scaling
 
-        const scene = new THREE.Scene();
-        // Use an Orthographic camera covering exactly -1 to 1 to render a fullscreen quad
-        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+            const scene = new THREE.Scene();
+            // Use an Orthographic camera covering exactly -1 to 1 to render a fullscreen quad
+            const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-        const uniforms = {
-            time: { value: 0 },
-            resolution: { value: new THREE.Vector2(1, 1) },
-            waveSpeed: { value: config.waveSpeed },
-            waveFrequency: { value: config.waveFrequency },
-            waveAmplitude: { value: config.waveAmplitude },
-            waveColor: { value: config.waveColor },
-            mousePos: { value: new THREE.Vector2(0, 0) },
-            enableMouseInteraction: { value: config.enableMouseInteraction },
-            mouseRadius: { value: config.mouseRadius },
-            colorNum: { value: config.colorNum },
-            pixelSize: { value: config.pixelSize }
-        };
+            const uniforms = {
+                time: { value: 0 },
+                resolution: { value: new THREE.Vector2(1, 1) },
+                waveSpeed: { value: config.waveSpeed },
+                waveFrequency: { value: config.waveFrequency },
+                waveAmplitude: { value: config.waveAmplitude },
+                waveColor: { value: config.waveColor },
+                mousePos: { value: new THREE.Vector2(0, 0) },
+                enableMouseInteraction: { value: config.enableMouseInteraction },
+                mouseRadius: { value: config.mouseRadius },
+                colorNum: { value: config.colorNum },
+                pixelSize: { value: config.pixelSize }
+            };
 
-        const material = new THREE.ShaderMaterial({
-            vertexShader: waveVertexShader,
-            fragmentShader: combinedFragmentShader,
-            uniforms: uniforms,
-            transparent: true,
-            depthWrite: false,
-            depthTest: false
-        });
+            const material = new THREE.ShaderMaterial({
+                vertexShader: waveVertexShader,
+                fragmentShader: combinedFragmentShader,
+                uniforms: uniforms,
+                transparent: true,
+                depthWrite: false,
+                depthTest: false
+            });
 
-        const geometry = new THREE.PlaneGeometry(2, 2);
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
+            const geometry = new THREE.PlaneGeometry(2, 2);
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
 
-        let width = container.clientWidth;
-        let height = container.clientHeight;
+            let width = container.clientWidth;
+            let height = container.clientHeight;
 
-        const resize = () => {
-            width = container.clientWidth;
-            height = container.clientHeight;
-            renderer.setSize(width, height, false); // false to avoid overriding CSS width/height
-            uniforms.resolution.value.set(width, height);
-        };
-        
-        if (window.ResizeObserver) {
-            new ResizeObserver(resize).observe(container);
-        } else {
-            window.addEventListener('resize', resize);
-        }
-        resize();
-
-        // Mouse interaction
-        const handlePointerMove = (e) => {
-            if (!config.enableMouseInteraction) return;
-            const rect = container.getBoundingClientRect();
-            uniforms.mousePos.value.set(e.clientX - rect.left, e.clientY - rect.top);
-        };
-        container.addEventListener('mousemove', handlePointerMove);
-        container.addEventListener('touchmove', (e) => handlePointerMove(e.touches[0]), { passive: true });
-
-        // Animation loop
-        const startTime = performance.now();
-        const animate = () => {
-            requestAnimationFrame(animate);
-            // Only update time if the section is in view to save performance
-            const rect = container.getBoundingClientRect();
-            if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                uniforms.time.value = (performance.now() - startTime) * 0.001;
-                renderer.render(scene, camera);
+            const resize = () => {
+                width = container.clientWidth;
+                height = container.clientHeight;
+                renderer.setSize(width, height, false); // false to avoid overriding CSS width/height
+                uniforms.resolution.value.set(width, height);
+            };
+            
+            if (window.ResizeObserver) {
+                new ResizeObserver(resize).observe(container);
+            } else {
+                window.addEventListener('resize', resize);
             }
-        };
-        
-        animate();
+            resize();
+
+            // Mouse interaction
+            const handlePointerMove = (e) => {
+                if (!config.enableMouseInteraction) return;
+                const rect = container.getBoundingClientRect();
+                uniforms.mousePos.value.set(e.clientX - rect.left, e.clientY - rect.top);
+            };
+            container.addEventListener('mousemove', handlePointerMove);
+            container.addEventListener('touchmove', (e) => handlePointerMove(e.touches[0]), { passive: true });
+
+            // Animation loop
+            const startTime = performance.now();
+            const animate = () => {
+                requestAnimationFrame(animate);
+                // Only update time if the section is in view to save performance
+                const rect = container.getBoundingClientRect();
+                if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                    uniforms.time.value = (performance.now() - startTime) * 0.001;
+                    renderer.render(scene, camera);
+                }
+            };
+            
+            animate();
+        });
     });
 })();

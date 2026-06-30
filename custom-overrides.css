@@ -2346,7 +2346,7 @@
 
 
 /* Dither Canvas Background */
-#dither-canvas {
+.dither-canvas {
     position: absolute;
     inset: 0;
     width: 100%;
