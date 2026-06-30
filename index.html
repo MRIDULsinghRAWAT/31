@@ -507,6 +507,7 @@
         .about-info-section {
             position: relative !important;
         }
+
         .about-info__fluid-bg {
             position: fixed !important;
             top: 0 !important;
@@ -514,13 +515,16 @@
             width: 100vw !important;
             height: 100vh !important;
             z-index: 0 !important;
-            pointer-events: none !important; /* Let container handle mouse events */
+            pointer-events: none !important;
+            /* Let container handle mouse events */
         }
+
         .about-info__main {
             position: relative !important;
             z-index: 2 !important;
             pointer-events: none !important;
         }
+
         .about-info__main * {
             pointer-events: auto;
         }
@@ -938,7 +942,7 @@
     <div class="site-loading">
         <div class="site-loading__xoxo">
         </div>
-        <div class="site-loading__time">Vienna, 27.05.26 04:04</div>
+        <div class="site-loading__time"></div>
         <div class="site-loading__progress">
             <div></div>
             <svg width="200" height="15" viewBox="0 0 200 15" xmlns="http://www.w3.org/2000/svg">
@@ -1849,7 +1853,7 @@
             <div id="projects-section"
                 class="references-list block block--references-list block--bg block--bg-inner block--no-margin"
                 data-title="" data-menu="Featured Projects">
-                
+
                 <div class="references-list__top">
                     <span>Projects &amp; Open Source</span>
                     <span>Highly Technical Software Engineering</span>
@@ -1870,1337 +1874,1449 @@
                             margin: 0;
                             padding: 0;
                         }
+
                         .lamalama-item {
-                        border-bottom: 1px solid rgba(255,255,255,0.1);
-                        padding: 30px 40px;
-                        cursor: pointer;
-                        transition: background 0.3s;
-                        background: #0a0a0a;
-                        display: block;
-                    }
-                    .lamalama-item:first-child {
-                        border-top: 1px solid rgba(255,255,255,0.1);
-                    }
-                    .lamalama-item:hover {
-                        background: #111111;
-                    }
-                    .lamalama-item.open {
-                        background: #000000;
-                    }
-                    
-                    /* Top Bar: Title, Tags, Toggle, Preview Images / Description */
-                    .lamalama-top-bar {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-start;
-                    }
-                    .lamalama-col-left {
-                        width: 40%;
-                    }
-                    .lamalama-title-wrap {
-                        display: flex;
-                        align-items: center;
-                        gap: 25px;
-                    }
-                    .lamalama-title {
-                        font-size: 18px;
-                        font-weight: 500;
-                        margin: 0;
-                        color: #fff;
-                        letter-spacing: -0.5px;
-                        min-width: 150px;
-                    }
-                    .lamalama-tags {
-                        display: flex;
-                        gap: 5px;
-                    }
-                    .lamalama-tag {
-                        background: #000;
-                        color: #fff;
-                        padding: 4px 8px;
-                        font-size: 9px;
-                        font-weight: 700;
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                    }
-                    
-                    /* Links appearing under title */
-                    .lamalama-links {
-                        margin-top: 30px;
-                        display: flex;
-                        gap: 10px;
-                        opacity: 0;
-                        max-height: 0;
-                        overflow: hidden;
-                        transition: opacity 0.3s ease, max-height 0.3s ease;
-                    }
-                    .lamalama-btn {
-                        border: 1px solid rgba(255,255,255,0.2);
-                        padding: 8px 16px;
-                        color: #fff;
-                        text-decoration: none;
-                        font-size: 10px;
-                        text-transform: uppercase;
-                        letter-spacing: 1px;
-                        transition: 0.3s;
-                    }
-                    .lamalama-btn:hover {
-                        background: #fff;
-                        color: #000;
-                    }
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                            padding: 30px 40px;
+                            cursor: pointer;
+                            transition: background 0.3s;
+                            background: #0a0a0a;
+                            display: block;
+                        }
 
-                    .lamalama-col-center {
-                        width: 20%;
-                        text-align: center;
-                        padding-top: 5px;
-                    }
-                    .lamalama-toggle-text {
-                        font-family: monospace;
-                        font-size: 12px;
-                        letter-spacing: 2px;
-                        color: #ccc;
-                    }
+                        .lamalama-item:first-child {
+                            border-top: 1px solid rgba(255, 255, 255, 0.1);
+                        }
 
-                    .lamalama-col-right {
-                        width: 40%;
-                        display: flex;
-                        justify-content: flex-end;
-                    }
-                    .lamalama-preview-images {
-                        display: flex;
-                        gap: 10px;
-                    }
-                    .lamalama-preview-images img {
-                        height: 120px;
-                        width: 120px;
-                        object-fit: cover;
-                        background: #000;
-                    }
-                    .lamalama-desc-text {
-                        display: none;
-                        font-size: 13px;
-                        line-height: 1.6;
-                        color: #ddd;
-                        text-align: left;
-                        max-width: 500px;
-                        animation: fadeIn 0.5s forwards;
-                    }
-                    .lamalama-desc-text ul {
-                        margin: 0; padding-left: 15px;
-                    }
-                    .lamalama-desc-text li {
-                        margin-bottom: 8px;
-                    }
+                        .lamalama-item:hover {
+                            background: #111111;
+                        }
 
-                    /* Expanded Images Row */
-                    .lamalama-expanded-images {
-                        display: flex;
-                        gap: 2px;
-                        margin-top: 0;
-                        max-height: 0;
-                        opacity: 0;
-                        overflow: hidden;
-                        transition: max-height 0.5s ease, margin-top 0.5s ease, opacity 0.5s ease;
-                    }
-                    .lamalama-expanded-images img {
-                        height: 350px;
-                        flex: 1;
-                        object-fit: cover;
-                    }
+                        .lamalama-item.open {
+                            background: #000000;
+                        }
 
-                    /* OPEN STATE RULES */
-                    .lamalama-item.open .lamalama-links {
-                        opacity: 1;
-                        max-height: 100px;
-                    }
-                    .lamalama-item.open .lamalama-preview-images {
-                        display: none;
-                    }
-                    .lamalama-item.open .lamalama-desc-text {
-                        display: block;
-                    }
-                    .lamalama-item.open .lamalama-expanded-images {
-                        margin-top: 40px;
-                        max-height: 500px;
-                        opacity: 1;
-                    }
-
-                    @keyframes fadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
-                    }
-
-                    @media(max-width: 900px) {
-                        .lamalama-section-header { padding: 0 20px 30px 20px; }
-                        .lamalama-section-header h2 { font-size: 10vw; }
+                        /* Top Bar: Title, Tags, Toggle, Preview Images / Description */
                         .lamalama-top-bar {
-                            flex-direction: column;
-                            gap: 20px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
                         }
-                        .lamalama-col-left, .lamalama-col-center, .lamalama-col-right {
-                            width: 100%;
-                            justify-content: flex-start;
+
+                        .lamalama-col-left {
+                            width: 40%;
                         }
+
+                        .lamalama-title-wrap {
+                            display: flex;
+                            align-items: center;
+                            gap: 25px;
+                        }
+
+                        .lamalama-title {
+                            font-size: 18px;
+                            font-weight: 500;
+                            margin: 0;
+                            color: #fff;
+                            letter-spacing: -0.5px;
+                            min-width: 150px;
+                        }
+
+                        .lamalama-tags {
+                            display: flex;
+                            gap: 5px;
+                        }
+
+                        .lamalama-tag {
+                            background: #000;
+                            color: #fff;
+                            padding: 4px 8px;
+                            font-size: 9px;
+                            font-weight: 700;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                        }
+
+                        /* Links appearing under title */
+                        .lamalama-links {
+                            margin-top: 30px;
+                            display: flex;
+                            gap: 10px;
+                            opacity: 0;
+                            max-height: 0;
+                            overflow: hidden;
+                            transition: opacity 0.3s ease, max-height 0.3s ease;
+                        }
+
+                        .lamalama-btn {
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                            padding: 8px 16px;
+                            color: #fff;
+                            text-decoration: none;
+                            font-size: 10px;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            transition: 0.3s;
+                        }
+
+                        .lamalama-btn:hover {
+                            background: #fff;
+                            color: #000;
+                        }
+
                         .lamalama-col-center {
+                            width: 20%;
+                            text-align: center;
+                            padding-top: 5px;
+                        }
+
+                        .lamalama-toggle-text {
+                            font-family: monospace;
+                            font-size: 12px;
+                            letter-spacing: 2px;
+                            color: #ccc;
+                        }
+
+                        .lamalama-col-right {
+                            width: 40%;
+                            display: flex;
+                            justify-content: flex-end;
+                        }
+
+                        .lamalama-preview-images {
+                            display: flex;
+                            gap: 10px;
+                        }
+
+                        .lamalama-preview-images img {
+                            height: 120px;
+                            width: 120px;
+                            object-fit: cover;
+                            background: #000;
+                        }
+
+                        .lamalama-desc-text {
+                            display: none;
+                            font-size: 13px;
+                            line-height: 1.6;
+                            color: #ddd;
                             text-align: left;
+                            max-width: 500px;
+                            animation: fadeIn 0.5s forwards;
                         }
+
+                        .lamalama-desc-text ul {
+                            margin: 0;
+                            padding-left: 15px;
+                        }
+
+                        .lamalama-desc-text li {
+                            margin-bottom: 8px;
+                        }
+
+                        /* Expanded Images Row */
                         .lamalama-expanded-images {
-                            flex-direction: column;
+                            display: flex;
+                            gap: 2px;
+                            margin-top: 0;
+                            max-height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            transition: max-height 0.5s ease, margin-top 0.5s ease, opacity 0.5s ease;
                         }
+
                         .lamalama-expanded-images img {
-                            height: 250px;
+                            height: 350px;
+                            flex: 1;
+                            object-fit: cover;
+                        }
+
+                        /* OPEN STATE RULES */
+                        .lamalama-item.open .lamalama-links {
+                            opacity: 1;
+                            max-height: 100px;
+                        }
+
+                        .lamalama-item.open .lamalama-preview-images {
+                            display: none;
+                        }
+
+                        .lamalama-item.open .lamalama-desc-text {
+                            display: block;
+                        }
+
+                        .lamalama-item.open .lamalama-expanded-images {
+                            margin-top: 40px;
+                            max-height: 500px;
+                            opacity: 1;
+                        }
+
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        @media(max-width: 900px) {
+                            .lamalama-section-header {
+                                padding: 0 20px 30px 20px;
+                            }
+
+                            .lamalama-section-header h2 {
+                                font-size: 10vw;
+                            }
+
+                            .lamalama-top-bar {
+                                flex-direction: column;
+                                gap: 20px;
+                            }
+
+                            .lamalama-col-left,
+                            .lamalama-col-center,
+                            .lamalama-col-right {
+                                width: 100%;
+                                justify-content: flex-start;
+                            }
+
+                            .lamalama-col-center {
+                                text-align: left;
+                            }
+
+                            .lamalama-expanded-images {
+                                flex-direction: column;
+                            }
+
+                            .lamalama-expanded-images img {
+                                height: 250px;
+                            }
+                        }
+                    </style>
+                    <div class="lamalama-projects">
+                        <ul class="lamalama-list">
+
+                            <!-- Project 1 -->
+                            <li>
+                                <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                    <div class="lamalama-top-bar">
+                                        <div class="lamalama-col-left">
+                                            <div class="lamalama-title-wrap">
+                                                <h2 class="lamalama-title">NET SCAN</h2>
+                                                <div class="lamalama-tags">
+                                                    <span class="lamalama-tag">CYBER SEC</span>
+                                                    <span class="lamalama-tag">PLATFORM</span>
+                                                </div>
+                                            </div>
+                                            <div class="lamalama-links">
+                                                <a href="https://github.com/MRIDULsinghRAWAT" target="_blank"
+                                                    class="lamalama-btn">VIEW CASE &nearr;</a>
+                                                <a href="https://github.com/MRIDULsinghRAWAT" target="_blank"
+                                                    class="lamalama-btn">VISIT WEBSITE &nearr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-col-center">
+                                            <span class="lamalama-toggle-text">( + )</span>
+                                        </div>
+                                        <div class="lamalama-col-right">
+                                            <div class="lamalama-preview-images">
+                                                <img src="net_scan_picture.png" alt="NET SCAN" />
+                                                <img src="net_scan_picture.png" style="filter: grayscale(100%);"
+                                                    alt="NET SCAN" />
+                                                <img src="net_scan_picture.png" style="filter: sepia(100%);"
+                                                    alt="NET SCAN" />
+                                            </div>
+                                            <div class="lamalama-desc-text">
+                                                <ul>
+                                                    <li>Architected a decoupled full-stack platform with a Flask REST
+                                                        API backend (multi-threaded TCP scanner, banner grabber, NVD CVE
+                                                        enrichment pipeline) and a React 18 frontend with real-time data
+                                                        streaming via Server-Sent Events.</li>
+                                                    <li>Engineered a heuristic Kill Chain classifier that automatically
+                                                        categorizes open services into Entry Points (HTTP/FTP), Pivot
+                                                        Nodes (SSH/RDP), and Target Nodes (DNS/DCs) based on attacker
+                                                        behavior patterns.</li>
+                                                    <li>Implemented a dual-algorithm Critical Paths Engine- BFS for
+                                                        shortest attack routes and Dijkstra for deadliest paths weighted
+                                                        by CVSS severity.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-expanded-images">
+                                        <img src="net_scan_picture.png" alt="NET SCAN" />
+                                        <img src="net_scan_picture.png" style="filter: grayscale(100%);"
+                                            alt="NET SCAN" />
+                                        <img src="net_scan_picture.png" style="filter: sepia(100%);" alt="NET SCAN" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Project 2 -->
+                            <li>
+                                <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                    <div class="lamalama-top-bar">
+                                        <div class="lamalama-col-left">
+                                            <div class="lamalama-title-wrap">
+                                                <h2 class="lamalama-title">BlueNexus</h2>
+                                                <div class="lamalama-tags">
+                                                    <span class="lamalama-tag">TELEMETRY</span>
+                                                    <span class="lamalama-tag">AI / ML</span>
+                                                </div>
+                                            </div>
+                                            <div class="lamalama-links">
+                                                <a href="https://github.com/MRIDULsinghRAWAT" target="_blank"
+                                                    class="lamalama-btn">VIEW CASE &nearr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-col-center">
+                                            <span class="lamalama-toggle-text">( + )</span>
+                                        </div>
+                                        <div class="lamalama-col-right">
+                                            <div class="lamalama-preview-images">
+                                                <img src="blue_nexxus.png" alt="BlueNexus" />
+                                                <img src="blue_nexxus.png" style="filter: grayscale(100%);"
+                                                    alt="BlueNexus" />
+                                                <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);"
+                                                    alt="BlueNexus" />
+                                            </div>
+                                            <div class="lamalama-desc-text">
+                                                <ul>
+                                                    <li>Developed a production-ready Multi-Agent AI system on AWS
+                                                        Bedrock (Amazon Nova Premier) for real-time marine telemetry
+                                                        processing across 5+ concurrent data streams.</li>
+                                                    <li>Engineered a Partitioned RAG architecture with domain-isolated
+                                                        vector stores (ChromaDB), reducing LLM hallucination rate by
+                                                        over 90% in domain-specific queries.</li>
+                                                    <li>Integrated Computer Vision (EfficientNet-B0) for automated fish
+                                                        species classification and predictive ML models for Sea Surface
+                                                        Temperature forecasting.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-expanded-images">
+                                        <img src="blue_nexxus.png" alt="BlueNexus" />
+                                        <img src="blue_nexxus.png" style="filter: grayscale(100%);" alt="BlueNexus" />
+                                        <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);" alt="BlueNexus" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Project 3 -->
+                            <li>
+                                <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                    <div class="lamalama-top-bar">
+                                        <div class="lamalama-col-left">
+                                            <div class="lamalama-title-wrap">
+                                                <h2 class="lamalama-title">Supply Chain</h2>
+                                                <div class="lamalama-tags">
+                                                    <span class="lamalama-tag">CYBER SEC</span>
+                                                    <span class="lamalama-tag">AUDITOR</span>
+                                                </div>
+                                            </div>
+                                            <div class="lamalama-links">
+                                                <a href="https://github.com/MRIDULsinghRAWAT/supply_chain_analyzer"
+                                                    target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-col-center">
+                                            <span class="lamalama-toggle-text">( + )</span>
+                                        </div>
+                                        <div class="lamalama-col-right">
+                                            <div class="lamalama-preview-images">
+                                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
+                                                    alt="Supply Chain Analyzer" />
+                                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
+                                                    style="filter: grayscale(100%);" alt="Supply Chain Analyzer" />
+                                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
+                                                    style="filter: invert(100%);" alt="Supply Chain Analyzer" />
+                                            </div>
+                                            <div class="lamalama-desc-text">
+                                                <ul>
+                                                    <li>Developed a CLI-based security scanner in Python to audit
+                                                        dependencies in the Python (requirements.txt) and Node
+                                                        (package.json) ecosystems.</li>
+                                                    <li>Constructed directed dependency graphs using adjacency lists,
+                                                        performing depth computation and cycle detection via DFS
+                                                        three-color marking.</li>
+                                                    <li>Identified malicious packages using typosquatting rules like
+                                                        Levenshtein distance, homoglyph mapping, and separator confusion
+                                                        against 145+ packages.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-expanded-images">
+                                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
+                                            alt="Supply Chain Analyzer" />
+                                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
+                                            style="filter: grayscale(100%);" alt="Supply Chain Analyzer" />
+                                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop"
+                                            style="filter: invert(100%);" alt="Supply Chain Analyzer" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Project 4 -->
+                            <li>
+                                <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                    <div class="lamalama-top-bar">
+                                        <div class="lamalama-col-left">
+                                            <div class="lamalama-title-wrap">
+                                                <h2 class="lamalama-title">Aesthetic Engine</h2>
+                                                <div class="lamalama-tags">
+                                                    <span class="lamalama-tag">EDGE AI</span>
+                                                    <span class="lamalama-tag">ENGINE</span>
+                                                </div>
+                                            </div>
+                                            <div class="lamalama-links">
+                                                <a href="https://github.com/MRIDULsinghRAWAT/aesthetic-intelligence-engine"
+                                                    target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-col-center">
+                                            <span class="lamalama-toggle-text">( + )</span>
+                                        </div>
+                                        <div class="lamalama-col-right">
+                                            <div class="lamalama-preview-images">
+                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                                    alt="Aesthetic Engine" />
+                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                                    style="filter: grayscale(100%);" alt="Aesthetic Engine" />
+                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                                    style="filter: sepia(100%);" alt="Aesthetic Engine" />
+                                            </div>
+                                            <div class="lamalama-desc-text">
+                                                <ul>
+                                                    <li>Designed and trained a binary aesthetic classification system
+                                                        using MobileNetV2 (2.4M parameters) on the BIQ2021 dataset
+                                                        (12,000 real-world images), achieving 71% validation accuracy on
+                                                        unseen data.</li>
+                                                    <li>Implemented a complete Edge AI inference pipeline by converting
+                                                        the trained Keras model to TensorFlow Lite format, reducing
+                                                        model size and enabling rapid deployment.</li>
+                                                    <li>Benchmarked on-device inference performance achieving sub-12ms
+                                                        latency, demonstrating real-time capability suitable for mobile
+                                                        and edge deployment.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-expanded-images">
+                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                            alt="Aesthetic Engine" />
+                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                            style="filter: grayscale(100%);" alt="Aesthetic Engine" />
+                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                            style="filter: sepia(100%);" alt="Aesthetic Engine" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Project 5 -->
+                            <li>
+                                <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                    <div class="lamalama-top-bar">
+                                        <div class="lamalama-col-left">
+                                            <div class="lamalama-title-wrap">
+                                                <h2 class="lamalama-title">CropSense</h2>
+                                                <div class="lamalama-tags">
+                                                    <span class="lamalama-tag">AGRI-TECH</span>
+                                                    <span class="lamalama-tag">AI</span>
+                                                </div>
+                                            </div>
+                                            <div class="lamalama-links">
+                                                <a href="https://github.com/v-i-n-a-y-29/CropSense" target="_blank"
+                                                    class="lamalama-btn">VIEW CASE &nearr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-col-center">
+                                            <span class="lamalama-toggle-text">( + )</span>
+                                        </div>
+                                        <div class="lamalama-col-right">
+                                            <div class="lamalama-preview-images">
+                                                <img src="cropsense.png" alt="CropSense" />
+                                                <img src="cropsense.png" style="filter: grayscale(100%);"
+                                                    alt="CropSense" />
+                                                <img src="cropsense.png" style="filter: hue-rotate(45deg);"
+                                                    alt="CropSense" />
+                                            </div>
+                                            <div class="lamalama-desc-text">
+                                                <ul>
+                                                    <li>Designed a unified digital ecosystem (Farmer, CHC Operator, and
+                                                        Government portals) to eliminate stubble burning by connecting
+                                                        farmers with nearby Crop Residue Management (CRM) machinery.
+                                                    </li>
+                                                    <li>Engineered hardware-free real-time tracking using Leaflet.js
+                                                        interactive maps and custom state synchronization, bypassing
+                                                        expensive GPS hardware and reducing fleet idle times by over
+                                                        30%.</li>
+                                                    <li>Integrated Google Gemini AI for localized bilingual
+                                                        (English/Hindi) crop advisory and real-time weather analytics.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-expanded-images">
+                                        <img src="cropsense.png" alt="CropSense" />
+                                        <img src="cropsense.png" style="filter: grayscale(100%);" alt="CropSense" />
+                                        <img src="cropsense.png" style="filter: hue-rotate(45deg);" alt="CropSense" />
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <script>
+                    function toggleLamalamaRow(item) {
+                        const isOpen = item.classList.contains('open');
+
+                        // Close all others
+                        document.querySelectorAll('.lamalama-item.open').forEach(el => {
+                            if (el !== item) {
+                                el.classList.remove('open');
+                                const otherToggle = el.querySelector('.lamalama-toggle-text');
+                                if (otherToggle) otherToggle.innerText = '( + )';
+                            }
+                        });
+
+                        const toggleText = item.querySelector('.lamalama-toggle-text');
+
+                        // Toggle current
+                        if (isOpen) {
+                            item.classList.remove('open');
+                            if (toggleText) toggleText.innerText = '( + )';
+                        } else {
+                            item.classList.add('open');
+                            if (toggleText) toggleText.innerText = '( - )';
                         }
                     }
-                </style>
-                <div class="lamalama-projects">
-                    <ul class="lamalama-list">
-                        
-                        <!-- Project 1 -->
-                        <li>
-                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
-                                <div class="lamalama-top-bar">
-                                    <div class="lamalama-col-left">
-                                        <div class="lamalama-title-wrap">
-                                            <h2 class="lamalama-title">NET SCAN</h2>
-                                            <div class="lamalama-tags">
-                                                <span class="lamalama-tag">CYBER SEC</span>
-                                                <span class="lamalama-tag">PLATFORM</span>
-                                            </div>
+                </script>
+
+                <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
+                <div class="background-section block" id="background-section" data-title="" data-menu="Background">
+                    <!-- SVG Noise Filter for film grain texture -->
+                    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+                        <filter id="skills-noise-filter">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3"
+                                stitchTiles="stitch" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" />
+                        </filter>
+                        <filter id="experience-noise-filter">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3"
+                                stitchTiles="stitch" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.05 0" />
+                        </filter>
+                    </svg>
+
+                    <div class="background-section__header">
+                        <span class="bg-reveal">Background</span>
+                        <span>Experience & Technical Skills</span>
+                    </div>
+
+                    <div class="background-grid">
+                        <!-- ── Experience Module ── -->
+                        <div class="bg-module"
+                            style="display: flex !important; flex-direction: column !important; gap: 40px !important;">
+                            <div>
+                                <div class="bg-module__title bg-reveal">Experience</div>
+                                <div class="experience-cards-container">
+                                    <div class="experience-card bg-reveal bg-reveal-delay-1">
+                                        <div class="exp-card__terminal-header">
+                                            <span class="exp-card__log-type">[ LOG_TYPE: EXPERIENCE_01 ]</span>
+                                            <span class="exp-card__status">[ STATUS: ACTIVE ]</span>
                                         </div>
-                                        <div class="lamalama-links">
-                                            <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
-                                            <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="lamalama-btn">VISIT WEBSITE &nearr;</a>
+                                        <div class="exp-card__top">
+                                            <div class="exp-card__role">01 // Web Developer Intern</div>
                                         </div>
-                                    </div>
-                                    <div class="lamalama-col-center">
-                                        <span class="lamalama-toggle-text">( + )</span>
-                                    </div>
-                                    <div class="lamalama-col-right">
-                                        <div class="lamalama-preview-images">
-                                            <img src="net_scan_picture.png" alt="NET SCAN"/>
-                                            <img src="net_scan_picture.png" style="filter: grayscale(100%);" alt="NET SCAN"/>
-                                            <img src="net_scan_picture.png" style="filter: sepia(100%);" alt="NET SCAN"/>
+                                        <div class="exp-card__meta-line">
+                                            <span class="exp-card__meta-label">Entity:</span>
+                                            <span class="exp-card__meta-val">
+                                                <img src="logo_company.jpg" alt="Ultimez Technology"
+                                                    style="width: 16px; height: 16px; border-radius: 3px; object-fit: cover; vertical-align: middle; margin-right: 6px;" />
+                                                Ultimez Technology
+                                            </span>
+                                            <span class="exp-card__meta-bracket">[</span>
+                                            <span class="exp-card__meta-label">LOCATION:</span>
+                                            <span class="exp-card__meta-val">REMOTE</span>
+                                            <span class="exp-card__meta-bracket">]</span>
                                         </div>
-                                        <div class="lamalama-desc-text">
-                                            <ul>
-                                                <li>Architected a decoupled full-stack platform with a Flask REST API backend (multi-threaded TCP scanner, banner grabber, NVD CVE enrichment pipeline) and a React 18 frontend with real-time data streaming via Server-Sent Events.</li>
-                                                <li>Engineered a heuristic Kill Chain classifier that automatically categorizes open services into Entry Points (HTTP/FTP), Pivot Nodes (SSH/RDP), and Target Nodes (DNS/DCs) based on attacker behavior patterns.</li>
-                                                <li>Implemented a dual-algorithm Critical Paths Engine- BFS for shortest attack routes and Dijkstra for deadliest paths weighted by CVSS severity.</li>
+                                        <div class="exp-card__meta-line">
+                                            <span class="exp-card__meta-label">Epoch:</span>
+                                            <span class="exp-card__meta-val">JUN 2026 &ndash; JUL 2026</span>
+                                        </div>
+                                        <div class="exp-card__meta-line">
+                                            <span class="exp-card__meta-label">Operational Vector:</span>
+                                            <span class="exp-card__meta-val">Edge AI &amp; Interface Optimization</span>
+                                        </div>
+                                        <div class="exp-card__payload">
+                                            <div class="exp-card__payload-title">Execution Payload:</div>
+                                            <ul class="exp-card__bullets">
+                                                <li>Deployed and optimized responsive web interfaces for the On-Device
+                                                    Aesthetic Intelligence Engine, bridging the gap between
+                                                    high-performance
+                                                    edge AI (MobileNetV2 + TFLite) and clean user interaction.</li>
+                                                <li>Collaborated within a remote sprint environment, adhering to strict
+                                                    enterprise protocols and maintaining absolute confidentiality for
+                                                    next-gen project pipelines.</li>
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="lamalama-expanded-images">
-                                    <img src="net_scan_picture.png" alt="NET SCAN"/>
-                                    <img src="net_scan_picture.png" style="filter: grayscale(100%);" alt="NET SCAN"/>
-                                    <img src="net_scan_picture.png" style="filter: sepia(100%);" alt="NET SCAN"/>
-                                </div>
-                            </div>
-                        </li>
 
-                        <!-- Project 2 -->
-                        <li>
-                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
-                                <div class="lamalama-top-bar">
-                                    <div class="lamalama-col-left">
-                                        <div class="lamalama-title-wrap">
-                                            <h2 class="lamalama-title">BlueNexus</h2>
-                                            <div class="lamalama-tags">
-                                                <span class="lamalama-tag">TELEMETRY</span>
-                                                <span class="lamalama-tag">AI / ML</span>
-                                            </div>
+                                    <div class="experience-card bg-reveal bg-reveal-delay-1"
+                                        style="margin-top: 0 !important;">
+                                        <div class="exp-card__terminal-header">
+                                            <span class="exp-card__log-type">[ LOG_TYPE: EXPERIENCE_02 ]</span>
+                                            <span class="exp-card__status">[ STATUS: EXECUTED ]</span>
                                         </div>
-                                        <div class="lamalama-links">
-                                            <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
+                                        <div class="exp-card__top">
+                                            <div class="exp-card__role">02 // Teaching Outreach Intern</div>
                                         </div>
-                                    </div>
-                                    <div class="lamalama-col-center">
-                                        <span class="lamalama-toggle-text">( + )</span>
-                                    </div>
-                                    <div class="lamalama-col-right">
-                                        <div class="lamalama-preview-images">
-                                            <img src="blue_nexxus.png" alt="BlueNexus"/>
-                                            <img src="blue_nexxus.png" style="filter: grayscale(100%);" alt="BlueNexus"/>
-                                            <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);" alt="BlueNexus"/>
+                                        <div class="exp-card__meta-line">
+                                            <span class="exp-card__meta-label">Entity:</span>
+                                            <span class="exp-card__meta-val">Aakriti Foundation Trust</span>
+                                            <span class="exp-card__meta-bracket">[</span>
+                                            <span class="exp-card__meta-label">LOCATION:</span>
+                                            <span class="exp-card__meta-val">DEHRADUN, IN</span>
+                                            <span class="exp-card__meta-bracket">]</span>
                                         </div>
-                                        <div class="lamalama-desc-text">
-                                            <ul>
-                                                <li>Developed a production-ready Multi-Agent AI system on AWS Bedrock (Amazon Nova Premier) for real-time marine telemetry processing across 5+ concurrent data streams.</li>
-                                                <li>Engineered a Partitioned RAG architecture with domain-isolated vector stores (ChromaDB), reducing LLM hallucination rate by over 90% in domain-specific queries.</li>
-                                                <li>Integrated Computer Vision (EfficientNet-B0) for automated fish species classification and predictive ML models for Sea Surface Temperature forecasting.</li>
+                                        <div class="exp-card__meta-line">
+                                            <span class="exp-card__meta-label">Epoch:</span>
+                                            <span class="exp-card__meta-val">JUN 2024 &ndash; JUL 2024</span>
+                                        </div>
+                                        <div class="exp-card__meta-line">
+                                            <span class="exp-card__meta-label">Operational Vector:</span>
+                                            <span class="exp-card__meta-val">Community Impact &amp; Logistics</span>
+                                        </div>
+                                        <div class="exp-card__payload">
+                                            <div class="exp-card__payload-title">Execution Payload:</div>
+                                            <ul class="exp-card__bullets">
+                                                <li>Engineered interactive learning modules to elevate classroom
+                                                    engagement
+                                                    and baseline literacy for 50+ students.</li>
+                                                <li>Managed end-to-end logistics and resource allocation for 3+
+                                                    large-scale
+                                                    community outreach and food distribution drives.</li>
                                             </ul>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="lamalama-expanded-images">
-                                    <img src="blue_nexxus.png" alt="BlueNexus"/>
-                                    <img src="blue_nexxus.png" style="filter: grayscale(100%);" alt="BlueNexus"/>
-                                    <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);" alt="BlueNexus"/>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Project 3 -->
-                        <li>
-                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
-                                <div class="lamalama-top-bar">
-                                    <div class="lamalama-col-left">
-                                        <div class="lamalama-title-wrap">
-                                            <h2 class="lamalama-title">Supply Chain</h2>
-                                            <div class="lamalama-tags">
-                                                <span class="lamalama-tag">CYBER SEC</span>
-                                                <span class="lamalama-tag">AUDITOR</span>
-                                            </div>
-                                        </div>
-                                        <div class="lamalama-links">
-                                            <a href="https://github.com/MRIDULsinghRAWAT/supply_chain_analyzer" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
-                                        </div>
-                                    </div>
-                                    <div class="lamalama-col-center">
-                                        <span class="lamalama-toggle-text">( + )</span>
-                                    </div>
-                                    <div class="lamalama-col-right">
-                                        <div class="lamalama-preview-images">
-                                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" alt="Supply Chain Analyzer"/>
-                                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Supply Chain Analyzer"/>
-                                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: invert(100%);" alt="Supply Chain Analyzer"/>
-                                        </div>
-                                        <div class="lamalama-desc-text">
-                                            <ul>
-                                                <li>Developed a CLI-based security scanner in Python to audit dependencies in the Python (requirements.txt) and Node (package.json) ecosystems.</li>
-                                                <li>Constructed directed dependency graphs using adjacency lists, performing depth computation and cycle detection via DFS three-color marking.</li>
-                                                <li>Identified malicious packages using typosquatting rules like Levenshtein distance, homoglyph mapping, and separator confusion against 145+ packages.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="lamalama-expanded-images">
-                                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" alt="Supply Chain Analyzer"/>
-                                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Supply Chain Analyzer"/>
-                                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1024&auto=format&fit=crop" style="filter: invert(100%);" alt="Supply Chain Analyzer"/>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Project 4 -->
-                        <li>
-                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
-                                <div class="lamalama-top-bar">
-                                    <div class="lamalama-col-left">
-                                        <div class="lamalama-title-wrap">
-                                            <h2 class="lamalama-title">Aesthetic Engine</h2>
-                                            <div class="lamalama-tags">
-                                                <span class="lamalama-tag">EDGE AI</span>
-                                                <span class="lamalama-tag">ENGINE</span>
-                                            </div>
-                                        </div>
-                                        <div class="lamalama-links">
-                                            <a href="https://github.com/MRIDULsinghRAWAT/aesthetic-intelligence-engine" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
-                                        </div>
-                                    </div>
-                                    <div class="lamalama-col-center">
-                                        <span class="lamalama-toggle-text">( + )</span>
-                                    </div>
-                                    <div class="lamalama-col-right">
-                                        <div class="lamalama-preview-images">
-                                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" alt="Aesthetic Engine"/>
-                                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Aesthetic Engine"/>
-                                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: sepia(100%);" alt="Aesthetic Engine"/>
-                                        </div>
-                                        <div class="lamalama-desc-text">
-                                            <ul>
-                                                <li>Designed and trained a binary aesthetic classification system using MobileNetV2 (2.4M parameters) on the BIQ2021 dataset (12,000 real-world images), achieving 71% validation accuracy on unseen data.</li>
-                                                <li>Implemented a complete Edge AI inference pipeline by converting the trained Keras model to TensorFlow Lite format, reducing model size and enabling rapid deployment.</li>
-                                                <li>Benchmarked on-device inference performance achieving sub-12ms latency, demonstrating real-time capability suitable for mobile and edge deployment.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="lamalama-expanded-images">
-                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" alt="Aesthetic Engine"/>
-                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: grayscale(100%);" alt="Aesthetic Engine"/>
-                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" style="filter: sepia(100%);" alt="Aesthetic Engine"/>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Project 5 -->
-                        <li>
-                            <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
-                                <div class="lamalama-top-bar">
-                                    <div class="lamalama-col-left">
-                                        <div class="lamalama-title-wrap">
-                                            <h2 class="lamalama-title">CropSense</h2>
-                                            <div class="lamalama-tags">
-                                                <span class="lamalama-tag">AGRI-TECH</span>
-                                                <span class="lamalama-tag">AI</span>
-                                            </div>
-                                        </div>
-                                        <div class="lamalama-links">
-                                            <a href="https://github.com/v-i-n-a-y-29/CropSense" target="_blank" class="lamalama-btn">VIEW CASE &nearr;</a>
-                                        </div>
-                                    </div>
-                                    <div class="lamalama-col-center">
-                                        <span class="lamalama-toggle-text">( + )</span>
-                                    </div>
-                                    <div class="lamalama-col-right">
-                                        <div class="lamalama-preview-images">
-                                            <img src="cropsense.png" alt="CropSense"/>
-                                            <img src="cropsense.png" style="filter: grayscale(100%);" alt="CropSense"/>
-                                            <img src="cropsense.png" style="filter: hue-rotate(45deg);" alt="CropSense"/>
-                                        </div>
-                                        <div class="lamalama-desc-text">
-                                            <ul>
-                                                <li>Designed a unified digital ecosystem (Farmer, CHC Operator, and Government portals) to eliminate stubble burning by connecting farmers with nearby Crop Residue Management (CRM) machinery.</li>
-                                                <li>Engineered hardware-free real-time tracking using Leaflet.js interactive maps and custom state synchronization, bypassing expensive GPS hardware and reducing fleet idle times by over 30%.</li>
-                                                <li>Integrated Google Gemini AI for localized bilingual (English/Hindi) crop advisory and real-time weather analytics.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="lamalama-expanded-images">
-                                    <img src="cropsense.png" alt="CropSense"/>
-                                    <img src="cropsense.png" style="filter: grayscale(100%);" alt="CropSense"/>
-                                    <img src="cropsense.png" style="filter: hue-rotate(45deg);" alt="CropSense"/>
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-            <script>
-                function toggleLamalamaRow(item) {
-                    const isOpen = item.classList.contains('open');
-                    
-                    // Close all others
-                    document.querySelectorAll('.lamalama-item.open').forEach(el => {
-                        if (el !== item) {
-                            el.classList.remove('open');
-                            const otherToggle = el.querySelector('.lamalama-toggle-text');
-                            if(otherToggle) otherToggle.innerText = '( + )';
-                        }
-                    });
-
-                    const toggleText = item.querySelector('.lamalama-toggle-text');
-                    
-                    // Toggle current
-                    if (isOpen) {
-                        item.classList.remove('open');
-                        if(toggleText) toggleText.innerText = '( + )';
-                    } else {
-                        item.classList.add('open');
-                        if(toggleText) toggleText.innerText = '( - )';
-                    }
-                }
-            </script>
-
-            <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
-            <div class="background-section block" id="background-section" data-title="" data-menu="Background">
-                <!-- SVG Noise Filter for film grain texture -->
-                <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
-                    <filter id="skills-noise-filter">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" />
-                    </filter>
-                    <filter id="experience-noise-filter">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.05 0" />
-                    </filter>
-                </svg>
-
-                <div class="background-section__header">
-                    <span class="bg-reveal">Background</span>
-                    <span>Experience & Technical Skills</span>
-                </div>
-
-                <div class="background-grid">
-                    <!-- ── Experience Module ── -->
-                    <div class="bg-module"
-                        style="display: flex !important; flex-direction: column !important; gap: 40px !important;">
-                        <div>
-                            <div class="bg-module__title bg-reveal">Experience</div>
-                            <div class="experience-cards-container">
-                                <div class="experience-card bg-reveal bg-reveal-delay-1">
-                                    <div class="exp-card__terminal-header">
-                                        <span class="exp-card__log-type">[ LOG_TYPE: EXPERIENCE_01 ]</span>
-                                        <span class="exp-card__status">[ STATUS: ACTIVE ]</span>
-                                    </div>
-                                    <div class="exp-card__top">
-                                        <div class="exp-card__role">01 // Web Developer Intern</div>
-                                    </div>
-                                    <div class="exp-card__meta-line">
-                                        <span class="exp-card__meta-label">Entity:</span>
-                                        <span class="exp-card__meta-val">
-                                            <img src="logo_company.jpg" alt="Ultimez Technology"
-                                                style="width: 16px; height: 16px; border-radius: 3px; object-fit: cover; vertical-align: middle; margin-right: 6px;" />
-                                            Ultimez Technology
-                                        </span>
-                                        <span class="exp-card__meta-bracket">[</span>
-                                        <span class="exp-card__meta-label">LOCATION:</span>
-                                        <span class="exp-card__meta-val">REMOTE</span>
-                                        <span class="exp-card__meta-bracket">]</span>
-                                    </div>
-                                    <div class="exp-card__meta-line">
-                                        <span class="exp-card__meta-label">Epoch:</span>
-                                        <span class="exp-card__meta-val">JUN 2026 &ndash; JUL 2026</span>
-                                    </div>
-                                    <div class="exp-card__meta-line">
-                                        <span class="exp-card__meta-label">Operational Vector:</span>
-                                        <span class="exp-card__meta-val">Edge AI &amp; Interface Optimization</span>
-                                    </div>
-                                    <div class="exp-card__payload">
-                                        <div class="exp-card__payload-title">Execution Payload:</div>
-                                        <ul class="exp-card__bullets">
-                                            <li>Deployed and optimized responsive web interfaces for the On-Device
-                                                Aesthetic Intelligence Engine, bridging the gap between high-performance
-                                                edge AI (MobileNetV2 + TFLite) and clean user interaction.</li>
-                                            <li>Collaborated within a remote sprint environment, adhering to strict
-                                                enterprise protocols and maintaining absolute confidentiality for
-                                                next-gen project pipelines.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="experience-card bg-reveal bg-reveal-delay-1"
-                                    style="margin-top: 0 !important;">
-                                    <div class="exp-card__terminal-header">
-                                        <span class="exp-card__log-type">[ LOG_TYPE: EXPERIENCE_02 ]</span>
-                                        <span class="exp-card__status">[ STATUS: EXECUTED ]</span>
-                                    </div>
-                                    <div class="exp-card__top">
-                                        <div class="exp-card__role">02 // Teaching Outreach Intern</div>
-                                    </div>
-                                    <div class="exp-card__meta-line">
-                                        <span class="exp-card__meta-label">Entity:</span>
-                                        <span class="exp-card__meta-val">Aakriti Foundation Trust</span>
-                                        <span class="exp-card__meta-bracket">[</span>
-                                        <span class="exp-card__meta-label">LOCATION:</span>
-                                        <span class="exp-card__meta-val">DEHRADUN, IN</span>
-                                        <span class="exp-card__meta-bracket">]</span>
-                                    </div>
-                                    <div class="exp-card__meta-line">
-                                        <span class="exp-card__meta-label">Epoch:</span>
-                                        <span class="exp-card__meta-val">JUN 2024 &ndash; JUL 2024</span>
-                                    </div>
-                                    <div class="exp-card__meta-line">
-                                        <span class="exp-card__meta-label">Operational Vector:</span>
-                                        <span class="exp-card__meta-val">Community Impact &amp; Logistics</span>
-                                    </div>
-                                    <div class="exp-card__payload">
-                                        <div class="exp-card__payload-title">Execution Payload:</div>
-                                        <ul class="exp-card__bullets">
-                                            <li>Engineered interactive learning modules to elevate classroom engagement
-                                                and baseline literacy for 50+ students.</li>
-                                            <li>Managed end-to-end logistics and resource allocation for 3+ large-scale
-                                                community outreach and food distribution drives.</li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- ── Skills Module: Floating Tag Cloud ── -->
-                    <div class="bg-module" style="display: flex !important; flex-direction: column !important;">
-                        <div class="bg-module__title bg-reveal">Technical Skills</div>
+                        <!-- ── Skills Module: Floating Tag Cloud ── -->
+                        <div class="bg-module" style="display: flex !important; flex-direction: column !important;">
+                            <div class="bg-module__title bg-reveal">Technical Skills</div>
 
-                        <div class="skills-tagcloud bg-reveal bg-reveal-delay-1" id="skills-tagcloud">
-                            <canvas class="skills-tagcloud__network"></canvas>
-                            <div class="skills-tagcloud__field"></div>
+                            <div class="skills-tagcloud bg-reveal bg-reveal-delay-1" id="skills-tagcloud">
+                                <canvas class="skills-tagcloud__network"></canvas>
+                                <div class="skills-tagcloud__field"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- ── Achievements Module ── -->
-                    <div class="bg-module"
-                        style="display: flex !important; flex-direction: column !important; gap: 40px !important;">
-                        <div>
-                            <div class="bg-module__title bg-reveal">Achievements</div>
+                        <!-- ── Achievements Module ── -->
+                        <div class="bg-module"
+                            style="display: flex !important; flex-direction: column !important; gap: 40px !important;">
+                            <div>
+                                <div class="bg-module__title bg-reveal">Achievements</div>
 
-                            <div class="experience-card bg-reveal bg-reveal-delay-2">
-                                <ul class="achievements-list"
-                                    style="margin: 0 !important; padding: 0 !important; list-style: none !important;">
-                                    <li
-                                        style="margin-bottom: 24px !important; padding-left: 20px !important; position: relative !important;">
-                                        <span
-                                            style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
-                                        <strong
-                                            style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">LeetCode</strong>
-                                        <span
-                                            style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Solved
-                                            200+ problems in Data Structures and Algorithms.</span>
+                                <div class="experience-card bg-reveal bg-reveal-delay-2">
+                                    <ul class="achievements-list"
+                                        style="margin: 0 !important; padding: 0 !important; list-style: none !important;">
+                                        <li
+                                            style="margin-bottom: 24px !important; padding-left: 20px !important; position: relative !important;">
+                                            <span
+                                                style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
+                                            <strong
+                                                style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">LeetCode</strong>
+                                            <span
+                                                style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Solved
+                                                200+ problems in Data Structures and Algorithms.</span>
 
-                                        <!-- LeetCode-Style Heatmap -->
-                                        <style>
-                                            .lc-heatmap-wrapper::-webkit-scrollbar {
-                                                display: none !important;
-                                            }
+                                            <!-- LeetCode-Style Heatmap -->
+                                            <style>
+                                                .lc-heatmap-wrapper::-webkit-scrollbar {
+                                                    display: none !important;
+                                                }
 
-                                            .lc-heatmap {
-                                                background: #1a1a2e;
-                                                border-radius: 12px;
-                                                padding: 20px 24px 16px;
-                                                margin-top: 15px;
-                                                border: 1px solid rgba(255, 255, 255, 0.06);
-                                            }
+                                                .lc-heatmap {
+                                                    background: #1a1a2e;
+                                                    border-radius: 12px;
+                                                    padding: 20px 24px 16px;
+                                                    margin-top: 15px;
+                                                    border: 1px solid rgba(255, 255, 255, 0.06);
+                                                }
 
-                                            .lc-heatmap__header {
-                                                display: flex;
-                                                justify-content: space-between;
-                                                align-items: center;
-                                                margin-bottom: 16px;
-                                                flex-wrap: wrap;
-                                                gap: 8px;
-                                            }
+                                                .lc-heatmap__header {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                    margin-bottom: 16px;
+                                                    flex-wrap: wrap;
+                                                    gap: 8px;
+                                                }
 
-                                            .lc-heatmap__title {
-                                                font-family: 'PP Neue Montreal', sans-serif;
-                                                font-size: 14px;
-                                                color: #eff1f6bf;
-                                            }
+                                                .lc-heatmap__title {
+                                                    font-family: 'PP Neue Montreal', sans-serif;
+                                                    font-size: 14px;
+                                                    color: #eff1f6bf;
+                                                }
 
-                                            .lc-heatmap__title strong {
-                                                color: #eff1f6;
-                                                font-size: 16px;
-                                                font-weight: 700;
-                                            }
+                                                .lc-heatmap__title strong {
+                                                    color: #eff1f6;
+                                                    font-size: 16px;
+                                                    font-weight: 700;
+                                                }
 
-                                            .lc-heatmap__stats {
-                                                display: flex;
-                                                gap: 20px;
-                                                font-family: 'PP Fraktion Mono', monospace;
-                                                font-size: 11px;
-                                                color: rgba(239, 241, 246, 0.5);
-                                            }
+                                                .lc-heatmap__stats {
+                                                    display: flex;
+                                                    gap: 20px;
+                                                    font-family: 'PP Fraktion Mono', monospace;
+                                                    font-size: 11px;
+                                                    color: rgba(239, 241, 246, 0.5);
+                                                }
 
-                                            .lc-heatmap__stats span strong {
-                                                color: rgba(239, 241, 246, 0.8);
-                                            }
+                                                .lc-heatmap__stats span strong {
+                                                    color: rgba(239, 241, 246, 0.8);
+                                                }
 
-                                            .lc-heatmap__months {
-                                                display: flex;
-                                                font-family: 'PP Fraktion Mono', monospace;
-                                                font-size: 10px;
-                                                color: rgba(239, 241, 246, 0.4);
-                                                margin-top: 6px;
-                                            }
+                                                .lc-heatmap__months {
+                                                    display: flex;
+                                                    font-family: 'PP Fraktion Mono', monospace;
+                                                    font-size: 10px;
+                                                    color: rgba(239, 241, 246, 0.4);
+                                                    margin-top: 6px;
+                                                }
 
-                                            .lc-heatmap__footer {
-                                                display: flex;
-                                                justify-content: space-between;
-                                                align-items: center;
-                                                margin-top: 10px;
-                                            }
+                                                .lc-heatmap__footer {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                    margin-top: 10px;
+                                                }
 
-                                            .lc-heatmap__legend {
-                                                display: flex;
-                                                align-items: center;
-                                                gap: 4px;
-                                                font-family: 'PP Fraktion Mono', monospace;
-                                                font-size: 10px;
-                                                color: rgba(239, 241, 246, 0.4);
-                                            }
+                                                .lc-heatmap__legend {
+                                                    display: flex;
+                                                    align-items: center;
+                                                    gap: 4px;
+                                                    font-family: 'PP Fraktion Mono', monospace;
+                                                    font-size: 10px;
+                                                    color: rgba(239, 241, 246, 0.4);
+                                                }
 
-                                            .lc-heatmap__link {
-                                                font-family: 'PP Fraktion Mono', monospace;
-                                                font-size: 10px;
-                                            }
+                                                .lc-heatmap__link {
+                                                    font-family: 'PP Fraktion Mono', monospace;
+                                                    font-size: 10px;
+                                                }
 
-                                            .lc-heatmap__link a {
-                                                color: rgba(239, 241, 246, 0.4);
-                                                text-decoration: none;
-                                                transition: color 0.2s;
-                                            }
+                                                .lc-heatmap__link a {
+                                                    color: rgba(239, 241, 246, 0.4);
+                                                    text-decoration: none;
+                                                    transition: color 0.2s;
+                                                }
 
-                                            .lc-heatmap__link a:hover {
-                                                color: #ffa116;
-                                            }
-                                        </style>
-                                        <div class="lc-heatmap">
-                                            <div class="lc-heatmap__header">
-                                                <div class="lc-heatmap__title"><strong>696</strong> submissions in the
-                                                    past one year</div>
-                                                <div class="lc-heatmap__stats">
-                                                    <span>Total active days: <strong>245</strong></span>
-                                                    <span>Max streak: <strong>146</strong></span>
+                                                .lc-heatmap__link a:hover {
+                                                    color: #ffa116;
+                                                }
+                                            </style>
+                                            <div class="lc-heatmap">
+                                                <div class="lc-heatmap__header">
+                                                    <div class="lc-heatmap__title"><strong>696</strong> submissions in
+                                                        the
+                                                        past one year</div>
+                                                    <div class="lc-heatmap__stats">
+                                                        <span>Total active days: <strong>245</strong></span>
+                                                        <span>Max streak: <strong>146</strong></span>
+                                                    </div>
+                                                </div>
+                                                <div class="lc-heatmap-wrapper"
+                                                    style="overflow-x: auto; width: 100%; scrollbar-width: none; -ms-overflow-style: none;">
+                                                    <div id="leetcode-heatmap-container" style="min-width: 700px;">
+                                                    </div>
+                                                    <div class="lc-heatmap__months" id="leetcode-heatmap-months"></div>
+                                                </div>
+                                                <div class="lc-heatmap__footer">
+                                                    <div class="lc-heatmap__link">
+                                                        <a href="https://leetcode.com/u/Mridul_31/"
+                                                            target="_blank">leetcode.com/u/Mridul_31 ↗</a>
+                                                    </div>
+                                                    <div class="lc-heatmap__legend">
+                                                        <span>Less</span>
+                                                        <div
+                                                            style="width:10px;height:10px;background:#161b22;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+                                                        </div>
+                                                        <div
+                                                            style="width:10px;height:10px;background:#0e4429;border-radius:2px;">
+                                                        </div>
+                                                        <div
+                                                            style="width:10px;height:10px;background:#006d32;border-radius:2px;">
+                                                        </div>
+                                                        <div
+                                                            style="width:10px;height:10px;background:#26a641;border-radius:2px;">
+                                                        </div>
+                                                        <div
+                                                            style="width:10px;height:10px;background:#39d353;border-radius:2px;">
+                                                        </div>
+                                                        <span>More</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="lc-heatmap-wrapper"
-                                                style="overflow-x: auto; width: 100%; scrollbar-width: none; -ms-overflow-style: none;">
-                                                <div id="leetcode-heatmap-container" style="min-width: 700px;"></div>
-                                                <div class="lc-heatmap__months" id="leetcode-heatmap-months"></div>
-                                            </div>
-                                            <div class="lc-heatmap__footer">
-                                                <div class="lc-heatmap__link">
-                                                    <a href="https://leetcode.com/u/Mridul_31/"
-                                                        target="_blank">leetcode.com/u/Mridul_31 ↗</a>
-                                                </div>
-                                                <div class="lc-heatmap__legend">
-                                                    <span>Less</span>
-                                                    <div
-                                                        style="width:10px;height:10px;background:#161b22;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
-                                                    </div>
-                                                    <div
-                                                        style="width:10px;height:10px;background:#0e4429;border-radius:2px;">
-                                                    </div>
-                                                    <div
-                                                        style="width:10px;height:10px;background:#006d32;border-radius:2px;">
-                                                    </div>
-                                                    <div
-                                                        style="width:10px;height:10px;background:#26a641;border-radius:2px;">
-                                                    </div>
-                                                    <div
-                                                        style="width:10px;height:10px;background:#39d353;border-radius:2px;">
-                                                    </div>
-                                                    <span>More</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li
-                                        style="margin-bottom: 24px !important; padding-left: 20px !important; position: relative !important;">
-                                        <span
-                                            style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
-                                        <strong
-                                            style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">IBM
-                                            × AWS Hackathon</strong>
-                                        <span
-                                            style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Shortlisted
-                                            among the Top 30 Teams out of 350+ nationwide competitors for innovative AI
-                                            application development.</span>
-                                    </li>
-                                    <li
-                                        style="margin-bottom: 0 !important; padding-left: 20px !important; position: relative !important;">
-                                        <span
-                                            style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
-                                        <strong
-                                            style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">Smart
-                                            India Hackathon (SIH)</strong>
-                                        <span
-                                            style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Recognized
-                                            as a Top 15 Team for delivering high-impact solutions to national-level
-                                            problem statements.</span>
-                                    </li>
-                                </ul>
+                                        </li>
+                                        <li
+                                            style="margin-bottom: 24px !important; padding-left: 20px !important; position: relative !important;">
+                                            <span
+                                                style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
+                                            <strong
+                                                style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">IBM
+                                                × AWS Hackathon</strong>
+                                            <span
+                                                style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Shortlisted
+                                                among the Top 30 Teams out of 350+ nationwide competitors for innovative
+                                                AI
+                                                application development.</span>
+                                        </li>
+                                        <li
+                                            style="margin-bottom: 0 !important; padding-left: 20px !important; position: relative !important;">
+                                            <span
+                                                style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
+                                            <strong
+                                                style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">Smart
+                                                India Hackathon (SIH)</strong>
+                                            <span
+                                                style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Recognized
+                                                as a Top 15 Team for delivering high-impact solutions to national-level
+                                                problem statements.</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ===== END BACKGROUND SECTION ===== -->
+                <!-- ===== END BACKGROUND SECTION ===== -->
 
 
-            <div class="wp-block-group">
-                <div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
-                    <div class="bg-pattern"
-                        style="background-image:url(https://digitalists.at/wp-content/themes/digitalists/bg-pattern.svg)">
-                    </div>
-
-                    <div id="teaser-contact-block_12c02d25fb93833b1aa966de529168c3"
-                        class="teaser-contact block block--teaser-contact" data-title=""
-                        data-menu="We look forward to hearing from you">
-                        <div class="teaser-contact__column">
-                            <h2 class="teaser-contact__hl">
-                                Let&#8217;s work<br>together!
-                                <span>
-                                    <img decoding="async" src="image.png" alt="EVE">
-                                </span>
-                            </h2>
-                            <p>
-                                <strong>want to connect ?</strong>
-                            </p>
-                            <p>We would be happy to discuss your ideas.</p>
-                            <a class="teaser-contact__call-cta" href="tel:917906465904">Call now</a>
-                            <div class="teaser-contact__contact-details">
-                                <a href="tel:917906465904">+91 7906465904</a>
-                                <a href="mailto:mridulsinghrawat31@gmail.com">mridulsinghrawat31@gmail.com</a>
-                            </div>
+                <div class="wp-block-group">
+                    <div
+                        class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+                        <div class="bg-pattern"
+                            style="background-image:url(https://digitalists.at/wp-content/themes/digitalists/bg-pattern.svg)">
                         </div>
-                        <div class="teaser-contact__column">
-                            <div class="teaser-contact__form-top">
-                                <h3>Send us a message</h3>
+
+                        <div id="teaser-contact-block_12c02d25fb93833b1aa966de529168c3"
+                            class="teaser-contact block block--teaser-contact" data-title=""
+                            data-menu="We look forward to hearing from you">
+                            <div class="teaser-contact__column">
+                                <h2 class="teaser-contact__hl">
+                                    Let&#8217;s work<br>together!
+                                    <span>
+                                        <img decoding="async" src="image.png" alt="EVE">
+                                    </span>
+                                </h2>
+                                <p>
+                                    <strong>want to connect ?</strong>
+                                </p>
+                                <p>We would be happy to discuss your ideas.</p>
+                                <a class="teaser-contact__call-cta" href="tel:917906465904">Call now</a>
+                                <div class="teaser-contact__contact-details">
+                                    <a href="tel:917906465904">+91 7906465904</a>
+                                    <a href="mailto:mridulsinghrawat31@gmail.com">mridulsinghrawat31@gmail.com</a>
+                                </div>
                             </div>
-                            <div class="form block block--form contact-form form--mail">
+                            <div class="teaser-contact__column">
+                                <div class="teaser-contact__form-top">
+                                    <h3>Send us a message</h3>
+                                </div>
+                                <div class="form block block--form contact-form form--mail">
 
-                                <div class="center-wrapper">
-                                    <div class="form__main">
+                                    <div class="center-wrapper">
+                                        <div class="form__main">
 
 
 
 
-                                        <form action="https://formsubmit.co/mridulsinghrawat31@gmail.com" method="POST"
-                                            novalidate>
-                                            <input type="hidden" name="_subject" value="New Portfolio Message!">
-                                            <div class="form__group">
-                                                <div class="form__rows">
-                                                    <div class="form__row form__row--name form__row--text"
-                                                        data-errormsg="Name* is a required field." data-width="50">
-                                                        <label class="form__input__wrapper">
-                                                            <span class="form__input__label">Name*</span>
-                                                            <input type="text" class="form__input form__input--text"
-                                                                name="name" placeholder="Name*"
-                                                                data-regex="[a-zA-Z0-9]{2,}" data-state="idle" required
-                                                                minlength="2" />
-                                                            <div class="form__input__meta">
-                                                                <span class="form__input__state">
-                                                                    <span class="state__check">
-                                                                        <svg width="17px" height="14px"
-                                                                            viewBox="0 0 17 14">
-                                                                            <g stroke="none" stroke-width="1"
-                                                                                fill="none" fill-rule="evenodd"
-                                                                                stroke-linecap="round">
-                                                                                <g transform="translate(-986.000000, -1633.000000)"
-                                                                                    stroke="#76C65F"
-                                                                                    stroke-width="2.68747073">
-                                                                                    <g>
-                                                                                        <polyline id="Path-3"
-                                                                                            points="988 1640.74808 993.745457 1645 1001 1635">
-                                                                                        </polyline>
+                                            <form action="https://formsubmit.co/mridulsinghrawat31@gmail.com"
+                                                method="POST" novalidate>
+                                                <input type="hidden" name="_subject" value="New Portfolio Message!">
+                                                <div class="form__group">
+                                                    <div class="form__rows">
+                                                        <div class="form__row form__row--name form__row--text"
+                                                            data-errormsg="Name* is a required field." data-width="50">
+                                                            <label class="form__input__wrapper">
+                                                                <span class="form__input__label">Name*</span>
+                                                                <input type="text" class="form__input form__input--text"
+                                                                    name="name" placeholder="Name*"
+                                                                    data-regex="[a-zA-Z0-9]{2,}" data-state="idle"
+                                                                    required minlength="2" />
+                                                                <div class="form__input__meta">
+                                                                    <span class="form__input__state">
+                                                                        <span class="state__check">
+                                                                            <svg width="17px" height="14px"
+                                                                                viewBox="0 0 17 14">
+                                                                                <g stroke="none" stroke-width="1"
+                                                                                    fill="none" fill-rule="evenodd"
+                                                                                    stroke-linecap="round">
+                                                                                    <g transform="translate(-986.000000, -1633.000000)"
+                                                                                        stroke="#76C65F"
+                                                                                        stroke-width="2.68747073">
+                                                                                        <g>
+                                                                                            <polyline id="Path-3"
+                                                                                                points="988 1640.74808 993.745457 1645 1001 1635">
+                                                                                            </polyline>
+                                                                                        </g>
                                                                                     </g>
                                                                                 </g>
-                                                                            </g>
-                                                                        </svg>
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span class="state__error">!</span>
                                                                     </span>
-                                                                    <span class="state__error">!</span>
-                                                                </span>
-                                                            </div>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form__row form__row--company form__row--text"
-                                                        data-errormsg="Company is a required field." data-width="50">
-                                                        <label class="form__input__wrapper">
-                                                            <span class="form__input__label">Company</span>
-                                                            <input type="text" class="form__input form__input--text"
-                                                                name="company" placeholder="Company"
-                                                                data-regex="[a-zA-Z0-9]{2,}" data-state="idle"
-                                                                minlength="2" />
-                                                            <div class="form__input__meta">
-                                                                <span class="form__input__state">
-                                                                    <span class="state__check">
-                                                                        <svg width="17px" height="14px"
-                                                                            viewBox="0 0 17 14">
-                                                                            <g stroke="none" stroke-width="1"
-                                                                                fill="none" fill-rule="evenodd"
-                                                                                stroke-linecap="round">
-                                                                                <g transform="translate(-986.000000, -1633.000000)"
-                                                                                    stroke="#76C65F"
-                                                                                    stroke-width="2.68747073">
-                                                                                    <g>
-                                                                                        <polyline id="Path-3"
-                                                                                            points="988 1640.74808 993.745457 1645 1001 1635">
-                                                                                        </polyline>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="form__row form__row--company form__row--text"
+                                                            data-errormsg="Company is a required field."
+                                                            data-width="50">
+                                                            <label class="form__input__wrapper">
+                                                                <span class="form__input__label">Company</span>
+                                                                <input type="text" class="form__input form__input--text"
+                                                                    name="company" placeholder="Company"
+                                                                    data-regex="[a-zA-Z0-9]{2,}" data-state="idle"
+                                                                    minlength="2" />
+                                                                <div class="form__input__meta">
+                                                                    <span class="form__input__state">
+                                                                        <span class="state__check">
+                                                                            <svg width="17px" height="14px"
+                                                                                viewBox="0 0 17 14">
+                                                                                <g stroke="none" stroke-width="1"
+                                                                                    fill="none" fill-rule="evenodd"
+                                                                                    stroke-linecap="round">
+                                                                                    <g transform="translate(-986.000000, -1633.000000)"
+                                                                                        stroke="#76C65F"
+                                                                                        stroke-width="2.68747073">
+                                                                                        <g>
+                                                                                            <polyline id="Path-3"
+                                                                                                points="988 1640.74808 993.745457 1645 1001 1635">
+                                                                                            </polyline>
+                                                                                        </g>
                                                                                     </g>
                                                                                 </g>
-                                                                            </g>
-                                                                        </svg>
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span class="state__error">!</span>
                                                                     </span>
-                                                                    <span class="state__error">!</span>
-                                                                </span>
-                                                            </div>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form__row form__row--email form__row--email"
-                                                        data-errormsg="Email Address* is a required field."
-                                                        data-width="100">
-                                                        <label class="form__input__wrapper">
-                                                            <span class="form__input__label">Email Address*</span>
-                                                            <input type="email" class="form__input form__input--email"
-                                                                name="email" placeholder="Email Address*"
-                                                                data-regex="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-                                                                data-state="idle" required>
-                                                            <div class="form__input__meta">
-                                                                <span class="form__input__state">
-                                                                    <span class="state__check">
-                                                                        <svg width="17px" height="14px"
-                                                                            viewBox="0 0 17 14">
-                                                                            <g stroke="none" stroke-width="1"
-                                                                                fill="none" fill-rule="evenodd"
-                                                                                stroke-linecap="round">
-                                                                                <g transform="translate(-986.000000, -1633.000000)"
-                                                                                    stroke="#76C65F"
-                                                                                    stroke-width="2.68747073">
-                                                                                    <g>
-                                                                                        <polyline id="Path-3"
-                                                                                            points="988 1640.74808 993.745457 1645 1001 1635">
-                                                                                        </polyline>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="form__row form__row--email form__row--email"
+                                                            data-errormsg="Email Address* is a required field."
+                                                            data-width="100">
+                                                            <label class="form__input__wrapper">
+                                                                <span class="form__input__label">Email Address*</span>
+                                                                <input type="email"
+                                                                    class="form__input form__input--email" name="email"
+                                                                    placeholder="Email Address*"
+                                                                    data-regex="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                                                                    data-state="idle" required>
+                                                                <div class="form__input__meta">
+                                                                    <span class="form__input__state">
+                                                                        <span class="state__check">
+                                                                            <svg width="17px" height="14px"
+                                                                                viewBox="0 0 17 14">
+                                                                                <g stroke="none" stroke-width="1"
+                                                                                    fill="none" fill-rule="evenodd"
+                                                                                    stroke-linecap="round">
+                                                                                    <g transform="translate(-986.000000, -1633.000000)"
+                                                                                        stroke="#76C65F"
+                                                                                        stroke-width="2.68747073">
+                                                                                        <g>
+                                                                                            <polyline id="Path-3"
+                                                                                                points="988 1640.74808 993.745457 1645 1001 1635">
+                                                                                            </polyline>
+                                                                                        </g>
                                                                                     </g>
                                                                                 </g>
-                                                                            </g>
-                                                                        </svg>
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span class="state__error">!</span>
                                                                     </span>
-                                                                    <span class="state__error">!</span>
-                                                                </span>
-                                                            </div>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form__row form__row--message form__row--textarea"
-                                                        data-errormsg="Message* is a required field." data-width="100">
-                                                        <div class="form__input__wrapper">
-                                                            <span class="form__input__label">Message*</span>
-                                                            <textarea name="message"
-                                                                class="form__input form__input--textarea"
-                                                                placeholder="Message*" data-regex="[\s\S]{10,}"
-                                                                required></textarea>
-                                                            <div class="form__input__meta">
-                                                                <span class="form__input__state">
-                                                                    <span class="state__check">
-                                                                        <svg width="17px" height="14px"
-                                                                            viewBox="0 0 17 14">
-                                                                            <g stroke="none" stroke-width="1"
-                                                                                fill="none" fill-rule="evenodd"
-                                                                                stroke-linecap="round">
-                                                                                <g transform="translate(-986.000000, -1633.000000)"
-                                                                                    stroke="#76C65F"
-                                                                                    stroke-width="2.68747073">
-                                                                                    <g>
-                                                                                        <polyline id="Path-3"
-                                                                                            points="988 1640.74808 993.745457 1645 1001 1635">
-                                                                                        </polyline>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="form__row form__row--message form__row--textarea"
+                                                            data-errormsg="Message* is a required field."
+                                                            data-width="100">
+                                                            <div class="form__input__wrapper">
+                                                                <span class="form__input__label">Message*</span>
+                                                                <textarea name="message"
+                                                                    class="form__input form__input--textarea"
+                                                                    placeholder="Message*" data-regex="[\s\S]{10,}"
+                                                                    required></textarea>
+                                                                <div class="form__input__meta">
+                                                                    <span class="form__input__state">
+                                                                        <span class="state__check">
+                                                                            <svg width="17px" height="14px"
+                                                                                viewBox="0 0 17 14">
+                                                                                <g stroke="none" stroke-width="1"
+                                                                                    fill="none" fill-rule="evenodd"
+                                                                                    stroke-linecap="round">
+                                                                                    <g transform="translate(-986.000000, -1633.000000)"
+                                                                                        stroke="#76C65F"
+                                                                                        stroke-width="2.68747073">
+                                                                                        <g>
+                                                                                            <polyline id="Path-3"
+                                                                                                points="988 1640.74808 993.745457 1645 1001 1635">
+                                                                                            </polyline>
+                                                                                        </g>
                                                                                     </g>
                                                                                 </g>
-                                                                            </g>
-                                                                        </svg>
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span class="state__error">!</span>
                                                                     </span>
-                                                                    <span class="state__error">!</span>
-                                                                </span>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <div class="form__row form__row--terms form__row--checkbox"
+                                                            data-errormsg="* is a required field." data-width="100">
+                                                            <label class="form__input__wrapper">
+                                                                <input type="checkbox"
+                                                                    class="form__input form__input--checkbox"
+                                                                    name="terms" value="terms" required>
+                                                                <span class="fake-checkbox"></span>
+                                                                <div>
+                                                                    <p>I hereby confirm that I have read the <a
+                                                                            href="https://digitalists.at/datenschutz/"
+                                                                            target="_blank" rel="noopener">Privacy
+                                                                            Policy</a>. I consent to the
+                                                                        processing of my data for the purpose of being
+                                                                        contacted.</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                    <div class="form__row form__row--terms form__row--checkbox"
-                                                        data-errormsg="* is a required field." data-width="100">
-                                                        <label class="form__input__wrapper">
-                                                            <input type="checkbox"
-                                                                class="form__input form__input--checkbox" name="terms"
-                                                                value="terms" required>
-                                                            <span class="fake-checkbox"></span>
-                                                            <div>
-                                                                <p>I hereby confirm that I have read the <a
-                                                                        href="https://digitalists.at/datenschutz/"
-                                                                        target="_blank" rel="noopener">Privacy
-                                                                        Policy</a>. I consent to the
-                                                                    processing of my data for the purpose of being
-                                                                    contacted.</p>
-                                                            </div>
-                                                        </label>
-                                                    </div>
+                                                    <div class="form__group__error"></div>
                                                 </div>
-                                                <div class="form__group__error"></div>
-                                            </div>
 
 
 
-                                            <input type="hidden" name="fk" value="46">
+                                                <input type="hidden" name="fk" value="46">
 
-                                            <input type="hidden" name="form" value="46">
-                                            <button class="form__cta btn" type="submit">
-                                                <span>Submit</span>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <div class="form__thanks">
-                                        <p>Thank you so much for your message. We will get back to you shortly!</p>
+                                                <input type="hidden" name="form" value="46">
+                                                <button class="form__cta btn" type="submit">
+                                                    <span>Submit</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="form__thanks">
+                                            <p>Thank you so much for your message. We will get back to you shortly!</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="teaser-contact__row">
+                                <span>Project</span>
+                                <span></span>
+                                <span>- Idea !</span>
+                            </div>
                         </div>
-                        <div class="teaser-contact__row">
-                            <span>Project</span>
-                            <span></span>
-                            <span>- Idea !</span>
-                        </div>
-                    </div>
 
-                    <div id="visual-diary"
-                        class="teaser-classic block block--teaser-classic teaser-classic--references block--no-margin"
-                        data-title="" data-menu="Visuals">
-                        <svg width="361" height="14" viewBox="0 0 361 14" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0H2V2H0V0Z" fill="black" />
-                            <path d="M4 0H6V2H4V0Z" fill="black" />
-                            <path d="M8 0H10V2H8V0Z" fill="black" />
-                            <path d="M12 0H14V2H12V0Z" fill="black" />
-                            <path d="M16 0H18V2H16V0Z" fill="black" />
-                            <path d="M20 0H22V2H20V0Z" fill="black" />
-                            <path d="M24 0H26V2H24V0Z" fill="black" />
-                            <path d="M315 0H317V2H315V0Z" fill="black" />
-                            <path d="M319 0H321V2H319V0Z" fill="black" />
-                            <path d="M323 0H325V2H323V0Z" fill="black" />
-                            <path d="M327 0H329V2H327V0Z" fill="black" />
-                            <path d="M331 0H333V2H331V0Z" fill="black" />
-                            <path d="M12 4H14V6H12V4Z" fill="black" />
-                            <path d="M16 4H18V6H16V4Z" fill="black" />
-                            <path d="M20 4H22V6H20V4Z" fill="black" />
-                            <path d="M335 0H337V2H335V0Z" fill="black" />
-                            <path d="M339 0H341V2H339V0Z" fill="black" />
-                            <path d="M110 0H112V2H110V0Z" fill="black" />
-                            <path d="M114 0H116V2H114V0Z" fill="black" />
-                            <path d="M118 0H120V2H118V0Z" fill="black" />
-                            <path d="M122 0H124V2H122V0Z" fill="black" />
-                            <path d="M65 0H67V2H65V0Z" fill="black" />
-                            <path d="M327 4H329V6H327V4Z" fill="black" />
-                            <path d="M331 4H333V6H331V4Z" fill="black" />
-                            <path d="M335 4H337V6H335V4Z" fill="black" />
-                            <path d="M69 0H71V2H69V0Z" fill="black" />
-                            <path d="M24 4H26V6H24V4Z" fill="black" />
-                            <path d="M0 4H2V6H0V4Z" fill="black" />
-                            <path d="M93 0H95V2H93V0Z" fill="black" />
-                            <path d="M12 8H14V10H12V8Z" fill="black" />
-                            <path d="M16 8H18V10H16V8Z" fill="black" />
-                            <path d="M97 0H99V2H97V0Z" fill="black" />
-                            <path d="M203 0H205V2H203V0Z" fill="black" />
-                            <path d="M20 8H22V10H20V8Z" fill="black" />
-                            <path d="M24 8H26V10H24V8Z" fill="black" />
-                            <path d="M4 4H6V6H4V4Z" fill="black" />
-                            <path d="M12 12H14V14H12V12Z" fill="black" />
-                            <path d="M241 0H243V2H241V0Z" fill="black" />
-                            <path d="M8 4H10V6H8V4Z" fill="black" />
-                            <path d="M16 12H18V14H16V12Z" fill="black" />
-                            <path d="M20 12H22V14H20V12Z" fill="black" />
-                            <path d="M24 12H26V14H24V12Z" fill="black" />
-                            <path d="M249 0H251V2H249V0Z" fill="black" />
-                            <path d="M207 0H209V2H207V0Z" fill="black" />
-                            <path d="M245 0H247V2H245V0Z" fill="black" />
-                            <path d="M253 0H255V2H253V0Z" fill="black" />
-                            <path d="M169 0H171V2H169V0Z" fill="black" />
-                            <path d="M359 0H361V2H359V0Z" fill="black" />
-                            <path d="M150 0H152V2H150V0Z" fill="black" />
-                            <path d="M339 4H341V6H339V4Z" fill="black" />
-                            <path d="M315 4H317V6H315V4Z" fill="black" />
-                            <path d="M110 4H112V6H110V4Z" fill="black" />
-                            <path d="M327 8H329V10H327V8Z" fill="black" />
-                            <path d="M331 8H333V10H331V8Z" fill="black" />
-                            <path d="M114 4H116V6H114V4Z" fill="black" />
-                            <path d="M118 4H120V6H118V4Z" fill="black" />
-                            <path d="M335 8H337V10H335V8Z" fill="black" />
-                            <path d="M0 8H2V10H0V8Z" fill="black" />
-                            <path d="M339 8H341V10H339V8Z" fill="black" />
-                            <path d="M4 8H6V10H4V8Z" fill="black" />
-                            <path d="M319 4H321V6H319V4Z" fill="black" />
-                            <path d="M327 12H329V14H327V12Z" fill="black" />
-                            <path d="M65 4H67V6H65V4Z" fill="black" />
-                            <path d="M323 4H325V6H323V4Z" fill="black" />
-                            <path d="M331 12H333V14H331V12Z" fill="black" />
-                            <path d="M335 12H337V14H335V12Z" fill="black" />
-                            <path d="M339 12H341V14H339V12Z" fill="black" />
-                            <path d="M93 4H95V6H93V4Z" fill="black" />
-                            <path d="M122 4H124V6H122V4Z" fill="black" />
-                            <path d="M97 4H99V6H97V4Z" fill="black" />
-                            <path d="M69 4H71V6H69V4Z" fill="black" />
-                            <path d="M203 4H205V6H203V4Z" fill="black" />
-                            <path d="M241 4H243V6H241V4Z" fill="black" />
-                            <path d="M249 4H251V6H249V4Z" fill="black" />
-                            <path d="M110 8H112V10H110V8Z" fill="black" />
-                            <path d="M207 4H209V6H207V4Z" fill="black" />
-                            <path d="M8 8H10V10H8V8Z" fill="black" />
-                            <path d="M245 4H247V6H245V4Z" fill="black" />
-                            <path d="M169 4H171V6H169V4Z" fill="black" />
-                            <path d="M253 4H255V6H253V4Z" fill="black" />
-                            <path d="M359 4H361V6H359V4Z" fill="black" />
-                            <path d="M114 8H116V10H114V8Z" fill="black" />
-                            <path d="M150 4H152V6H150V4Z" fill="black" />
-                            <path d="M0 12H2V14H0V12Z" fill="black" />
-                            <path d="M315 8H317V10H315V8Z" fill="black" />
-                            <path d="M118 8H120V10H118V8Z" fill="black" />
-                            <path d="M122 8H124V10H122V8Z" fill="black" />
-                            <path d="M319 8H321V10H319V8Z" fill="black" />
-                            <path d="M4 12H6V14H4V12Z" fill="black" />
-                            <path d="M8 12H10V14H8V12Z" fill="black" />
-                            <path d="M110 12H112V14H110V12Z" fill="black" />
-                            <path d="M65 8H67V10H65V8Z" fill="black" />
-                            <path d="M69 8H71V10H69V8Z" fill="black" />
-                            <path d="M114 12H116V14H114V12Z" fill="black" />
-                            <path d="M97 8H99V10H97V8Z" fill="black" />
-                            <path d="M118 12H120V14H118V12Z" fill="black" />
-                            <path d="M122 12H124V14H122V12Z" fill="black" />
-                            <path d="M93 8H95V10H93V8Z" fill="black" />
-                            <path d="M65 12H67V14H65V12Z" fill="black" />
-                            <path d="M69 12H71V14H69V12Z" fill="black" />
-                            <path d="M97 12H99V14H97V12Z" fill="black" />
-                            <path d="M207 8H209V10H207V8Z" fill="black" />
-                            <path d="M169 8H171V10H169V8Z" fill="black" />
-                            <path d="M245 8H247V10H245V8Z" fill="black" />
-                            <path d="M253 8H255V10H253V8Z" fill="black" />
-                            <path d="M359 8H361V10H359V8Z" fill="black" />
-                            <path d="M323 8H325V10H323V8Z" fill="black" />
-                            <path d="M93 12H95V14H93V12Z" fill="black" />
-                            <path d="M203 8H205V10H203V8Z" fill="black" />
-                            <path d="M241 8H243V10H241V8Z" fill="black" />
-                            <path d="M249 8H251V10H249V8Z" fill="black" />
-                            <path d="M150 8H152V10H150V8Z" fill="black" />
-                            <path d="M315 12H317V14H315V12Z" fill="black" />
-                            <path d="M169 12H171V14H169V12Z" fill="black" />
-                            <path d="M207 12H209V14H207V12Z" fill="black" />
-                            <path d="M245 12H247V14H245V12Z" fill="black" />
-                            <path d="M253 12H255V14H253V12Z" fill="black" />
-                            <path d="M359 12H361V14H359V12Z" fill="black" />
-                            <path d="M319 12H321V14H319V12Z" fill="black" />
-                            <path d="M323 12H325V14H323V12Z" fill="black" />
-                            <path d="M203 12H205V14H203V12Z" fill="black" />
-                            <path d="M241 12H243V14H241V12Z" fill="black" />
-                            <path d="M249 12H251V14H249V12Z" fill="black" />
-                            <path d="M150 12H152V14H150V12Z" fill="black" />
-                        </svg>
-                        <div class="teaser-classic__top">
-                            <h2 class="content__hl">Visual Diary!</h2>
-                            <span>
-                                Video </span>
-                        </div>
-                        <div class="teaser-classic__posts posts-teaser-video-wrap">
-                            <div class="video-container">
-                                <video autoplay loop muted playsinline class="visual-diary-video">
-                                    <source src="visual_fast.mp4" type="video/mp4">
-                                    <source src="visual.MOV" type="video/quicktime">
-                                    Your browser does not support the video tag.
-                                </video>
+                        <div id="visual-diary"
+                            class="teaser-classic block block--teaser-classic teaser-classic--references block--no-margin"
+                            data-title="" data-menu="Visuals">
+                            <svg width="361" height="14" viewBox="0 0 361 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0H2V2H0V0Z" fill="black" />
+                                <path d="M4 0H6V2H4V0Z" fill="black" />
+                                <path d="M8 0H10V2H8V0Z" fill="black" />
+                                <path d="M12 0H14V2H12V0Z" fill="black" />
+                                <path d="M16 0H18V2H16V0Z" fill="black" />
+                                <path d="M20 0H22V2H20V0Z" fill="black" />
+                                <path d="M24 0H26V2H24V0Z" fill="black" />
+                                <path d="M315 0H317V2H315V0Z" fill="black" />
+                                <path d="M319 0H321V2H319V0Z" fill="black" />
+                                <path d="M323 0H325V2H323V0Z" fill="black" />
+                                <path d="M327 0H329V2H327V0Z" fill="black" />
+                                <path d="M331 0H333V2H331V0Z" fill="black" />
+                                <path d="M12 4H14V6H12V4Z" fill="black" />
+                                <path d="M16 4H18V6H16V4Z" fill="black" />
+                                <path d="M20 4H22V6H20V4Z" fill="black" />
+                                <path d="M335 0H337V2H335V0Z" fill="black" />
+                                <path d="M339 0H341V2H339V0Z" fill="black" />
+                                <path d="M110 0H112V2H110V0Z" fill="black" />
+                                <path d="M114 0H116V2H114V0Z" fill="black" />
+                                <path d="M118 0H120V2H118V0Z" fill="black" />
+                                <path d="M122 0H124V2H122V0Z" fill="black" />
+                                <path d="M65 0H67V2H65V0Z" fill="black" />
+                                <path d="M327 4H329V6H327V4Z" fill="black" />
+                                <path d="M331 4H333V6H331V4Z" fill="black" />
+                                <path d="M335 4H337V6H335V4Z" fill="black" />
+                                <path d="M69 0H71V2H69V0Z" fill="black" />
+                                <path d="M24 4H26V6H24V4Z" fill="black" />
+                                <path d="M0 4H2V6H0V4Z" fill="black" />
+                                <path d="M93 0H95V2H93V0Z" fill="black" />
+                                <path d="M12 8H14V10H12V8Z" fill="black" />
+                                <path d="M16 8H18V10H16V8Z" fill="black" />
+                                <path d="M97 0H99V2H97V0Z" fill="black" />
+                                <path d="M203 0H205V2H203V0Z" fill="black" />
+                                <path d="M20 8H22V10H20V8Z" fill="black" />
+                                <path d="M24 8H26V10H24V8Z" fill="black" />
+                                <path d="M4 4H6V6H4V4Z" fill="black" />
+                                <path d="M12 12H14V14H12V12Z" fill="black" />
+                                <path d="M241 0H243V2H241V0Z" fill="black" />
+                                <path d="M8 4H10V6H8V4Z" fill="black" />
+                                <path d="M16 12H18V14H16V12Z" fill="black" />
+                                <path d="M20 12H22V14H20V12Z" fill="black" />
+                                <path d="M24 12H26V14H24V12Z" fill="black" />
+                                <path d="M249 0H251V2H249V0Z" fill="black" />
+                                <path d="M207 0H209V2H207V0Z" fill="black" />
+                                <path d="M245 0H247V2H245V0Z" fill="black" />
+                                <path d="M253 0H255V2H253V0Z" fill="black" />
+                                <path d="M169 0H171V2H169V0Z" fill="black" />
+                                <path d="M359 0H361V2H359V0Z" fill="black" />
+                                <path d="M150 0H152V2H150V0Z" fill="black" />
+                                <path d="M339 4H341V6H339V4Z" fill="black" />
+                                <path d="M315 4H317V6H315V4Z" fill="black" />
+                                <path d="M110 4H112V6H110V4Z" fill="black" />
+                                <path d="M327 8H329V10H327V8Z" fill="black" />
+                                <path d="M331 8H333V10H331V8Z" fill="black" />
+                                <path d="M114 4H116V6H114V4Z" fill="black" />
+                                <path d="M118 4H120V6H118V4Z" fill="black" />
+                                <path d="M335 8H337V10H335V8Z" fill="black" />
+                                <path d="M0 8H2V10H0V8Z" fill="black" />
+                                <path d="M339 8H341V10H339V8Z" fill="black" />
+                                <path d="M4 8H6V10H4V8Z" fill="black" />
+                                <path d="M319 4H321V6H319V4Z" fill="black" />
+                                <path d="M327 12H329V14H327V12Z" fill="black" />
+                                <path d="M65 4H67V6H65V4Z" fill="black" />
+                                <path d="M323 4H325V6H323V4Z" fill="black" />
+                                <path d="M331 12H333V14H331V12Z" fill="black" />
+                                <path d="M335 12H337V14H335V12Z" fill="black" />
+                                <path d="M339 12H341V14H339V12Z" fill="black" />
+                                <path d="M93 4H95V6H93V4Z" fill="black" />
+                                <path d="M122 4H124V6H122V4Z" fill="black" />
+                                <path d="M97 4H99V6H97V4Z" fill="black" />
+                                <path d="M69 4H71V6H69V4Z" fill="black" />
+                                <path d="M203 4H205V6H203V4Z" fill="black" />
+                                <path d="M241 4H243V6H241V4Z" fill="black" />
+                                <path d="M249 4H251V6H249V4Z" fill="black" />
+                                <path d="M110 8H112V10H110V8Z" fill="black" />
+                                <path d="M207 4H209V6H207V4Z" fill="black" />
+                                <path d="M8 8H10V10H8V8Z" fill="black" />
+                                <path d="M245 4H247V6H245V4Z" fill="black" />
+                                <path d="M169 4H171V6H169V4Z" fill="black" />
+                                <path d="M253 4H255V6H253V4Z" fill="black" />
+                                <path d="M359 4H361V6H359V4Z" fill="black" />
+                                <path d="M114 8H116V10H114V8Z" fill="black" />
+                                <path d="M150 4H152V6H150V4Z" fill="black" />
+                                <path d="M0 12H2V14H0V12Z" fill="black" />
+                                <path d="M315 8H317V10H315V8Z" fill="black" />
+                                <path d="M118 8H120V10H118V8Z" fill="black" />
+                                <path d="M122 8H124V10H122V8Z" fill="black" />
+                                <path d="M319 8H321V10H319V8Z" fill="black" />
+                                <path d="M4 12H6V14H4V12Z" fill="black" />
+                                <path d="M8 12H10V14H8V12Z" fill="black" />
+                                <path d="M110 12H112V14H110V12Z" fill="black" />
+                                <path d="M65 8H67V10H65V8Z" fill="black" />
+                                <path d="M69 8H71V10H69V8Z" fill="black" />
+                                <path d="M114 12H116V14H114V12Z" fill="black" />
+                                <path d="M97 8H99V10H97V8Z" fill="black" />
+                                <path d="M118 12H120V14H118V12Z" fill="black" />
+                                <path d="M122 12H124V14H122V12Z" fill="black" />
+                                <path d="M93 8H95V10H93V8Z" fill="black" />
+                                <path d="M65 12H67V14H65V12Z" fill="black" />
+                                <path d="M69 12H71V14H69V12Z" fill="black" />
+                                <path d="M97 12H99V14H97V12Z" fill="black" />
+                                <path d="M207 8H209V10H207V8Z" fill="black" />
+                                <path d="M169 8H171V10H169V8Z" fill="black" />
+                                <path d="M245 8H247V10H245V8Z" fill="black" />
+                                <path d="M253 8H255V10H253V8Z" fill="black" />
+                                <path d="M359 8H361V10H359V8Z" fill="black" />
+                                <path d="M323 8H325V10H323V8Z" fill="black" />
+                                <path d="M93 12H95V14H93V12Z" fill="black" />
+                                <path d="M203 8H205V10H203V8Z" fill="black" />
+                                <path d="M241 8H243V10H241V8Z" fill="black" />
+                                <path d="M249 8H251V10H249V8Z" fill="black" />
+                                <path d="M150 8H152V10H150V8Z" fill="black" />
+                                <path d="M315 12H317V14H315V12Z" fill="black" />
+                                <path d="M169 12H171V14H169V12Z" fill="black" />
+                                <path d="M207 12H209V14H207V12Z" fill="black" />
+                                <path d="M245 12H247V14H245V12Z" fill="black" />
+                                <path d="M253 12H255V14H253V12Z" fill="black" />
+                                <path d="M359 12H361V14H359V12Z" fill="black" />
+                                <path d="M319 12H321V14H319V12Z" fill="black" />
+                                <path d="M323 12H325V14H323V12Z" fill="black" />
+                                <path d="M203 12H205V14H203V12Z" fill="black" />
+                                <path d="M241 12H243V14H241V12Z" fill="black" />
+                                <path d="M249 12H251V14H249V12Z" fill="black" />
+                                <path d="M150 12H152V14H150V12Z" fill="black" />
+                            </svg>
+                            <div class="teaser-classic__top">
+                                <h2 class="content__hl">Visual Diary!</h2>
+                                <span>
+                                    Video </span>
+                            </div>
+                            <div class="teaser-classic__posts posts-teaser-video-wrap">
+                                <div class="video-container">
+                                    <video autoplay loop muted playsinline class="visual-diary-video">
+                                        <source src="visual_fast.mp4" type="video/mp4">
+                                        <source src="visual.MOV" type="video/quicktime">
+                                        Your browser does not support the video tag.
+                                    </video>
 
-                                <!-- Cinematic Grid Overlay (9 Left, 9 Right) -->
-                                <div class="cinematic-overlay-container">
-                                    <div class="cinematic-backdrop"></div>
-                                    <!-- Left Side Blocks -->
-                                    <div class="cinematic-block-wrapper cb-left-1">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[01]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">NSPCC</span>
-                                                <span class="label-subtitle">SHIFT CTRL</span>
+                                    <!-- Cinematic Grid Overlay (9 Left, 9 Right) -->
+                                    <div class="cinematic-overlay-container">
+                                        <div class="cinematic-backdrop"></div>
+                                        <!-- Left Side Blocks -->
+                                        <div class="cinematic-block-wrapper cb-left-1">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[01]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">NSPCC</span>
+                                                    <span class="label-subtitle">SHIFT CTRL</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l1">
+                                                <img src="v1.PNG" alt="Visual L1">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l1">
-                                            <img src="v1.PNG" alt="Visual L1">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-2">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[02]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">SONG FOR THE MUTE</span>
-                                                <span class="label-subtitle">ADIDAS ORIGINALS 007</span>
+                                        <div class="cinematic-block-wrapper cb-left-2">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[02]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">SONG FOR THE MUTE</span>
+                                                    <span class="label-subtitle">ADIDAS ORIGINALS 007</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l2">
+                                                <img src="v2.jpg" alt="Visual L2">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l2">
-                                            <img src="v2.jpg" alt="Visual L2">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-3">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[03]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">FLOWER MOUNTAIN</span>
-                                                <span class="label-subtitle">NICHOLAS DALEY</span>
+                                        <div class="cinematic-block-wrapper cb-left-3">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[03]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">FLOWER MOUNTAIN</span>
+                                                    <span class="label-subtitle">NICHOLAS DALEY</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l3">
+                                                <img src="v5.jpeg" alt="Visual L3">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l3">
-                                            <img src="v5.jpeg" alt="Visual L3">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-4">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[04]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">KEEPSAKES</span>
-                                                <span class="label-subtitle">NOWNESS X V&A</span>
+                                        <div class="cinematic-block-wrapper cb-left-4">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[04]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">KEEPSAKES</span>
+                                                    <span class="label-subtitle">NOWNESS X V&A</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l4">
+                                                <img src="v6.jpeg" alt="Visual L4">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l4">
-                                            <img src="v6.jpeg" alt="Visual L4">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-5">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[05]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">LOUIS CULTURE</span>
-                                                <span class="label-subtitle">7AM</span>
+                                        <div class="cinematic-block-wrapper cb-left-5">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[05]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">LOUIS CULTURE</span>
+                                                    <span class="label-subtitle">7AM</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l5">
+                                                <img src="v8.jpg" alt="Visual L5">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l5">
-                                            <img src="v8.jpg" alt="Visual L5">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-6">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[06]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">ETHAN P FLYNN</span>
-                                                <span class="label-subtitle">FATHER OF NINE</span>
+                                        <div class="cinematic-block-wrapper cb-left-6">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[06]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">ETHAN P FLYNN</span>
+                                                    <span class="label-subtitle">FATHER OF NINE</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l6">
+                                                <img src="v3.jpeg" alt="Visual L6">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l6">
-                                            <img src="v3.jpeg" alt="Visual L6">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-7">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[07]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">TOYOTA</span>
-                                                <span class="label-subtitle">CH-R</span>
+                                        <div class="cinematic-block-wrapper cb-left-7">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[07]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">TOYOTA</span>
+                                                    <span class="label-subtitle">CH-R</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l7">
+                                                <img src="v4.jpeg" alt="Visual L7">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l7">
-                                            <img src="v4.jpeg" alt="Visual L7">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-8">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[08]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">PINK PANTHERESS</span>
-                                                <span class="label-subtitle">ILLEGAL</span>
+                                        <div class="cinematic-block-wrapper cb-left-8">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[08]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">PINK PANTHERESS</span>
+                                                    <span class="label-subtitle">ILLEGAL</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l8">
+                                                <img src="v7.jpeg" alt="Visual L8">
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l8">
-                                            <img src="v7.jpeg" alt="Visual L8">
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-left-9">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[09]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">ADIDAS</span>
-                                                <span class="label-subtitle">SONG FOR THE MUTE X ADIRUN 01</span>
+                                        <div class="cinematic-block-wrapper cb-left-9">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[09]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">ADIDAS</span>
+                                                    <span class="label-subtitle">SONG FOR THE MUTE X ADIRUN 01</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-l9">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual L9</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-l9">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual L9</span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- Right Side Blocks -->
-                                    <div class="cinematic-block-wrapper cb-right-1">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[10]</span>
-                                            <div class="label-text">
-                                                <span class="label-title">COLDPLAY</span>
-                                                <span class="label-subtitle">MOON MUSIC</span>
+                                        <!-- Right Side Blocks -->
+                                        <div class="cinematic-block-wrapper cb-right-1">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[10]</span>
+                                                <div class="label-text">
+                                                    <span class="label-title">COLDPLAY</span>
+                                                    <span class="label-subtitle">MOON MUSIC</span>
+                                                </div>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r1">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R1</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="cinematic-block" id="cinematic-block-r1">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R1</span>
+                                        <div class="cinematic-block-wrapper cb-right-2">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[11]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r2">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R2</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-2">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[11]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r2">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R2</span>
+                                        <div class="cinematic-block-wrapper cb-right-3">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[12]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r3">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R3</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-3">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[12]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r3">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R3</span>
+                                        <div class="cinematic-block-wrapper cb-right-4">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[13]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r4">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R4</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-4">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[13]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r4">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R4</span>
+                                        <div class="cinematic-block-wrapper cb-right-5">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[14]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r5">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R5</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-5">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[14]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r5">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R5</span>
+                                        <div class="cinematic-block-wrapper cb-right-6">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[15]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r6">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R6</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-6">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[15]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r6">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R6</span>
+                                        <div class="cinematic-block-wrapper cb-right-7">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[16]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r7">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R7</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-7">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[16]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r7">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R7</span>
+                                        <div class="cinematic-block-wrapper cb-right-8">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[17]</span>
+                                            </div>
+                                            <div class="cinematic-block" id="cinematic-block-r8">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R8</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-8">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[17]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r8">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R8</span>
+                                        <div class="cinematic-block-wrapper cb-right-9">
+                                            <div class="cinematic-block-label">
+                                                <span class="label-num">[18]</span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="cinematic-block-wrapper cb-right-9">
-                                        <div class="cinematic-block-label">
-                                            <span class="label-num">[18]</span>
-                                        </div>
-                                        <div class="cinematic-block" id="cinematic-block-r9">
-                                            <div class="block-placeholder">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                </svg>
-                                                <span>Visual R9</span>
+                                            <div class="cinematic-block" id="cinematic-block-r9">
+                                                <div class="block-placeholder">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                                                    </svg>
+                                                    <span>Visual R9</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -3209,14 +3325,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div><!-- #content -->
-        <dialog class="site-tltr" inert>
-            <form method="dialog" class="site-tltr__close">
-                <button aria-label="Close popup">×</button>
-            </form>
-            <div class="site-tltr__wrapper">
-                <div class="site-tltr__content">
+            </div><!-- #content -->
+            <dialog class="site-tltr" inert>
+                <form method="dialog" class="site-tltr__close">
+                    <button aria-label="Close popup">×</button>
+                </form>
+                <div class="site-tltr__wrapper">
+                    <div class="site-tltr__content">
 
                         <div class="site-tltr__form">
                             <h2 class="site-tltr__hl">Send us a message</h2>
@@ -3405,7 +3520,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>
         </dialog>
         <dialog class="site-modal" inert>
             <form method="dialog" class="site-modal__close">
