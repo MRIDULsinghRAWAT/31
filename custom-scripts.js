@@ -158,22 +158,47 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // 2. Scroll Parallax & Zoom Effect
-        window.addEventListener('scroll', function () {
-            const scrollY = window.scrollY;
-            const progress = Math.min(scrollY / 600, 1);
-
+        // 2. Scroll Parallax & Zoom Effect — GPU-accelerated via GSAP ScrollTrigger
+        if (window.gsap && typeof ScrollTrigger !== 'undefined') {
             if (bgImg) {
-                bgImg.style.transform = `scale(${1.15 - progress * 0.15}) translateY(${progress * 60}px)`;
+                gsap.to(bgImg, {
+                    scale: 1.0,
+                    y: 60,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: heroBlock,
+                        start: 'top top',
+                        end: '+=600',
+                        scrub: true
+                    }
+                });
             }
             if (darkener) {
-                darkener.style.opacity = Math.min(progress * 0.6, 0.6);
+                gsap.to(darkener, {
+                    opacity: 0.6,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: heroBlock,
+                        start: 'top top',
+                        end: '+=600',
+                        scrub: true
+                    }
+                });
             }
             if (content) {
-                content.style.opacity = Math.max(1 - progress * 2.5, 0);
-                content.style.transform = `translateY(${progress * 40}px)`;
+                gsap.to(content, {
+                    opacity: 0,
+                    y: 40,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: heroBlock,
+                        start: 'top top',
+                        end: '+=240',
+                        scrub: true
+                    }
+                });
             }
-        });
+        }
     }
 
     // Background Section Scroll Reveal Animation & Matrix Decode
@@ -442,6 +467,37 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        // Pre-compute static background Voronoi web once (positions never change)
+        let cachedBgLines = null;
+        function precomputeBgVoronoi() {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            const seedRng = (s) => { let x = Math.sin(s) * 10000; return x - Math.floor(x); };
+            const cols = Math.ceil(w / 150);
+            const rows = Math.ceil(h / 150);
+            const bgPoints = [];
+            for (let r = -1; r <= rows + 1; r++) {
+                for (let c = -1; c <= cols + 1; c++) {
+                    const seed = r * 100 + c;
+                    bgPoints.push({
+                        x: c * 150 + 75 + (seedRng(seed * 7 + 3) - 0.5) * 100,
+                        y: r * 150 + 75 + (seedRng(seed * 13 + 7) - 0.5) * 100
+                    });
+                }
+            }
+            cachedBgLines = [];
+            for (let i = 0; i < bgPoints.length; i++) {
+                for (let j = i + 1; j < bgPoints.length; j++) {
+                    const dx = bgPoints[i].x - bgPoints[j].x;
+                    const dy = bgPoints[i].y - bgPoints[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 200 && dist > 50) {
+                        cachedBgLines.push([bgPoints[i].x, bgPoints[i].y, bgPoints[j].x, bgPoints[j].y]);
+                    }
+                }
+            }
+        }
+
         // Draw domain-colored constellation network lines
         function drawNetwork() {
             const dpr = window.devicePixelRatio || 1;
@@ -506,34 +562,17 @@ window.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            // Also draw very faint background Voronoi web in neutral color
-            networkCtx.strokeStyle = 'rgba(163, 167, 148, 0.06)';
-            networkCtx.lineWidth = 0.6;
-            const seedRng = (s) => { let x = Math.sin(s) * 10000; return x - Math.floor(x); };
-            const cols = Math.ceil(w / 150);
-            const rows = Math.ceil(h / 150);
-            const bgPoints = [];
-            for (let r = -1; r <= rows + 1; r++) {
-                for (let c = -1; c <= cols + 1; c++) {
-                    const seed = r * 100 + c;
-                    bgPoints.push({
-                        x: c * 150 + 75 + (seedRng(seed * 7 + 3) - 0.5) * 100,
-                        y: r * 150 + 75 + (seedRng(seed * 13 + 7) - 0.5) * 100
-                    });
+            // Draw cached static background Voronoi web (no recalculation)
+            if (cachedBgLines) {
+                networkCtx.strokeStyle = 'rgba(163, 167, 148, 0.06)';
+                networkCtx.lineWidth = 0.6;
+                networkCtx.beginPath();
+                for (let i = 0; i < cachedBgLines.length; i++) {
+                    const line = cachedBgLines[i];
+                    networkCtx.moveTo(line[0], line[1]);
+                    networkCtx.lineTo(line[2], line[3]);
                 }
-            }
-            for (let i = 0; i < bgPoints.length; i++) {
-                for (let j = i + 1; j < bgPoints.length; j++) {
-                    const dx = bgPoints[i].x - bgPoints[j].x;
-                    const dy = bgPoints[i].y - bgPoints[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 200 && dist > 50) {
-                        networkCtx.beginPath();
-                        networkCtx.moveTo(bgPoints[i].x, bgPoints[i].y);
-                        networkCtx.lineTo(bgPoints[j].x, bgPoints[j].y);
-                        networkCtx.stroke();
-                    }
-                }
+                networkCtx.stroke();
             }
         }
 
@@ -546,6 +585,7 @@ window.addEventListener('DOMContentLoaded', function () {
             networkCanvas.style.width = w + 'px';
             networkCanvas.style.height = h + 'px';
             networkCtx.scale(dpr, dpr);
+            precomputeBgVoronoi(); // Recompute cached background on resize
             drawNetwork();
         }
 
@@ -563,9 +603,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // Frame counter for network redraw throttle
         let frameCount = 0;
+        let tagCloudVisible = false;
 
-        // Animation loop
+        // Animation loop — only runs when tag cloud is visible on screen
         function animate() {
+            if (!tagCloudVisible) return; // Stop burning CPU when off-screen
             requestAnimationFrame(animate);
 
             const w = container.clientWidth;
@@ -611,6 +653,18 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // IntersectionObserver: only animate when tag cloud is visible
+        const tagCloudObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const wasVisible = tagCloudVisible;
+                tagCloudVisible = entry.isIntersecting;
+                if (tagCloudVisible && !wasVisible) {
+                    requestAnimationFrame(animate); // restart loop
+                }
+            });
+        }, { threshold: 0.01 });
+        tagCloudObserver.observe(container);
+
         // Init
         mouseX = container.clientWidth / 2;
         mouseY = container.clientHeight / 2;
@@ -619,7 +673,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         initTags();
         resizeNetwork();
-        animate();
+        // animate() will be started by the IntersectionObserver when visible
 
         window.addEventListener('resize', () => {
             resizeNetwork();
@@ -814,6 +868,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
 
                 rect.setAttribute("fill", colors[level]);
+                rect.setAttribute("data-level", level);
 
                 // Tooltip
                 const dateStr = cellDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -824,18 +879,24 @@ window.addEventListener('DOMContentLoaded', function () {
                 rect.style.cursor = "pointer";
                 rect.style.transformOrigin = `${c * cellGap + cellSize / 2}px ${r * cellGap + cellSize / 2}px`;
 
-                rect.addEventListener("mouseenter", () => {
-                    rect.style.transform = "scale(1.4)";
-                    rect.style.filter = "brightness(1.3) drop-shadow(0 0 4px " + colors[level] + ")";
-                });
-                rect.addEventListener("mouseleave", () => {
-                    rect.style.transform = "none";
-                    rect.style.filter = "none";
-                });
-
                 svg.appendChild(rect);
             }
         }
+
+        // Event delegation: single listener pair on the SVG instead of 742 individual ones
+        svg.addEventListener("mouseenter", (e) => {
+            if (e.target.tagName === 'rect') {
+                const lvl = parseInt(e.target.getAttribute('data-level') || '0');
+                e.target.style.transform = "scale(1.4)";
+                e.target.style.filter = "brightness(1.3) drop-shadow(0 0 4px " + colors[lvl] + ")";
+            }
+        }, true);
+        svg.addEventListener("mouseleave", (e) => {
+            if (e.target.tagName === 'rect') {
+                e.target.style.transform = "none";
+                e.target.style.filter = "none";
+            }
+        }, true);
 
         container.appendChild(svg);
 
@@ -1341,6 +1402,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
 
         function animateGlobe() {
+            if (!globeVisible) return; // Stop burning CPU when off-screen
             requestAnimationFrame(animateGlobe);
 
             // Increment rotationY only if the user is not actively dragging the globe
@@ -1459,8 +1521,21 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Start animate loop
-        animateGlobe();
+        // IntersectionObserver: only animate globe when visible
+        let globeVisible = false;
+        const globeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const wasVisible = globeVisible;
+                globeVisible = entry.isIntersecting;
+                if (globeVisible && !wasVisible) {
+                    requestAnimationFrame(animateGlobe); // restart loop
+                }
+            });
+        }, { threshold: 0.01 });
+        globeObserver.observe(canvas);
+
+        // Start animate loop (will be gated by visibility)
+        // animateGlobe() will be started by the observer
 
         // --- 3D Experience Cards Parallax Tilt ---
         (function init3DCardTilt() {

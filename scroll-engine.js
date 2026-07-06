@@ -44,8 +44,8 @@
             lenisInstance.raf(time * 1000);
         });
 
-        // Disable lag smoothing in GSAP to prevent sync jank
-        gsap.ticker.lagSmoothing(0);
+        // Use moderate lag smoothing to prevent jank cascades (0 disables all frame skipping)
+        gsap.ticker.lagSmoothing(500, 33);
 
         // Make Lenis instance globally accessible if needed
         window.myLenis = lenisInstance;
