@@ -2078,16 +2078,18 @@
                             /* overflow flush right */
                         }
 
-                         .lamalama-preview-images img {
-                            height: 120px;
-                            width: 140px;
+                         .lamalama-preview-images img,
+                         .lamalama-preview-images video {
+                            height: 160px;
+                            width: auto;
                             object-fit: cover;
                             background: #0a0a0a;
                             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                                 filter 0.5s ease;
                         }
 
-                        .lamalama-item:hover .lamalama-preview-images img {
+                        .lamalama-item:hover .lamalama-preview-images img,
+                        .lamalama-item:hover .lamalama-preview-images video {
                             transform: scale(1.02);
                         }
 
@@ -2128,16 +2130,31 @@
                                 opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
                         }
 
-                        .lamalama-expanded-images img {
-                            height: 320px;
-                            flex: 1;
-                            min-width: 200px;
+                        .lamalama-expanded-images img,
+                        .lamalama-expanded-images video {
+                            height: 400px;
+                            width: auto;
                             object-fit: cover;
                             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                         }
 
-                        .lamalama-expanded-images img:hover {
+                        .lamalama-expanded-images img:hover,
+                        .lamalama-expanded-images video:hover {
                             transform: scale(1.015);
+                        }
+
+                        /* Asymmetric sizing aspect-ratio helper classes */
+                        .lama-aspect-16-9 {
+                            aspect-ratio: 16 / 9 !important;
+                        }
+                        .lama-aspect-3-4 {
+                            aspect-ratio: 3 / 4 !important;
+                        }
+                        .lama-aspect-1-1 {
+                            aspect-ratio: 1 / 1 !important;
+                        }
+                        .lama-aspect-4-3 {
+                            aspect-ratio: 4 / 3 !important;
                         }
 
                         /* ══ OPEN STATE ══ */
@@ -2179,112 +2196,127 @@
                             }
                         }
 
-                        /* ══ RESPONSIVE ══ */
-                        @media (max-width: 1200px) {
-                            .lamalama-item {
-                                padding: 40px 40px;
-                            }
+                         /* ══ RESPONSIVE ══ */
+                         @media (max-width: 1200px) {
+                             .lamalama-item {
+                                 padding: 40px 40px;
+                             }
 
-                            .lamalama-preview-images {
-                                margin-right: -40px;
-                            }
+                             .lamalama-preview-images {
+                                 margin-right: -40px;
+                             }
 
-                            .lamalama-preview-images img {
-                                height: 130px;
-                                width: 150px;
-                            }
-                        }
+                             .lamalama-preview-images img,
+                             .lamalama-preview-images video {
+                                 height: 140px;
+                                 width: auto !important;
+                             }
+                         }
 
-                        @media (max-width: 900px) {
-                            .lamalama-item {
-                                padding: 30px 24px;
-                            }
+                         @media (max-width: 900px) {
+                             .lamalama-item {
+                                 padding: 30px 24px;
+                             }
 
-                            .lamalama-top-bar {
-                                flex-direction: column;
-                                gap: 20px;
-                                align-items: flex-start;
-                                min-height: auto;
-                            }
+                             .lamalama-top-bar {
+                                 flex-direction: column;
+                                 gap: 20px;
+                                 align-items: flex-start;
+                                 min-height: auto;
+                             }
 
-                            .lamalama-col-left,
-                            .lamalama-col-center,
-                            .lamalama-col-right {
-                                width: 100%;
-                            }
+                             .lamalama-col-left,
+                             .lamalama-col-center,
+                             .lamalama-col-right {
+                                 width: 100%;
+                             }
 
-                            .lamalama-col-center {
-                                text-align: left;
-                                order: -1;
-                            }
+                             .lamalama-col-center {
+                                 text-align: left;
+                                 order: -1;
+                             }
 
-                            .lamalama-col-right {
-                                justify-content: flex-start;
-                                overflow-x: auto;
-                                scrollbar-width: none;
-                                -ms-overflow-style: none;
-                            }
+                             .lamalama-col-right {
+                                 justify-content: flex-start;
+                                 overflow-x: auto;
+                                 scrollbar-width: none;
+                                 -ms-overflow-style: none;
+                             }
 
-                            .lamalama-col-right::-webkit-scrollbar {
-                                display: none;
-                            }
+                             .lamalama-col-right::-webkit-scrollbar {
+                                 display: none;
+                             }
 
-                            .lamalama-preview-images {
-                                margin-right: 0;
-                            }
+                             .lamalama-preview-images {
+                                 margin-right: 0;
+                             }
 
-                            .lamalama-preview-images img {
-                                height: 110px;
-                                width: 130px;
-                            }
+                             .lamalama-preview-images img,
+                             .lamalama-preview-images video {
+                                 height: 110px;
+                                 width: auto !important;
+                             }
 
-                            .lamalama-title {
-                                font-size: 17px;
-                            }
+                             .lamalama-title {
+                                 font-size: 17px;
+                             }
 
-                            .lamalama-expanded-images {
-                                flex-direction: column;
-                            }
+                             .lamalama-expanded-images {
+                                 flex-direction: row;
+                                 overflow-x: auto;
+                                 scrollbar-width: none;
+                                 -ms-overflow-style: none;
+                             }
 
-                            .lamalama-expanded-images img {
-                                height: 220px;
-                                min-width: 100%;
-                            }
+                             .lamalama-expanded-images::-webkit-scrollbar {
+                                 display: none;
+                             }
 
-                            .lamalama-toggle-label {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                        }
+                             .lamalama-expanded-images img,
+                             .lamalama-expanded-images video {
+                                 height: 220px;
+                                 width: auto !important;
+                                 min-width: auto;
+                             }
 
-                        @media (max-width: 480px) {
-                            .lamalama-item {
-                                padding: 24px 16px;
-                            }
+                             .lamalama-toggle-label {
+                                 opacity: 1;
+                                 transform: translateY(0);
+                             }
+                         }
 
-                            .lamalama-title-wrap {
-                                flex-direction: column;
-                                align-items: flex-start;
-                                gap: 12px;
-                            }
+                         @media (max-width: 480px) {
+                             .lamalama-item {
+                                 padding: 24px 16px;
+                             }
 
-                            .lamalama-title {
-                                font-size: 16px;
-                            }
+                             .lamalama-title-wrap {
+                                 flex-direction: column;
+                                 align-items: flex-start;
+                                 gap: 12px;
+                             }
 
-                            .lamalama-preview-images img {
-                                height: 90px;
-                                width: 110px;
-                            }
+                             .lamalama-title {
+                                 font-size: 16px;
+                             }
 
-                            .lamalama-expanded-images img {
-                                height: 180px;
-                            }
+                             .lamalama-preview-images img,
+                             .lamalama-preview-images video {
+                                 height: 90px;
+                                 width: auto !important;
+                             }
 
-                            .lamalama-links {
-                                flex-direction: column;
-                            }
-                        }
+                             .lamalama-expanded-images img,
+                             .lamalama-expanded-images video {
+                                 height: 160px;
+                                 width: auto !important;
+                                 min-width: auto;
+                             }
+
+                             .lamalama-links {
+                                 flex-direction: column;
+                             }
+                         }
                     </style>
                     <div class="lamalama-projects">
                         <ul class="lamalama-list">
@@ -2314,10 +2346,10 @@
                                         </div>
                                         <div class="lamalama-col-right">
                                             <div class="lamalama-preview-images">
-                                                <img src="net_scan_picture.png" alt="NET SCAN" />
-                                                <img src="net_scan_picture.png" style="filter: grayscale(100%);"
+                                                <img src="net_scan_picture.png" class="lama-aspect-16-9" alt="NET SCAN" />
+                                                <img src="net_scan_picture.png" class="lama-aspect-3-4" style="filter: grayscale(100%);"
                                                     alt="NET SCAN" />
-                                                <img src="net_scan_picture.png" style="filter: sepia(100%);"
+                                                <img src="net_scan_picture.png" class="lama-aspect-16-9" style="filter: sepia(100%);"
                                                     alt="NET SCAN" />
                                             </div>
                                             <div class="lamalama-desc-text">
@@ -2338,10 +2370,10 @@
                                         </div>
                                     </div>
                                     <div class="lamalama-expanded-images">
-                                        <img src="net_scan_picture.png" alt="NET SCAN" />
-                                        <img src="net_scan_picture.png" style="filter: grayscale(100%);"
+                                        <img src="net_scan_picture.png" class="lama-aspect-16-9" alt="NET SCAN" />
+                                        <img src="net_scan_picture.png" class="lama-aspect-3-4" style="filter: grayscale(100%);"
                                             alt="NET SCAN" />
-                                        <img src="net_scan_picture.png" style="filter: sepia(100%);" alt="NET SCAN" />
+                                        <img src="net_scan_picture.png" class="lama-aspect-16-9" style="filter: sepia(100%);" alt="NET SCAN" />
                                     </div>
                                 </div>
                             </li>
@@ -2369,10 +2401,12 @@
                                         </div>
                                         <div class="lamalama-col-right">
                                             <div class="lamalama-preview-images">
-                                                <img src="blue_nexxus.png" alt="BlueNexus" />
-                                                <img src="blue_nexxus.png" style="filter: grayscale(100%);"
+                                                <video class="lama-aspect-16-9" autoplay loop muted playsinline>
+                                                    <source src="bluenexus.mp4.mp4" type="video/mp4">
+                                                </video>
+                                                <img src="blue_nexxus.png" class="lama-aspect-1-1" style="filter: grayscale(100%);"
                                                     alt="BlueNexus" />
-                                                <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);"
+                                                <img src="blue_nexxus.png" class="lama-aspect-3-4" style="filter: hue-rotate(90deg);"
                                                     alt="BlueNexus" />
                                             </div>
                                             <div class="lamalama-desc-text">
@@ -2391,9 +2425,11 @@
                                         </div>
                                     </div>
                                     <div class="lamalama-expanded-images">
-                                        <img src="blue_nexxus.png" alt="BlueNexus" />
-                                        <img src="blue_nexxus.png" style="filter: grayscale(100%);" alt="BlueNexus" />
-                                        <img src="blue_nexxus.png" style="filter: hue-rotate(90deg);" alt="BlueNexus" />
+                                        <video class="lama-aspect-16-9" autoplay loop muted playsinline>
+                                            <source src="bluenexus.mp4.mp4" type="video/mp4">
+                                        </video>
+                                        <img src="blue_nexxus.png" class="lama-aspect-1-1" style="filter: grayscale(100%);" alt="BlueNexus" />
+                                        <img src="blue_nexxus.png" class="lama-aspect-3-4" style="filter: hue-rotate(90deg);" alt="BlueNexus" />
                                     </div>
                                 </div>
                             </li>
@@ -2421,11 +2457,11 @@
                                         </div>
                                         <div class="lamalama-col-right">
                                             <div class="lamalama-preview-images">
-                                                <img src="supply-chain.jpg"
+                                                <img src="supply-chain.jpg" class="lama-aspect-4-3"
                                                     alt="Supply Chain Analyzer" />
-                                                <img src="supply-chain.jpg"
+                                                <img src="supply-chain.jpg" class="lama-aspect-1-1"
                                                     style="filter: grayscale(100%);" alt="Supply Chain Analyzer" />
-                                                <img src="supply-chain.jpg"
+                                                <img src="supply-chain.jpg" class="lama-aspect-1-1"
                                                     style="filter: invert(100%);" alt="Supply Chain Analyzer" />
                                             </div>
                                             <div class="lamalama-desc-text">
@@ -2444,11 +2480,11 @@
                                         </div>
                                     </div>
                                     <div class="lamalama-expanded-images">
-                                        <img src="supply-chain.jpg"
+                                        <img src="supply-chain.jpg" class="lama-aspect-4-3"
                                             alt="Supply Chain Analyzer" />
-                                        <img src="supply-chain.jpg"
+                                        <img src="supply-chain.jpg" class="lama-aspect-1-1"
                                             style="filter: grayscale(100%);" alt="Supply Chain Analyzer" />
-                                        <img src="supply-chain.jpg"
+                                        <img src="supply-chain.jpg" class="lama-aspect-1-1"
                                             style="filter: invert(100%);" alt="Supply Chain Analyzer" />
                                     </div>
                                 </div>
@@ -2477,11 +2513,11 @@
                                         </div>
                                         <div class="lamalama-col-right">
                                             <div class="lamalama-preview-images">
-                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" class="lama-aspect-3-4"
                                                     alt="Aesthetic Engine" />
-                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" class="lama-aspect-16-9"
                                                     style="filter: grayscale(100%);" alt="Aesthetic Engine" />
-                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" class="lama-aspect-1-1"
                                                     style="filter: sepia(100%);" alt="Aesthetic Engine" />
                                             </div>
                                             <div class="lamalama-desc-text">
@@ -2501,11 +2537,11 @@
                                         </div>
                                     </div>
                                     <div class="lamalama-expanded-images">
-                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" class="lama-aspect-3-4"
                                             alt="Aesthetic Engine" />
-                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" class="lama-aspect-16-9"
                                             style="filter: grayscale(100%);" alt="Aesthetic Engine" />
-                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop"
+                                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1024&auto=format&fit=crop" class="lama-aspect-1-1"
                                             style="filter: sepia(100%);" alt="Aesthetic Engine" />
                                     </div>
                                 </div>
@@ -2534,10 +2570,10 @@
                                         </div>
                                         <div class="lamalama-col-right">
                                             <div class="lamalama-preview-images">
-                                                <img src="cropsense.png" alt="CropSense" />
-                                                <img src="cropsense.png" style="filter: grayscale(100%);"
+                                                <img src="cropsense.png" class="lama-aspect-16-9" alt="CropSense" />
+                                                <img src="cropsense.png" class="lama-aspect-1-1" style="filter: grayscale(100%);"
                                                     alt="CropSense" />
-                                                <img src="cropsense.png" style="filter: hue-rotate(45deg);"
+                                                <img src="cropsense.png" class="lama-aspect-3-4" style="filter: hue-rotate(45deg);"
                                                     alt="CropSense" />
                                             </div>
                                             <div class="lamalama-desc-text">
@@ -2558,9 +2594,55 @@
                                         </div>
                                     </div>
                                     <div class="lamalama-expanded-images">
-                                        <img src="cropsense.png" alt="CropSense" />
-                                        <img src="cropsense.png" style="filter: grayscale(100%);" alt="CropSense" />
-                                        <img src="cropsense.png" style="filter: hue-rotate(45deg);" alt="CropSense" />
+                                        <img src="cropsense.png" class="lama-aspect-16-9" alt="CropSense" />
+                                        <img src="cropsense.png" class="lama-aspect-1-1" style="filter: grayscale(100%);" alt="CropSense" />
+                                        <img src="cropsense.png" class="lama-aspect-3-4" style="filter: hue-rotate(45deg);" alt="CropSense" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Project 6 -->
+                            <li>
+                                <div class="lamalama-item" onclick="toggleLamalamaRow(this)">
+                                    <div class="lamalama-top-bar">
+                                        <div class="lamalama-col-left">
+                                            <div class="lamalama-title-wrap">
+                                                <h2 class="lamalama-title">Shoe Store</h2>
+                                                <div class="lamalama-tags">
+                                                    <span class="lamalama-tag">E-Commerce</span>
+                                                    <span class="lamalama-tag">AI BOT</span>
+                                                </div>
+                                            </div>
+                                            <div class="lamalama-links">
+                                                <a href="https://github.com/Shiva0454/Shoe-store" target="_blank"
+                                                    class="lamalama-btn">VIEW CASE &nearr;</a>
+                                                <a href="https://shoe-store-smoky.vercel.app/" target="_blank"
+                                                    class="lamalama-btn">VISIT WEBSITE &nearr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="lamalama-col-center">
+                                            <span class="lamalama-toggle-label">WORK</span><span
+                                                class="lamalama-toggle-text">( + )</span>
+                                        </div>
+                                        <div class="lamalama-col-right">
+                                            <div class="lamalama-preview-images">
+                                                <img src="shoe_store_1.png" class="lama-aspect-4-3" alt="ANIVA Shoe Store" />
+                                                <img src="shoe_store_2.png" class="lama-aspect-3-4" alt="Aniva Shoe Bot" />
+                                                <img src="shoe_store_3.png" class="lama-aspect-16-9" alt="ANIVA E-Commerce Cart" />
+                                            </div>
+                                            <div class="lamalama-desc-text">
+                                                <ul>
+                                                    <li>Designed a premium dark-themed shoe e-commerce store ("ANIVA") featuring high-end Nike sneakers with immersive animations and layout.</li>
+                                                    <li>Integrated "Aniva Shoe Bot" — a dedicated AI assistant powered by LLM orchestration to provide sneaker fitting recommendations, styling advice, and release info.</li>
+                                                    <li>Built a responsive UI checkout flow with dynamic cart management, interactive size selectors, and clean state transitions.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lamalama-expanded-images">
+                                        <img src="shoe_store_1.png" class="lama-aspect-4-3" alt="ANIVA Shoe Store" />
+                                        <img src="shoe_store_2.png" class="lama-aspect-3-4" alt="Aniva Shoe Bot" />
+                                        <img src="shoe_store_3.png" class="lama-aspect-16-9" alt="ANIVA E-Commerce Cart" />
                                     </div>
                                 </div>
                             </li>
