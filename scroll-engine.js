@@ -58,6 +58,11 @@
     window.addEventListener('load', function () {
         if (typeof ScrollTrigger !== 'undefined') {
             ScrollTrigger.refresh();
+            // Second delayed refresh — ensures CSS transitions (opacity/transform reveals)
+            // have completed and Lenis has accurate scroll height calculations
+            setTimeout(function () {
+                ScrollTrigger.refresh();
+            }, 1500);
         }
     });
 

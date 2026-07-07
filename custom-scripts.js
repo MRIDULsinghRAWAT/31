@@ -163,12 +163,12 @@ window.addEventListener('DOMContentLoaded', function () {
             if (bgImg) {
                 gsap.to(bgImg, {
                     scale: 1.0,
-                    y: 60,
+                    y: 40,
                     ease: 'none',
                     scrollTrigger: {
                         trigger: heroBlock,
                         start: 'top top',
-                        end: '+=600',
+                        end: '+=350',
                         scrub: true
                     }
                 });
@@ -180,7 +180,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     scrollTrigger: {
                         trigger: heroBlock,
                         start: 'top top',
-                        end: '+=600',
+                        end: '+=350',
                         scrub: true
                     }
                 });
@@ -188,12 +188,12 @@ window.addEventListener('DOMContentLoaded', function () {
             if (content) {
                 gsap.to(content, {
                     opacity: 0,
-                    y: 40,
+                    y: 30,
                     ease: 'none',
                     scrollTrigger: {
                         trigger: heroBlock,
                         start: 'top top',
-                        end: '+=240',
+                        end: '+=180',
                         scrub: true
                     }
                 });
