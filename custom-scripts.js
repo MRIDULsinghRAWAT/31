@@ -1599,3 +1599,39 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 })();
 
+
+// === LAZY VIDEO LOADING AND AUTO-PLAY/PAUSE ON VIEWPORT INTERSECTION ===
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        if (!('IntersectionObserver' in window)) return;
+
+        const videosToLazyLoad = document.querySelectorAll('.lamalama-preview-images video, .visual-diary-video');
+        
+        const videoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    // Trigger load if it hasn't been loaded yet
+                    if (video.getAttribute('preload') === 'none') {
+                        video.setAttribute('preload', 'auto');
+                    }
+                    // Start playback
+                    video.play().catch(function (err) {
+                        // Handle autoplay restriction silently
+                    });
+                } else {
+                    // Pause playback when out of view
+                    video.pause();
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '150px 0px 150px 0px', // start loading slightly before entering viewport
+            threshold: 0.05
+        });
+
+        videosToLazyLoad.forEach(function (video) {
+            videoObserver.observe(video);
+        });
+    });
+})();
