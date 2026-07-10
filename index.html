@@ -430,6 +430,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Dancing+Script:wght@700&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" 
+        rel="stylesheet">
 
     <style>
         /* ===== BACKGROUND SECTION: Experience & Skills ===== */
@@ -936,6 +939,320 @@
             .project-description-box.open {
                 padding: 15px 20px !important;
                 margin: 10px 0 !important;
+            }
+        }
+
+        /* Redesigned Experience Section (Editorial 2-Column Design) */
+        .modern-experience {
+            background-color: #f5f2eb !important;
+            color: #1a1a1a !important;
+            border-radius: 24px !important;
+            padding: 80px 80px !important;
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 60px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            text-align: left !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+            border: 1px solid rgba(26, 26, 26, 0.05) !important;
+            margin-bottom: 20px !important;
+        }
+
+        .modern-experience__left {
+            flex: 0 0 20% !important;
+        }
+
+        .modern-experience__label {
+            font-family: 'PP Neue Montreal', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            color: #3b52d4 !important; /* Editorial Blue label */
+            display: inline-block !important;
+        }
+
+        .modern-experience__right {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .modern-experience__title {
+            font-family: 'Cormorant Garamond', 'Playfair Display', 'EB Garamond', Georgia, serif !important;
+            font-size: clamp(32px, 3.8vw, 54px) !important;
+            font-weight: 500 !important;
+            color: #1a1a1a !important;
+            margin: 0 0 30px 0 !important;
+            line-height: 1.15 !important;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1) !important;
+            padding-bottom: 40px !important;
+        }
+
+        .modern-experience__list {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 35px !important;
+        }
+
+        .modern-experience__item {
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08) !important;
+            padding-bottom: 35px !important;
+        }
+
+        .modern-experience__item:last-child {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+        }
+
+        .modern-experience__item-header {
+            display: flex !important;
+            align-items: baseline !important;
+            gap: 12px !important;
+            margin-bottom: 10px !important;
+        }
+
+        .modern-experience__company {
+            font-family: 'PP Neue Montreal', sans-serif !important;
+            font-size: 19px !important;
+            font-weight: 700 !important;
+            color: #1a1a1a !important;
+        }
+
+        .modern-experience__date {
+            font-family: 'PP Neue Montreal', sans-serif !important;
+            font-size: 15px !important;
+            color: #7a7a7a !important;
+        }
+
+        .modern-experience__desc {
+            font-family: 'PP Neue Montreal', sans-serif !important;
+            font-size: 15.5px !important;
+            line-height: 1.55 !important;
+            color: #4a4a4a !important;
+            margin: 0 !important;
+        }
+
+        @media (max-width: 900px) {
+            .modern-experience {
+                flex-direction: column !important;
+                padding: 40px 30px !important;
+                gap: 30px !important;
+            }
+            
+            .modern-experience__left {
+                flex: none !important;
+            }
+
+            .modern-experience__title {
+                padding-bottom: 25px !important;
+                margin-bottom: 20px !important;
+            }
+            .modern-experience__item-header {
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+            }
+        }
+
+    /* Danish Khan Style Redesign for the Background Section */
+    #background-section {
+        background-color: #e6e5cf !important;
+        background-image: url("https://digitalists.at/wp-content/themes/digitalists/bg-pattern.svg") !important;
+        background-repeat: repeat !important;
+        color: #1f2430 !important;
+        padding: 100px 0 !important;
+        position: relative !important;
+        overflow: clip !important;
+    }
+
+    /* Hide background dither canvas and original dark headers */
+    #background-section #background-dither-canvas {
+        display: none !important;
+    }
+
+    #background-section .background-section__header {
+        display: none !important;
+    }
+
+    .danish-container {
+        max-width: 1080px !important;
+        width: min(calc(100% - 40px), 1080px) !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .danish-row {
+        padding: 64px 0 !important;
+        border-top: 1px solid rgba(31, 36, 48, 0.08) !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 0.5fr) minmax(0, 1.5fr) !important;
+        gap: 36px !important;
+    }
+
+    .danish-row:first-of-type {
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+
+    .danish-row:last-of-type {
+        padding-bottom: 0 !important;
+    }
+
+    .danish-label {
+        color: #3057d5 !important; /* Danish Khan Blue Accent */
+        font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+        font-size: 0.82rem !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        font-weight: 600 !important;
+        padding-top: 8px !important;
+        text-align: left !important;
+    }
+
+    .danish-content {
+        text-align: left !important;
+    }
+
+    .danish-content h2 {
+        font-family: 'Fraunces', Georgia, serif !important;
+        font-size: clamp(1.8rem, 4vw, 3rem) !important;
+        letter-spacing: -0.04em !important;
+        line-height: 0.98 !important;
+        margin: 0 0 24px 0 !important;
+        color: #181d27 !important;
+        font-weight: 600 !important;
+    }
+
+    .danish-roles {
+        display: grid !important;
+        gap: 22px !important;
+        width: 100% !important;
+    }
+
+    .danish-role {
+        padding-top: 18px !important;
+        border-top: 1px solid rgba(31, 36, 48, 0.12) !important;
+        width: 100% !important;
+    }
+
+    .danish-role:first-child {
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+
+    .danish-role-title {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: baseline !important;
+        flex-wrap: wrap !important;
+        gap: 8px 16px !important;
+        margin-bottom: 6px !important;
+        font-size: 1rem !important;
+    }
+
+    .danish-role-title strong {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+        font-weight: 600 !important;
+        color: #181d27 !important;
+    }
+
+    .danish-role-title span {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+        color: #5e6778 !important; /* Muted date range */
+        font-size: 0.95rem !important;
+    }
+
+    .danish-role p {
+        margin: 0 !important;
+        color: #5e6778 !important;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Light-theme overrides for the LeetCode heatmap */
+    .danish-role .lc-heatmap {
+        background: rgba(255, 255, 255, 0.5) !important;
+        border: 1px solid rgba(31, 36, 48, 0.12) !important;
+        color: #1f2430 !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+        margin-top: 15px !important;
+    }
+
+    .danish-role .lc-heatmap__title {
+        color: rgba(31, 36, 48, 0.75) !important;
+    }
+
+    .danish-role .lc-heatmap__title strong {
+        color: #1f2430 !important;
+    }
+
+    .danish-role .lc-heatmap__stats {
+        color: #5e6778 !important;
+    }
+
+    .danish-role .lc-heatmap__stats span strong {
+        color: #1f2430 !important;
+    }
+
+    .danish-role .lc-heatmap__months {
+        color: rgba(94, 103, 120, 0.8) !important;
+    }
+
+    .danish-role .lc-heatmap__link a {
+        color: #5e6778 !important;
+    }
+
+    .danish-role .lc-heatmap__legend span {
+        color: #5e6778 !important;
+    }
+
+        .danish-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: baseline !important;
+            margin-bottom: 20px !important;
+            padding-bottom: 25px !important;
+            border-bottom: 1px solid rgba(31, 36, 48, 0.08) !important;
+            width: 100% !important;
+        }
+
+        .danish-header__title {
+            font-family: 'Fraunces', Georgia, serif !important;
+            font-size: clamp(2rem, 3.5vw, 3.5rem) !important;
+            color: #181d27 !important;
+            margin: 0 !important;
+            font-weight: 600 !important;
+        }
+
+        .danish-header__subtitle {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+            font-size: 0.85rem !important;
+            color: #5e6778 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            font-weight: 500 !important;
+        }
+
+        @media (max-width: 860px) {
+            .danish-header {
+                flex-direction: column !important;
+                gap: 8px !important;
+                margin-bottom: 10px !important;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .danish-row {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                padding: 48px 0 !important;
+            }
+            .danish-label {
+                padding-top: 0 !important;
             }
         }
     </style>
@@ -2705,8 +3022,11 @@
                     }
                 </script>
 
-                <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
-                <div class="background-section block" id="background-section" data-title="" data-menu="Background">
+                <div class="wp-block-group">
+                    <div
+                        class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+                        <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
+                        <div class="background-section block" id="background-section" data-title="" data-menu="Background">
                     <!-- Interactive Fluid Background Canvas -->
                     <canvas id="background-dither-canvas" class="dither-canvas"></canvas>
 
@@ -2729,286 +3049,119 @@
                         <span>Experience & Technical Skills</span>
                     </div>
 
-                    <div class="background-grid">
-                        <!-- ── Experience Module ── -->
-                        <div class="bg-module"
-                            style="display: flex !important; flex-direction: column !important; gap: 40px !important;">
-                            <div>
-                                <div class="bg-module__title bg-reveal">Experience</div>
-                                <div class="experience-cards-container">
-                                    <div class="experience-card bg-reveal bg-reveal-delay-1">
-                                        <div class="exp-card__terminal-header">
-                                            <span class="exp-card__log-type">[ LOG_TYPE: EXPERIENCE_01 ]</span>
-                                            <span class="exp-card__status">[ STATUS: ACTIVE ]</span>
-                                        </div>
-                                        <div class="exp-card__top">
-                                            <div class="exp-card__role">01 // Web Developer Intern</div>
-                                        </div>
-                                        <div class="exp-card__meta-line">
-                                            <span class="exp-card__meta-label">Entity:</span>
-                                            <span class="exp-card__meta-val">
-                                                <img loading="lazy" src="logo_company.jpg" alt="Ultimez Technology"
-                                                    style="width: 16px; height: 16px; border-radius: 3px; object-fit: cover; vertical-align: middle; margin-right: 6px;" />
-                                                Ultimez Technology
-                                            </span>
-                                            <span class="exp-card__meta-bracket">[</span>
-                                            <span class="exp-card__meta-label">LOCATION:</span>
-                                            <span class="exp-card__meta-val">REMOTE</span>
-                                            <span class="exp-card__meta-bracket">]</span>
-                                        </div>
-                                        <div class="exp-card__meta-line">
-                                            <span class="exp-card__meta-label">Epoch:</span>
-                                            <span class="exp-card__meta-val">JUN 2026 &ndash; JUL 2026</span>
-                                        </div>
-                                        <div class="exp-card__meta-line">
-                                            <span class="exp-card__meta-label">Operational Vector:</span>
-                                            <span class="exp-card__meta-val">Edge AI &amp; Interface Optimization</span>
-                                        </div>
-                                        <div class="exp-card__payload">
-                                            <div class="exp-card__payload-title">Execution Payload:</div>
-                                            <ul class="exp-card__bullets">
-                                                <li>Deployed and optimized responsive web interfaces for the On-Device
-                                                    Aesthetic Intelligence Engine, bridging the gap between
-                                                    high-performance
-                                                    edge AI (MobileNetV2 + TFLite) and clean user interaction.</li>
-                                                <li>Collaborated within a remote sprint environment, adhering to strict
-                                                    enterprise protocols and maintaining absolute confidentiality for
-                                                    next-gen project pipelines.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <div class="danish-container">
+                        <!-- ── Section Header ── -->
+                        <div class="danish-header bg-reveal">
+                            <h1 class="danish-header__title">Background</h1>
+                            <span class="danish-header__subtitle">Experience &amp; Technical Skills</span>
+                        </div>
 
-                                    <div class="experience-card bg-reveal bg-reveal-delay-1"
-                                        style="margin-top: 0 !important;">
-                                        <div class="exp-card__terminal-header">
-                                            <span class="exp-card__log-type">[ LOG_TYPE: EXPERIENCE_02 ]</span>
-                                            <span class="exp-card__status">[ STATUS: EXECUTED ]</span>
+                        <!-- ── Experience Row ── -->
+                        <div class="danish-row bg-reveal">
+                            <div class="danish-label">Experience</div>
+                            <div class="danish-content">
+                                <h2>Built across scale and complexity.</h2>
+                                <div class="danish-roles">
+                                    <div class="danish-role">
+                                        <div class="danish-role-title">
+                                            <strong>Ultimez Technology</strong>
+                                            <span>Jun 2026 &ndash; Jul 2026</span>
                                         </div>
-                                        <div class="exp-card__top">
-                                            <div class="exp-card__role">02 // Teaching Outreach Intern</div>
+                                        <p>Web Developer Intern &mdash; Deployed and optimized responsive web interfaces for the On-Device Aesthetic Intelligence Engine (MobileNetV2 + TFLite) and collaborated in remote sprint pipelines.</p>
+                                    </div>
+                                    <div class="danish-role">
+                                        <div class="danish-role-title">
+                                            <strong>Aakriti Foundation Trust</strong>
+                                            <span>Jun 2024 &ndash; Jul 2024</span>
                                         </div>
-                                        <div class="exp-card__meta-line">
-                                            <span class="exp-card__meta-label">Entity:</span>
-                                            <span class="exp-card__meta-val">Aakriti Foundation Trust</span>
-                                            <span class="exp-card__meta-bracket">[</span>
-                                            <span class="exp-card__meta-label">LOCATION:</span>
-                                            <span class="exp-card__meta-val">DEHRADUN, IN</span>
-                                            <span class="exp-card__meta-bracket">]</span>
-                                        </div>
-                                        <div class="exp-card__meta-line">
-                                            <span class="exp-card__meta-label">Epoch:</span>
-                                            <span class="exp-card__meta-val">JUN 2024 &ndash; JUL 2024</span>
-                                        </div>
-                                        <div class="exp-card__meta-line">
-                                            <span class="exp-card__meta-label">Operational Vector:</span>
-                                            <span class="exp-card__meta-val">Community Impact &amp; Logistics</span>
-                                        </div>
-                                        <div class="exp-card__payload">
-                                            <div class="exp-card__payload-title">Execution Payload:</div>
-                                            <ul class="exp-card__bullets">
-                                                <li>Engineered interactive learning modules to elevate classroom
-                                                    engagement
-                                                    and baseline literacy for 50+ students.</li>
-                                                <li>Managed end-to-end logistics and resource allocation for 3+
-                                                    large-scale
-                                                    community outreach and food distribution drives.</li>
-                                            </ul>
-                                        </div>
+                                        <p>Teaching Outreach Intern &mdash; Engineered interactive learning modules for 50+ students and managed logistics for large-scale community outreach drives.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ── Skills Module: Floating Tag Cloud ── -->
-                        <div class="bg-module" style="display: flex !important; flex-direction: column !important;">
-                            <div class="bg-module__title bg-reveal">Technical Skills</div>
-
-                            <div class="skills-tagcloud bg-reveal bg-reveal-delay-1" id="skills-tagcloud">
-                                <canvas class="skills-tagcloud__network"></canvas>
-                                <div class="skills-tagcloud__field"></div>
+                        <!-- ── Technical Skills Row ── -->
+                        <div class="danish-row bg-reveal">
+                            <div class="danish-label">Technical Skills</div>
+                            <div class="danish-content">
+                                <h2>Interactive skill matrix.</h2>
+                                <!-- Keep exact same technical skills tag cloud -->
+                                <div class="skills-tagcloud" id="skills-tagcloud" style="margin-top: 10px;">
+                                    <canvas class="skills-tagcloud__network"></canvas>
+                                    <div class="skills-tagcloud__field"></div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- ── Achievements Module ── -->
-                        <div class="bg-module"
-                            style="display: flex !important; flex-direction: column !important; gap: 40px !important;">
-                            <div>
-                                <div class="bg-module__title bg-reveal">Achievements</div>
-
-                                <div class="experience-card bg-reveal bg-reveal-delay-2">
-                                    <ul class="achievements-list"
-                                        style="margin: 0 !important; padding: 0 !important; list-style: none !important;">
-                                        <li
-                                            style="margin-bottom: 24px !important; padding-left: 20px !important; position: relative !important;">
-                                            <span
-                                                style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
-                                            <strong
-                                                style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">LeetCode</strong>
-                                            <span
-                                                style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Solved
-                                                200+ problems in Data Structures and Algorithms.</span>
-
-                                            <!-- LeetCode-Style Heatmap -->
-                                            <style>
-                                                .lc-heatmap-wrapper::-webkit-scrollbar {
-                                                    display: none !important;
-                                                }
-
-                                                .lc-heatmap {
-                                                    background: #1a1a2e;
-                                                    border-radius: 12px;
-                                                    padding: 20px 24px 16px;
-                                                    margin-top: 15px;
-                                                    border: 1px solid rgba(255, 255, 255, 0.06);
-                                                }
-
-                                                .lc-heatmap__header {
-                                                    display: flex;
-                                                    justify-content: space-between;
-                                                    align-items: center;
-                                                    margin-bottom: 16px;
-                                                    flex-wrap: wrap;
-                                                    gap: 8px;
-                                                }
-
-                                                .lc-heatmap__title {
-                                                    font-family: 'PP Neue Montreal', sans-serif;
-                                                    font-size: 14px;
-                                                    color: #eff1f6bf;
-                                                }
-
-                                                .lc-heatmap__title strong {
-                                                    color: #eff1f6;
-                                                    font-size: 16px;
-                                                    font-weight: 700;
-                                                }
-
-                                                .lc-heatmap__stats {
-                                                    display: flex;
-                                                    gap: 20px;
-                                                    font-family: 'PP Fraktion Mono', monospace;
-                                                    font-size: 11px;
-                                                    color: rgba(239, 241, 246, 0.5);
-                                                }
-
-                                                .lc-heatmap__stats span strong {
-                                                    color: rgba(239, 241, 246, 0.8);
-                                                }
-
-                                                .lc-heatmap__months {
-                                                    display: flex;
-                                                    font-family: 'PP Fraktion Mono', monospace;
-                                                    font-size: 10px;
-                                                    color: rgba(239, 241, 246, 0.4);
-                                                    margin-top: 6px;
-                                                }
-
-                                                .lc-heatmap__footer {
-                                                    display: flex;
-                                                    justify-content: space-between;
-                                                    align-items: center;
-                                                    margin-top: 10px;
-                                                }
-
-                                                .lc-heatmap__legend {
-                                                    display: flex;
-                                                    align-items: center;
-                                                    gap: 4px;
-                                                    font-family: 'PP Fraktion Mono', monospace;
-                                                    font-size: 10px;
-                                                    color: rgba(239, 241, 246, 0.4);
-                                                }
-
-                                                .lc-heatmap__link {
-                                                    font-family: 'PP Fraktion Mono', monospace;
-                                                    font-size: 10px;
-                                                }
-
-                                                .lc-heatmap__link a {
-                                                    color: rgba(239, 241, 246, 0.4);
-                                                    text-decoration: none;
-                                                    transition: color 0.2s;
-                                                }
-
-                                                .lc-heatmap__link a:hover {
-                                                    color: #ffa116;
-                                                }
-                                            </style>
-                                            <div class="lc-heatmap">
-                                                <div class="lc-heatmap__header">
-                                                    <div class="lc-heatmap__title"><strong>696</strong> submissions in
-                                                        the
-                                                        past one year</div>
-                                                    <div class="lc-heatmap__stats">
-                                                        <span>Total active days: <strong>245</strong></span>
-                                                        <span>Max streak: <strong>146</strong></span>
-                                                    </div>
-                                                </div>
-                                                <div class="lc-heatmap-wrapper"
-                                                    style="overflow-x: auto; width: 100%; scrollbar-width: none; -ms-overflow-style: none;">
-                                                    <div id="leetcode-heatmap-container" style="min-width: 700px;">
-                                                    </div>
-                                                    <div class="lc-heatmap__months" id="leetcode-heatmap-months"></div>
-                                                </div>
-                                                <div class="lc-heatmap__footer">
-                                                    <div class="lc-heatmap__link">
-                                                        <a href="https://leetcode.com/u/Mridul_31/"
-                                                            target="_blank">leetcode.com/u/Mridul_31 ↗</a>
-                                                    </div>
-                                                    <div class="lc-heatmap__legend">
-                                                        <span>Less</span>
-                                                        <div
-                                                            style="width:10px;height:10px;background:#161b22;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
-                                                        </div>
-                                                        <div
-                                                            style="width:10px;height:10px;background:#0e4429;border-radius:2px;">
-                                                        </div>
-                                                        <div
-                                                            style="width:10px;height:10px;background:#006d32;border-radius:2px;">
-                                                        </div>
-                                                        <div
-                                                            style="width:10px;height:10px;background:#26a641;border-radius:2px;">
-                                                        </div>
-                                                        <div
-                                                            style="width:10px;height:10px;background:#39d353;border-radius:2px;">
-                                                        </div>
-                                                        <span>More</span>
-                                                    </div>
+                        <!-- ── Achievements Row ── -->
+                        <div class="danish-row bg-reveal">
+                            <div class="danish-label">Achievements</div>
+                            <div class="danish-content">
+                                <h2>Proven milestones.</h2>
+                                <div class="danish-roles">
+                                    <!-- LeetCode Achievement -->
+                                    <div class="danish-role">
+                                        <div class="danish-role-title">
+                                            <strong>LeetCode</strong>
+                                            <span>200+ Solved</span>
+                                        </div>
+                                        <p>Solved 200+ problems in Data Structures and Algorithms, developing strong logic and optimization skills.</p>
+                                        
+                                        <!-- LeetCode-Style Heatmap -->
+                                        <div class="lc-heatmap">
+                                            <div class="lc-heatmap__header">
+                                                <div class="lc-heatmap__title"><strong>696</strong> submissions in the past one year</div>
+                                                <div class="lc-heatmap__stats">
+                                                    <span>Total active days: <strong>245</strong></span>
+                                                    <span>Max streak: <strong>146</strong></span>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li
-                                            style="margin-bottom: 24px !important; padding-left: 20px !important; position: relative !important;">
-                                            <span
-                                                style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
-                                            <strong
-                                                style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">IBM
-                                                × AWS Hackathon</strong>
-                                            <span
-                                                style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Shortlisted
-                                                among the Top 30 Teams out of 350+ nationwide competitors for innovative
-                                                AI
-                                                application development.</span>
-                                        </li>
-                                        <li
-                                            style="margin-bottom: 0 !important; padding-left: 20px !important; position: relative !important;">
-                                            <span
-                                                style="color: var(--primary-2, #f1e500); position: absolute !important; left: 0 !important; top: 0 !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 14px !important; font-weight: bold !important;">$</span>
-                                            <strong
-                                                style="color: var(--primary-2, #f1e500) !important; font-family: 'PP Fraktion Mono', monospace !important; font-size: 12px !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; display: block !important; margin-bottom: 6px !important;">Smart
-                                                India Hackathon (SIH)</strong>
-                                            <span
-                                                style="color: rgba(230, 229, 207, 0.85) !important; font-family: 'PP Neue Montreal', sans-serif !important; font-size: 14.5px !important; line-height: 1.6 !important; display: block !important;">Recognized
-                                                as a Top 15 Team for delivering high-impact solutions to national-level
-                                                problem statements.</span>
-                                        </li>
-                                    </ul>
+                                            <div class="lc-heatmap-wrapper" style="overflow-x: auto; width: 100%; scrollbar-width: none; -ms-overflow-style: none;">
+                                                <div id="leetcode-heatmap-container" style="min-width: 700px;"></div>
+                                                <div class="lc-heatmap__months" id="leetcode-heatmap-months"></div>
+                                            </div>
+                                            <div class="lc-heatmap__footer">
+                                                <div class="lc-heatmap__link">
+                                                    <a href="https://leetcode.com/u/Mridul_31/" target="_blank">leetcode.com/u/Mridul_31 ↗</a>
+                                                </div>
+                                                <div class="lc-heatmap__legend">
+                                                    <span>Less</span>
+                                                    <div style="width:10px;height:10px;background:#161b22;border-radius:2px;border:1px solid rgba(255,255,255,0.06);"></div>
+                                                    <div style="width:10px;height:10px;background:#0e4429;border-radius:2px;"></div>
+                                                    <div style="width:10px;height:10px;background:#006d32;border-radius:2px;"></div>
+                                                    <div style="width:10px;height:10px;background:#26a641;border-radius:2px;"></div>
+                                                    <div style="width:10px;height:10px;background:#39d353;border-radius:2px;"></div>
+                                                    <span>More</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- IBM × AWS Hackathon -->
+                                    <div class="danish-role">
+                                        <div class="danish-role-title">
+                                            <strong>IBM &times; AWS Hackathon</strong>
+                                            <span>Top 30 Teams</span>
+                                        </div>
+                                        <p>Shortlisted among the Top 30 Teams out of 350+ nationwide competitors for innovative AI application development.</p>
+                                    </div>
+
+                                    <!-- Smart India Hackathon -->
+                                    <div class="danish-role">
+                                        <div class="danish-role-title">
+                                            <strong>Smart India Hackathon (SIH)</strong>
+                                            <span>Top 15 Team</span>
+                                        </div>
+                                        <p>Recognized as a Top 15 Team for delivering high-impact solutions to national-level problem statements.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ===== END BACKGROUND SECTION ===== -->
+            </div>
+        </div>
+        <!-- ===== END BACKGROUND SECTION ===== -->
 
 
                 <div class="wp-block-group">
