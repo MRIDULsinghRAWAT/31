@@ -1635,3 +1635,70 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 })();
+
+// === PAGE TRANSITIONS USING GSAP ===
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        const transitionOverlay = document.querySelector('.page-transition');
+        if (!transitionOverlay) return;
+
+        // 1. Initial Page Load Animation (curtain slides up/away to reveal content)
+        if (transitionOverlay.classList.contains('is-loading')) {
+            gsap.fromTo(transitionOverlay, 
+                { translateY: '0%' }, 
+                { 
+                    translateY: '-100%', 
+                    duration: 0.6, 
+                    ease: 'power3.inOut',
+                    onComplete: () => {
+                        transitionOverlay.classList.remove('is-loading');
+                        // Reset position to bottom for the next transition
+                        gsap.set(transitionOverlay, { translateY: '100%' });
+                    }
+                }
+            );
+        }
+
+        // 2. Intercept Internal Clicks
+        document.body.addEventListener('click', function (e) {
+            // Find closest anchor tag
+            const anchor = e.target.closest('a');
+            if (!anchor) return;
+
+            const href = anchor.getAttribute('href');
+            if (!href) return;
+
+            // Determine if the link is an internal page navigation link
+            // Specifically visuals.html, index.html, or home '/'
+            // Skip hash links, external links, mailto/tel, and target="_blank"
+            const isInternal = (
+                (href.includes('visuals.html') || href.includes('index.html') || href === '/' || href === './') && 
+                !anchor.getAttribute('target') && 
+                !e.ctrlKey && 
+                !e.metaKey
+            );
+
+            if (isInternal) {
+                e.preventDefault();
+                
+                // Set pointer events to intercept all clicks during transition
+                transitionOverlay.style.pointerEvents = 'all';
+
+                // Slide the curtain up to cover the screen
+                gsap.fromTo(transitionOverlay, 
+                    { translateY: '100%' }, 
+                    { 
+                        translateY: '0%', 
+                        duration: 0.6, 
+                        ease: 'power3.inOut',
+                        onComplete: () => {
+                            // Navigate to the target URL
+                            window.location.href = href;
+                        }
+                    }
+                );
+            }
+        });
+    });
+})();
+
