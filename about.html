@@ -1257,10 +1257,22 @@
         }
 
         /* ── Tamaki Yoshida Inspired CV Layout Styles ── */
+        #about-section.about-info-section.about-section.block {
+            background-color: #e6e5cf !important;
+            background-image: url("https://digitalists.at/wp-content/themes/digitalists/bg-pattern.svg") !important;
+            background-repeat: repeat !important;
+            border: 24px solid var(--primary-2) !important;
+            box-sizing: border-box !important;
+            color: #1f2430 !important;
+        }
+
         .cv-wrapper {
-            max-width: 1000px !important;
+            max-width: 800px !important;
             margin: 0 auto !important;
-            padding: 100px 30px 100px !important;
+            padding-top: 100px !important;
+            padding-bottom: 111.11px !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
             position: relative !important;
             z-index: 10 !important;
             box-sizing: border-box !important;
@@ -1272,97 +1284,98 @@
             align-items: center !important;
             margin-bottom: 70px !important;
             padding: 40px 0 !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-bottom: 1px solid rgba(31, 36, 48, 0.12) !important;
         }
 
         .cv-hero-title {
             font-family: 'Cormorant Garamond', Georgia, serif !important;
-            font-size: clamp(60px, 10vw, 120px) !important;
+            font-size: 60px !important;
             font-weight: 300 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.15em !important;
-            color: #ffffff !important;
+            color: #1f2430 !important;
             margin: 0 !important;
             line-height: 1 !important;
             text-align: center !important;
         }
 
+        /* Bio Section Asymmetry (Desktop) */
         .cv-intro {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 20px !important;
-            margin-bottom: 60px !important;
+            margin-left: 406.666px !important;
+            width: 299.438px !important;
+            display: block !important;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            padding-top: 0px !important;
             padding-bottom: 50px !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-bottom: 1px solid rgba(31, 36, 48, 0.12) !important;
         }
 
         .cv-name {
             font-family: 'Cormorant Garamond', Georgia, serif !important;
-            font-size: clamp(32px, 4.5vw, 48px) !important;
+            font-size: 18px !important;
             font-weight: 500 !important;
-            color: #ffffff !important;
-            margin: 0 !important;
-            letter-spacing: 0.02em !important;
+            color: #1f2430 !important;
+            margin: 0 0 2px -1.11px !important;
+            line-height: 20px !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
         }
 
         .cv-role {
             font-family: 'Cormorant Garamond', Georgia, serif !important;
-            font-size: clamp(16px, 2vw, 20px) !important;
-            font-style: italic !important;
-            color: var(--primary-2) !important;
-            margin: 0 !important;
-            letter-spacing: 0.05em !important;
+            font-size: 13.5px !important;
+            font-weight: 400 !important;
+            color: rgba(31, 36, 48, 0.75) !important;
+            margin: 0 0 17.77px 0 !important;
+            line-height: 20px !important;
+            letter-spacing: normal !important;
         }
 
         .cv-bio {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-            font-size: 15.5px !important;
-            line-height: 1.7 !important;
-            color: rgba(255, 255, 255, 0.7) !important;
-            max-width: 740px !important;
-            margin-top: 10px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 17.77px !important;
+            width: 299.438px !important;
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 13px !important;
+            line-height: 21.5px !important;
+            color: rgba(31, 36, 48, 0.8) !important;
+            text-align: start !important;
         }
 
         .cv-bio p {
-            margin: 0 0 16px 0 !important;
-        }
-
-        .cv-bio p:last-child {
-            margin-bottom: 0 !important;
+            margin: 0 !important;
         }
 
         .cv-download {
-            margin-top: 25px !important;
             display: inline-block !important;
             font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
-            font-size: 10.5px !important;
+            font-size: 11.5px !important;
             font-weight: 600 !important;
             text-transform: uppercase !important;
             letter-spacing: 2px !important;
-            color: #ffffff !important;
+            color: #1f2430 !important;
             text-decoration: none !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-bottom: 1px solid rgba(31, 36, 48, 0.3) !important;
             padding-bottom: 4px !important;
             transition: all 0.3s ease !important;
+            margin-top: 10px !important;
         }
 
         .cv-download:hover {
-            color: var(--primary-2) !important;
-            border-bottom-color: var(--primary-2) !important;
-            text-shadow: 0 0 8px rgba(241, 229, 0, 0.4) !important;
+            color: #000000 !important;
+            border-bottom-color: #000000 !important;
         }
 
+        /* Timeline/Section styles */
         .cv-section {
-            display: flex !important;
-            flex-direction: row !important;
-            gap: 50px !important;
-            padding: 50px 0 !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        }
-
-        .cv-section-left {
-            width: 220px !important;
-            flex-shrink: 0 !important;
+            display: block !important;
+            margin-top: 86.66px !important;
+            margin-bottom: 0px !important;
+            margin-left: 31.39px !important;
+            margin-right: 31.39px !important;
+            width: 737.21px !important;
         }
 
         .cv-section-title {
@@ -1371,116 +1384,121 @@
             font-weight: 600 !important;
             text-transform: uppercase !important;
             letter-spacing: 3px !important;
-            color: var(--primary-2) !important;
-            margin: 0 !important;
-        }
-
-        .cv-section-right {
-            flex-grow: 1 !important;
+            color: #1f2430 !important;
+            margin: 0 0 15px 0 !important;
         }
 
         .cv-timeline {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 40px !important;
+            display: block !important;
+            width: 737.21px !important;
+            border-bottom: 1px solid rgba(31, 36, 48, 0.12) !important;
         }
 
         .cv-timeline-row {
             display: flex !important;
             flex-direction: row !important;
-            gap: 40px !important;
+            padding-top: 12.22px !important;
+            padding-bottom: 12.22px !important;
+            width: 737.21px !important;
+            border-top: 1px solid rgba(31, 36, 48, 0.12) !important;
         }
 
         .cv-year {
-            width: 80px !important;
-            flex-shrink: 0 !important;
+            flex: 0 0 auto !important;
+            width: 124.43px !important;
+            padding-right: 13.33px !important;
             font-family: 'Cormorant Garamond', Georgia, serif !important;
-            font-size: 21px !important;
+            font-size: 13.5px !important;
             font-weight: 500 !important;
-            color: rgba(255, 255, 255, 0.55) !important;
-            line-height: 1.1 !important;
+            color: rgba(31, 36, 48, 0.6) !important;
+            line-height: 15px !important;
         }
 
         .cv-events {
-            flex-grow: 1 !important;
+            flex: 2 1 auto !important;
+            width: 612.78px !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 24px !important;
+            gap: 15px !important;
         }
 
         .cv-event {
             display: flex !important;
             flex-direction: column !important;
-            gap: 5px !important;
+            gap: 4px !important;
+            width: 612.78px !important;
         }
 
         .cv-event-title-wrap {
             display: flex !important;
             justify-content: space-between !important;
             align-items: baseline !important;
+            width: 100% !important;
             gap: 15px !important;
         }
 
         .cv-event-title {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-            font-size: 16px !important;
-            font-weight: 600 !important;
-            color: #ffffff !important;
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: #1f2430 !important;
             margin: 0 !important;
+            line-height: 16.9px !important;
         }
 
         .cv-event-link {
-            font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
-            font-size: 10px !important;
-            letter-spacing: 1px !important;
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: 9px !important;
+            color: rgba(31, 36, 48, 0.5) !important;
             text-decoration: none !important;
-            color: rgba(255, 255, 255, 0.4) !important;
             transition: color 0.2s ease !important;
         }
 
         .cv-event-link:hover {
-            color: var(--primary-2) !important;
+            color: #000000 !important;
         }
 
         .cv-event-sub {
             font-family: 'Cormorant Garamond', Georgia, serif !important;
-            font-size: 15px !important;
+            font-size: 12px !important;
             font-style: italic !important;
-            color: rgba(255, 255, 255, 0.45) !important;
-            margin: 0 !important;
+            color: rgba(31, 36, 48, 0.7) !important;
+            margin: 0 0 4px 0 !important;
         }
 
         .cv-event-bullets {
             list-style: none !important;
             padding: 0 !important;
-            margin: 6px 0 0 0 !important;
+            margin: 4px 0 0 0 !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 6px !important;
+            gap: 4px !important;
+            max-width: 480px !important;
         }
 
         .cv-event-bullets li {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-            font-size: 14px !important;
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 12px !important;
             line-height: 1.5 !important;
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: rgba(31, 36, 48, 0.75) !important;
             position: relative !important;
-            padding-left: 18px !important;
+            padding-left: 12px !important;
         }
 
         .cv-event-bullets li::before {
-            content: "•" !important;
-            color: var(--primary-2) !important;
+            content: "-" !important;
+            color: rgba(31, 36, 48, 0.4) !important;
             position: absolute !important;
             left: 0 !important;
-            font-size: 11px !important;
         }
 
-        /* ── Skills styling in cv format ── */
+        /* Skills grid in timeline style */
         .cv-skills-grid {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 30px !important;
+            border-top: 1px solid rgba(31, 36, 48, 0.12) !important;
+            padding-top: 15px !important;
         }
 
         .cv-skill-group {
@@ -1491,47 +1509,91 @@
 
         .cv-skill-category {
             font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
-            font-size: 11px !important;
+            font-size: 10.5px !important;
             text-transform: uppercase !important;
             letter-spacing: 2px !important;
-            color: rgba(255, 255, 255, 0.5) !important;
-            margin: 0 0 4px 0 !important;
+            color: rgba(31, 36, 48, 0.55) !important;
+            margin: 0 !important;
         }
 
         .cv-skill-items {
             font-family: 'Cormorant Garamond', Georgia, serif !important;
-            font-size: 17px !important;
+            font-size: 15px !important;
             line-height: 1.4 !important;
-            color: #ffffff !important;
+            color: #1f2430 !important;
             margin: 0 !important;
         }
 
+        /* Mobile & Tablet Styles */
         @media (max-width: 768px) {
             .cv-wrapper {
-                padding: 80px 20px 60px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
+
+            .cv-intro {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+
+            .cv-bio {
+                width: 100% !important;
             }
 
             .cv-section {
-                flex-direction: column !important;
-                gap: 20px !important;
-                padding: 40px 0 !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
             }
 
-            .cv-section-left {
+            .cv-timeline {
                 width: 100% !important;
+            }
+
+            .cv-timeline-row {
+                width: 100% !important;
+            }
+
+            .cv-year {
+                width: 80px !important;
+            }
+
+            .cv-events {
+                width: calc(100% - 80px) !important;
+            }
+
+            .cv-event {
+                width: 100% !important;
+            }
+
+            .cv-event-title-wrap {
+                width: 100% !important;
+                flex-direction: column !important;
+                gap: 4px !important;
+            }
+
+            .cv-event-title {
+                width: 100% !important;
+                padding-right: 0 !important;
             }
         }
 
         @media (max-width: 500px) {
             .cv-timeline-row {
                 flex-direction: column !important;
-                gap: 10px !important;
+                gap: 8px !important;
             }
 
             .cv-year {
                 width: 100% !important;
             }
-            
+
+            .cv-events {
+                width: 100% !important;
+            }
+
             .cv-skills-grid {
                 grid-template-columns: 1fr !important;
             }
@@ -1828,8 +1890,6 @@
         <div id="content" class="site-content">
             <!-- â•â•â• ABOUT SECTION â•â•â• -->
             <div id="about-section" class="about-info-section about-section block" data-title="" data-menu="About Me">
-                <!-- Interactive Fluid Background Canvas -->
-                <canvas id="dither-canvas" class="dither-canvas"></canvas>
 
                 <div class="cv-wrapper">
                     <!-- Hero Title -->
