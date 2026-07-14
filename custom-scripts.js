@@ -1674,6 +1674,7 @@ window.addEventListener('DOMContentLoaded', function () {
             const isInternal = (
                 (href.includes('visuals.html') || href.includes('index.html') || href === '/' || href === './') && 
                 !anchor.getAttribute('target') && 
+                !anchor.classList.contains('no-transition') && 
                 !e.ctrlKey && 
                 !e.metaKey
             );

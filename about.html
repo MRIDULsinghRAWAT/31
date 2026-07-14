@@ -14,7 +14,7 @@
 
 
     <!-- Search Engine Optimization by Rank Math PRO - https://rankmath.com/ -->
-    <title>Mridul_31 | Visual Diary</title>
+    <title>Mridul_31 | About Me</title>
     <meta name="description"
         content="Mridul_31 is a software engineer specializing in scalable intelligence platforms, machine learning, and cybersecurity solutions." />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
@@ -1255,6 +1255,287 @@
                 padding-top: 0 !important;
             }
         }
+
+        /* ── Tamaki Yoshida Inspired CV Layout Styles ── */
+        .cv-wrapper {
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+            padding: 100px 30px 100px !important;
+            position: relative !important;
+            z-index: 10 !important;
+            box-sizing: border-box !important;
+        }
+
+        .cv-hero {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin-bottom: 70px !important;
+            padding: 40px 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .cv-hero-title {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: clamp(60px, 10vw, 120px) !important;
+            font-weight: 300 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.15em !important;
+            color: #ffffff !important;
+            margin: 0 !important;
+            line-height: 1 !important;
+            text-align: center !important;
+        }
+
+        .cv-intro {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+            margin-bottom: 60px !important;
+            padding-bottom: 50px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .cv-name {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: clamp(32px, 4.5vw, 48px) !important;
+            font-weight: 500 !important;
+            color: #ffffff !important;
+            margin: 0 !important;
+            letter-spacing: 0.02em !important;
+        }
+
+        .cv-role {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: clamp(16px, 2vw, 20px) !important;
+            font-style: italic !important;
+            color: var(--primary-2) !important;
+            margin: 0 !important;
+            letter-spacing: 0.05em !important;
+        }
+
+        .cv-bio {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+            font-size: 15.5px !important;
+            line-height: 1.7 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            max-width: 740px !important;
+            margin-top: 10px !important;
+        }
+
+        .cv-bio p {
+            margin: 0 0 16px 0 !important;
+        }
+
+        .cv-bio p:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .cv-download {
+            margin-top: 25px !important;
+            display: inline-block !important;
+            font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
+            font-size: 10.5px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+            padding-bottom: 4px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .cv-download:hover {
+            color: var(--primary-2) !important;
+            border-bottom-color: var(--primary-2) !important;
+            text-shadow: 0 0 8px rgba(241, 229, 0, 0.4) !important;
+        }
+
+        .cv-section {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 50px !important;
+            padding: 50px 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .cv-section-left {
+            width: 220px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .cv-section-title {
+            font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 3px !important;
+            color: var(--primary-2) !important;
+            margin: 0 !important;
+        }
+
+        .cv-section-right {
+            flex-grow: 1 !important;
+        }
+
+        .cv-timeline {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 40px !important;
+        }
+
+        .cv-timeline-row {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 40px !important;
+        }
+
+        .cv-year {
+            width: 80px !important;
+            flex-shrink: 0 !important;
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: 21px !important;
+            font-weight: 500 !important;
+            color: rgba(255, 255, 255, 0.55) !important;
+            line-height: 1.1 !important;
+        }
+
+        .cv-events {
+            flex-grow: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 24px !important;
+        }
+
+        .cv-event {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 5px !important;
+        }
+
+        .cv-event-title-wrap {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: baseline !important;
+            gap: 15px !important;
+        }
+
+        .cv-event-title {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #ffffff !important;
+            margin: 0 !important;
+        }
+
+        .cv-event-link {
+            font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
+            font-size: 10px !important;
+            letter-spacing: 1px !important;
+            text-decoration: none !important;
+            color: rgba(255, 255, 255, 0.4) !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .cv-event-link:hover {
+            color: var(--primary-2) !important;
+        }
+
+        .cv-event-sub {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: 15px !important;
+            font-style: italic !important;
+            color: rgba(255, 255, 255, 0.45) !important;
+            margin: 0 !important;
+        }
+
+        .cv-event-bullets {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 6px 0 0 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 6px !important;
+        }
+
+        .cv-event-bullets li {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+            position: relative !important;
+            padding-left: 18px !important;
+        }
+
+        .cv-event-bullets li::before {
+            content: "•" !important;
+            color: var(--primary-2) !important;
+            position: absolute !important;
+            left: 0 !important;
+            font-size: 11px !important;
+        }
+
+        /* ── Skills styling in cv format ── */
+        .cv-skills-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 30px !important;
+        }
+
+        .cv-skill-group {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 6px !important;
+        }
+
+        .cv-skill-category {
+            font-family: 'PP Fraktion Mono', 'Courier New', monospace !important;
+            font-size: 11px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            color: rgba(255, 255, 255, 0.5) !important;
+            margin: 0 0 4px 0 !important;
+        }
+
+        .cv-skill-items {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: 17px !important;
+            line-height: 1.4 !important;
+            color: #ffffff !important;
+            margin: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .cv-wrapper {
+                padding: 80px 20px 60px !important;
+            }
+
+            .cv-section {
+                flex-direction: column !important;
+                gap: 20px !important;
+                padding: 40px 0 !important;
+            }
+
+            .cv-section-left {
+                width: 100% !important;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .cv-timeline-row {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+
+            .cv-year {
+                width: 100% !important;
+            }
+            
+            .cv-skills-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 
@@ -1545,407 +1826,203 @@
             <img src="https://digitalists.at/wp-content/themes/digitalists/cursor-header.avif" alt="Cursor">
         </div>
         <div id="content" class="site-content">
-<div id="visual-diary"
-                            class="teaser-classic block block--teaser-classic teaser-classic--references block--no-margin"
-                            data-title="" data-menu="Visuals">
-                            <svg width="361" height="14" viewBox="0 0 361 14" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0H2V2H0V0Z" fill="black" />
-                                <path d="M4 0H6V2H4V0Z" fill="black" />
-                                <path d="M8 0H10V2H8V0Z" fill="black" />
-                                <path d="M12 0H14V2H12V0Z" fill="black" />
-                                <path d="M16 0H18V2H16V0Z" fill="black" />
-                                <path d="M20 0H22V2H20V0Z" fill="black" />
-                                <path d="M24 0H26V2H24V0Z" fill="black" />
-                                <path d="M315 0H317V2H315V0Z" fill="black" />
-                                <path d="M319 0H321V2H319V0Z" fill="black" />
-                                <path d="M323 0H325V2H323V0Z" fill="black" />
-                                <path d="M327 0H329V2H327V0Z" fill="black" />
-                                <path d="M331 0H333V2H331V0Z" fill="black" />
-                                <path d="M12 4H14V6H12V4Z" fill="black" />
-                                <path d="M16 4H18V6H16V4Z" fill="black" />
-                                <path d="M20 4H22V6H20V4Z" fill="black" />
-                                <path d="M335 0H337V2H335V0Z" fill="black" />
-                                <path d="M339 0H341V2H339V0Z" fill="black" />
-                                <path d="M110 0H112V2H110V0Z" fill="black" />
-                                <path d="M114 0H116V2H114V0Z" fill="black" />
-                                <path d="M118 0H120V2H118V0Z" fill="black" />
-                                <path d="M122 0H124V2H122V0Z" fill="black" />
-                                <path d="M65 0H67V2H65V0Z" fill="black" />
-                                <path d="M327 4H329V6H327V4Z" fill="black" />
-                                <path d="M331 4H333V6H331V4Z" fill="black" />
-                                <path d="M335 4H337V6H335V4Z" fill="black" />
-                                <path d="M69 0H71V2H69V0Z" fill="black" />
-                                <path d="M24 4H26V6H24V4Z" fill="black" />
-                                <path d="M0 4H2V6H0V4Z" fill="black" />
-                                <path d="M93 0H95V2H93V0Z" fill="black" />
-                                <path d="M12 8H14V10H12V8Z" fill="black" />
-                                <path d="M16 8H18V10H16V8Z" fill="black" />
-                                <path d="M97 0H99V2H97V0Z" fill="black" />
-                                <path d="M203 0H205V2H203V0Z" fill="black" />
-                                <path d="M20 8H22V10H20V8Z" fill="black" />
-                                <path d="M24 8H26V10H24V8Z" fill="black" />
-                                <path d="M4 4H6V6H4V4Z" fill="black" />
-                                <path d="M12 12H14V14H12V12Z" fill="black" />
-                                <path d="M241 0H243V2H241V0Z" fill="black" />
-                                <path d="M8 4H10V6H8V4Z" fill="black" />
-                                <path d="M16 12H18V14H16V12Z" fill="black" />
-                                <path d="M20 12H22V14H20V12Z" fill="black" />
-                                <path d="M24 12H26V14H24V12Z" fill="black" />
-                                <path d="M249 0H251V2H249V0Z" fill="black" />
-                                <path d="M207 0H209V2H207V0Z" fill="black" />
-                                <path d="M245 0H247V2H245V0Z" fill="black" />
-                                <path d="M253 0H255V2H253V0Z" fill="black" />
-                                <path d="M169 0H171V2H169V0Z" fill="black" />
-                                <path d="M359 0H361V2H359V0Z" fill="black" />
-                                <path d="M150 0H152V2H150V0Z" fill="black" />
-                                <path d="M339 4H341V6H339V4Z" fill="black" />
-                                <path d="M315 4H317V6H315V4Z" fill="black" />
-                                <path d="M110 4H112V6H110V4Z" fill="black" />
-                                <path d="M327 8H329V10H327V8Z" fill="black" />
-                                <path d="M331 8H333V10H331V8Z" fill="black" />
-                                <path d="M114 4H116V6H114V4Z" fill="black" />
-                                <path d="M118 4H120V6H118V4Z" fill="black" />
-                                <path d="M335 8H337V10H335V8Z" fill="black" />
-                                <path d="M0 8H2V10H0V8Z" fill="black" />
-                                <path d="M339 8H341V10H339V8Z" fill="black" />
-                                <path d="M4 8H6V10H4V8Z" fill="black" />
-                                <path d="M319 4H321V6H319V4Z" fill="black" />
-                                <path d="M327 12H329V14H327V12Z" fill="black" />
-                                <path d="M65 4H67V6H65V4Z" fill="black" />
-                                <path d="M323 4H325V6H323V4Z" fill="black" />
-                                <path d="M331 12H333V14H331V12Z" fill="black" />
-                                <path d="M335 12H337V14H335V12Z" fill="black" />
-                                <path d="M339 12H341V14H339V12Z" fill="black" />
-                                <path d="M93 4H95V6H93V4Z" fill="black" />
-                                <path d="M122 4H124V6H122V4Z" fill="black" />
-                                <path d="M97 4H99V6H97V4Z" fill="black" />
-                                <path d="M69 4H71V6H69V4Z" fill="black" />
-                                <path d="M203 4H205V6H203V4Z" fill="black" />
-                                <path d="M241 4H243V6H241V4Z" fill="black" />
-                                <path d="M249 4H251V6H249V4Z" fill="black" />
-                                <path d="M110 8H112V10H110V8Z" fill="black" />
-                                <path d="M207 4H209V6H207V4Z" fill="black" />
-                                <path d="M8 8H10V10H8V8Z" fill="black" />
-                                <path d="M245 4H247V6H245V4Z" fill="black" />
-                                <path d="M169 4H171V6H169V4Z" fill="black" />
-                                <path d="M253 4H255V6H253V4Z" fill="black" />
-                                <path d="M359 4H361V6H359V4Z" fill="black" />
-                                <path d="M114 8H116V10H114V8Z" fill="black" />
-                                <path d="M150 4H152V6H150V4Z" fill="black" />
-                                <path d="M0 12H2V14H0V12Z" fill="black" />
-                                <path d="M315 8H317V10H315V8Z" fill="black" />
-                                <path d="M118 8H120V10H118V8Z" fill="black" />
-                                <path d="M122 8H124V10H122V8Z" fill="black" />
-                                <path d="M319 8H321V10H319V8Z" fill="black" />
-                                <path d="M4 12H6V14H4V12Z" fill="black" />
-                                <path d="M8 12H10V14H8V12Z" fill="black" />
-                                <path d="M110 12H112V14H110V12Z" fill="black" />
-                                <path d="M65 8H67V10H65V8Z" fill="black" />
-                                <path d="M69 8H71V10H69V8Z" fill="black" />
-                                <path d="M114 12H116V14H114V12Z" fill="black" />
-                                <path d="M97 8H99V10H97V8Z" fill="black" />
-                                <path d="M118 12H120V14H118V12Z" fill="black" />
-                                <path d="M122 12H124V14H122V12Z" fill="black" />
-                                <path d="M93 8H95V10H93V8Z" fill="black" />
-                                <path d="M65 12H67V14H65V12Z" fill="black" />
-                                <path d="M69 12H71V14H69V12Z" fill="black" />
-                                <path d="M97 12H99V14H97V12Z" fill="black" />
-                                <path d="M207 8H209V10H207V8Z" fill="black" />
-                                <path d="M169 8H171V10H169V8Z" fill="black" />
-                                <path d="M245 8H247V10H245V8Z" fill="black" />
-                                <path d="M253 8H255V10H253V8Z" fill="black" />
-                                <path d="M359 8H361V10H359V8Z" fill="black" />
-                                <path d="M323 8H325V10H323V8Z" fill="black" />
-                                <path d="M93 12H95V14H93V12Z" fill="black" />
-                                <path d="M203 8H205V10H203V8Z" fill="black" />
-                                <path d="M241 8H243V10H241V8Z" fill="black" />
-                                <path d="M249 8H251V10H249V8Z" fill="black" />
-                                <path d="M150 8H152V10H150V8Z" fill="black" />
-                                <path d="M315 12H317V14H315V12Z" fill="black" />
-                                <path d="M169 12H171V14H169V12Z" fill="black" />
-                                <path d="M207 12H209V14H207V12Z" fill="black" />
-                                <path d="M245 12H247V14H245V12Z" fill="black" />
-                                <path d="M253 12H255V14H253V12Z" fill="black" />
-                                <path d="M359 12H361V14H359V12Z" fill="black" />
-                                <path d="M319 12H321V14H319V12Z" fill="black" />
-                                <path d="M323 12H325V14H323V12Z" fill="black" />
-                                <path d="M203 12H205V14H203V12Z" fill="black" />
-                                <path d="M241 12H243V14H241V12Z" fill="black" />
-                                <path d="M249 12H251V14H249V12Z" fill="black" />
-                                <path d="M150 12H152V14H150V12Z" fill="black" />
-                            </svg>
-                            <div class="teaser-classic__top">
-                                <h2 class="content__hl">Visual Diary!</h2>
-                                <span>
-                                    Video </span>
-                            </div>
-                            <div class="teaser-classic__posts posts-teaser-video-wrap">
-                                <div class="video-container">
-                                    <video loop muted playsinline preload="none" class="visual-diary-video">
-                                        <source src="visual_fast.mp4" type="video/mp4">
-                                        <source src="visual.MOV" type="video/quicktime">
-                                        Your browser does not support the video tag.
-                                    </video>
+            <!-- â•â•â• ABOUT SECTION â•â•â• -->
+            <div id="about-section" class="about-info-section about-section block" data-title="" data-menu="About Me">
+                <!-- Interactive Fluid Background Canvas -->
+                <canvas id="dither-canvas" class="dither-canvas"></canvas>
 
-                                    <!-- Cinematic Grid Overlay (9 Left, 9 Right) -->
-                                    <div class="cinematic-overlay-container">
-                                        <div class="cinematic-backdrop"></div>
-                                        <!-- Left Side Blocks -->
-                                        <div class="cinematic-block-wrapper cb-left-1">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[01]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">NSPCC</span>
-                                                    <span class="label-subtitle">SHIFT CTRL</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l1">
-                                                <img loading="lazy" src="v1.PNG" alt="Visual L1">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-2">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[02]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">SONG FOR THE MUTE</span>
-                                                    <span class="label-subtitle">ADIDAS ORIGINALS 007</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l2">
-                                                <img loading="lazy" src="v2.jpg" alt="Visual L2">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-3">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[03]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">FLOWER MOUNTAIN</span>
-                                                    <span class="label-subtitle">NICHOLAS DALEY</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l3">
-                                                <img loading="lazy" src="v5.jpeg" alt="Visual L3">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-4">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[04]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">KEEPSAKES</span>
-                                                    <span class="label-subtitle">NOWNESS X V&A</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l4">
-                                                <img loading="lazy" src="v6.jpeg" alt="Visual L4">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-5">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[05]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">LOUIS CULTURE</span>
-                                                    <span class="label-subtitle">7AM</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l5">
-                                                <img loading="lazy" src="v8.jpg" alt="Visual L5">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-6">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[06]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">ETHAN P FLYNN</span>
-                                                    <span class="label-subtitle">FATHER OF NINE</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l6">
-                                                <img loading="lazy" src="v3.jpeg" alt="Visual L6">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-7">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[07]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">TOYOTA</span>
-                                                    <span class="label-subtitle">CH-R</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l7">
-                                                <img loading="lazy" src="v4.jpeg" alt="Visual L7">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-8">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[08]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">PINK PANTHERESS</span>
-                                                    <span class="label-subtitle">ILLEGAL</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l8">
-                                                <img loading="lazy" src="v7.jpeg" alt="Visual L8">
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-left-9">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[09]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">ADIDAS</span>
-                                                    <span class="label-subtitle">SONG FOR THE MUTE X ADIRUN 01</span>
-                                                </div>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-l9">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual L9</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="cv-wrapper">
+                    <!-- Hero Title -->
+                    <div class="cv-hero">
+                        <h1 class="cv-hero-title">CV</h1>
+                    </div>
 
-                                        <!-- Right Side Blocks -->
-                                        <div class="cinematic-block-wrapper cb-right-1">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[10]</span>
-                                                <div class="label-text">
-                                                    <span class="label-title">COLDPLAY</span>
-                                                    <span class="label-subtitle">MOON MUSIC</span>
-                                                </div>
+                    <!-- Introduction Header -->
+                    <div class="cv-intro">
+                        <h2 class="cv-name">Mridul Singh Rawat</h2>
+                        <h3 class="cv-role">Software Engineer / Cybersecurity Specialist</h3>
+                        <div class="cv-bio">
+                            <p>I'm a Cybersecurity &amp; Digital Forensics student based in Dehradun, India, with a sharp eye for systems, patterns, and everything in between. Whether it's building scalable intelligence platforms, engineering secure backend architectures, or developing AI-driven security tools — I approach every project with precision and intent.</p>
+                            <p>Beyond code, I'm a part-time visual storyteller — documenting life through a raw, cinematic lens. I believe great engineering and great design share the same DNA: clarity, purpose, and obsessive attention to detail.</p>
+                            <p>Currently exploring the intersection of machine learning, cybersecurity, and real-time data systems — building things that are not just functional, but meaningful.</p>
+                            <a href="#" onclick="alert('Resume PDF download coming soon!'); return false;" class="cv-download">PDF DOWNLOAD</a>
+                        </div>
+                    </div>
+
+                    <!-- Section: Experience -->
+                    <div class="cv-section">
+                        <div class="cv-section-left">
+                            <h4 class="cv-section-title">Experience</h4>
+                        </div>
+                        <div class="cv-section-right">
+                            <div class="cv-timeline">
+                                <div class="cv-timeline-row">
+                                    <div class="cv-year">2024</div>
+                                    <div class="cv-events">
+                                        <div class="cv-event">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">Open Source Contributor &amp; Developer</h5>
                                             </div>
-                                            <div class="cinematic-block" id="cinematic-block-r1">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R1</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-2">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[11]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r2">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-3">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[12]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r3">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-4">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[13]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r4">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R4</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-5">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[14]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r5">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R5</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-6">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[15]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r6">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R6</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-7">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[16]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r7">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R7</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-8">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[17]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r8">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R8</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cinematic-block-wrapper cb-right-9">
-                                            <div class="cinematic-block-label">
-                                                <span class="label-num">[18]</span>
-                                            </div>
-                                            <div class="cinematic-block" id="cinematic-block-r9">
-                                                <div class="block-placeholder">
-                                                    <svg viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
-                                                    </svg>
-                                                    <span>Visual R9</span>
-                                                </div>
-                                            </div>
+                                            <p class="cv-event-sub">Dehradun, India</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Architecting decentralized intelligence applications, designing custom ML inference engines, and contributing to security telemetry integrations.</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Section: Projects -->
+                    <div class="cv-section">
+                        <div class="cv-section-left">
+                            <h4 class="cv-section-title">Projects</h4>
+                        </div>
+                        <div class="cv-section-right">
+                            <div class="cv-timeline">
+                                <!-- Project 1 -->
+                                <div class="cv-timeline-row">
+                                    <div class="cv-year">2026</div>
+                                    <div class="cv-events">
+                                        <div class="cv-event">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">NET SCAN</h5>
+                                                <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="cv-event-link">GITHUB ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">React 18, Flask, Server-Sent Events, Dijkstra, Heuristics</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Multi-threaded port scanner and banner grabber with NVD CVE enrichment pipeline.</li>
+                                                <li>Heuristic Kill Chain classifier identifying entry, pivot, and target nodes.</li>
+                                                <li>Critical Paths engine calculating shortest paths (BFS) and deadliest routes (Dijkstra).</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Project 2 -->
+                                <div class="cv-timeline-row">
+                                    <div class="cv-year">2025</div>
+                                    <div class="cv-events">
+                                        <!-- BlueNexus -->
+                                        <div class="cv-event">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">BlueNexus</h5>
+                                                <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="cv-event-link">GITHUB ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">AWS Bedrock, ChromaDB, EfficientNet-B0, Python</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Multi-Agent AI system processing 5+ real-time marine telemetry streams.</li>
+                                                <li>Partitioned vector database (ChromaDB) RAG architecture reducing hallucinations by 90%.</li>
+                                                <li>EfficientNet Computer Vision classifying fish species and predicting temperatures.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Supply Chain Analyzer -->
+                                        <div class="cv-event" style="margin-top: 20px;">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">Supply Chain Auditor</h5>
+                                                <a href="https://github.com/MRIDULsinghRAWAT/supply_chain_analyzer" target="_blank" class="cv-event-link">GITHUB ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">Python, Directed Graphs, DFS 3-Coloring, Levenshtein Distance</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>CLI vulnerability and cycle scanner for Pip and npm packages.</li>
+                                                <li>DFS dependency cycle detection and Levenshtein package typosquatting protection.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Project 3 -->
+                                <div class="cv-timeline-row">
+                                    <div class="cv-year">2024</div>
+                                    <div class="cv-events">
+                                        <!-- Aesthetic Engine -->
+                                        <div class="cv-event">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">Aesthetic Engine</h5>
+                                                <a href="https://github.com/MRIDULsinghRAWAT/aesthetic-intelligence-engine" target="_blank" class="cv-event-link">GITHUB ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">MobileNetV2, TensorFlow Lite, Python, Edge AI</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Binary aesthetic classification system trained on BIQ2021 (12,000 images), achieving 71% validation accuracy.</li>
+                                                <li>Optimized edge pipeline using TFLite conversion (sub-12ms inference latency).</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- CropSense -->
+                                        <div class="cv-event" style="margin-top: 20px;">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">CropSense</h5>
+                                                <a href="https://github.com/v-i-n-a-y-29/CropSense" target="_blank" class="cv-event-link">GITHUB ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">Leaflet.js, React, Google Gemini AI, Weather APIs</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Machinery tracker reducing idle times by 30% without GPS hardware.</li>
+                                                <li>Bilingual farmer advisory platform powered by Google Gemini.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Technical Skills -->
+                    <div class="cv-section">
+                        <div class="cv-section-left">
+                            <h4 class="cv-section-title">Skills</h4>
+                        </div>
+                        <div class="cv-section-right">
+                            <div class="cv-skills-grid">
+                                <div class="cv-skill-group">
+                                    <h5 class="cv-skill-category">Languages</h5>
+                                    <p class="cv-skill-items">Python, Java, JavaScript, C / C++</p>
+                                </div>
+                                <div class="cv-skill-group">
+                                    <h5 class="cv-skill-category">AI / Machine Learning</h5>
+                                    <p class="cv-skill-items">Agentic AI, AWS Bedrock, RAG Pipelines, Computer Vision</p>
+                                </div>
+                                <div class="cv-skill-group">
+                                    <h5 class="cv-skill-category">Cybersecurity</h5>
+                                    <p class="cv-skill-items">Network Security, Vulnerability Assessment, MITRE ATT&amp;CK, Digital Forensics</p>
+                                </div>
+                                <div class="cv-skill-group">
+                                    <h5 class="cv-skill-category">Core / Dev</h5>
+                                    <p class="cv-skill-items">FastAPI, Flask, React 18, Git &amp; Linux, DSA &amp; OOP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Education -->
+                    <div class="cv-section" style="border-bottom: none;">
+                        <div class="cv-section-left">
+                            <h4 class="cv-section-title">Education</h4>
+                        </div>
+                        <div class="cv-section-right">
+                            <div class="cv-timeline">
+                                <div class="cv-timeline-row">
+                                    <div class="cv-year">2023 — Present</div>
+                                    <div class="cv-events">
+                                        <div class="cv-event">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">B.Tech in Cybersecurity &amp; Digital Forensics</h5>
+                                            </div>
+                                            <p class="cv-event-sub">Dehradun, India</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- â•â•â• END ABOUT SECTION â•â•â• -->
 </div><!-- #content -->
             <dialog class="site-tltr" inert>
                 <form method="dialog" class="site-tltr__close">
-                    <button aria-label="Close popup">×</button>
+                    <button aria-label="Close popup">Ã—</button>
                 </form>
                 <div class="site-tltr__wrapper">
                     <div class="site-tltr__content">
@@ -2106,7 +2183,7 @@
                                                                 value="terms" required>
                                                             <span class="fake-checkbox"></span>
                                                             <div>
-                                                                <p>I hereby confirm that I have read the <a
+                                                                <p>I hereby confirm that I have read theÂ <a
                                                                         href="https://digitalists.at/datenschutz/"
                                                                         target="_blank" rel="noopener">Privacy
                                                                         Policy</a>. I consent to the
@@ -2141,7 +2218,7 @@
         </dialog>
         <dialog class="site-modal" inert>
             <form method="dialog" class="site-modal__close">
-                <button aria-label="Close popup">×</button>
+                <button aria-label="Close popup">Ã—</button>
             </form>
             <div class="site-modal__wrapper">
                 <div class="site-modal__content"></div>
@@ -2198,7 +2275,7 @@
                         </form>
 
                         <div class="custom-form__thanks" style="display: none;">
-                            <div class="thanks-icon">✓</div>
+                            <div class="thanks-icon">âœ“</div>
                             <h3>Thank you!</h3>
                             <p>Your message has been sent successfully. I will get back to you shortly.</p>
                         </div>
