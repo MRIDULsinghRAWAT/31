@@ -1711,7 +1711,7 @@
                 <nav class="site-header__nav">
                     <ul class="main-nav__list main-nav-list">
                         <li class="main-nav-list__menu-item menu-item menu-item--first">
-                            <a href="index.html#projects-section">
+                            <a href="projects.html">
                                 Projects <span>
                                     <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -1760,11 +1760,27 @@
                                                     decoding="async" />
                                                 CropSense | Crop Residue Tracking </a>
                                         </li>
+                                        <li class="submenu__item submenu-item submenu-item--2">
+                                            <a href="https://github.com/MRIDULsinghRAWAT/nexus-siem" target="_blank">
+                                                <img width="86" height="50" src="nexus_siem.webp"
+                                                    class="attachment-full size-full" alt="Nexus SIEM"
+                                                    decoding="async" />
+                                                Nexus SIEM | SIEM & Active Defense </a>
+                                        </li>
+                                        <li class="submenu__item submenu-item submenu-item--2">
+                                            <a href="https://shoe-store-smoky.vercel.app/" target="_blank">
+                                                <img width="86" height="50" src="shoe_store_1.webp"
+                                                    class="attachment-full size-full" alt="ANIVA Shoe Store"
+                                                    decoding="async" />
+                                                ANIVA Shoe Store | E-Commerce & AI </a>
+                                        </li>
                                     </ul>
                                     <div class="overlay__teaser">
                                         <div class="overlay__projects">
                                             <div class="overlay__hl">Recent Cases</div>
                                             <ul class="overlay__cases">
+                                                <li><a href="https://shoe-store-smoky.vercel.app/" target="_blank">ANIVA Shoe Store | E-Commerce & AI</a></li>
+                                                <li><a href="https://github.com/MRIDULsinghRAWAT/nexus-siem" target="_blank">Nexus SIEM | SIEM & Active Defense</a></li>
                                                 <li><a href="https://github.com/MRIDULsinghRAWAT" target="_blank">NET
                                                         SCAN | Vulnerability Scanner</span></a></li>
                                                 <li><a href="https://github.com/MRIDULsinghRAWAT"
@@ -1945,7 +1961,35 @@
                                 <div class="cv-timeline-row">
                                     <div class="cv-year">2026</div>
                                     <div class="cv-events">
+                                        <!-- Nexus SIEM -->
                                         <div class="cv-event">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">Nexus SIEM</h5>
+                                                <a href="https://github.com/MRIDULsinghRAWAT/nexus-siem" target="_blank" class="cv-event-link">GITHUB ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">Python, React 18, Syslog Ingestion, Geo-IP Radar, SOAR</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Real-time SIEM & SOAR platform featuring multi-agent syslog ingestion pipeline.</li>
+                                                <li>Interactive IP radar geo-mapping with live active firewall block tracking.</li>
+                                                <li>Automated SOAR active defense correlation and threat mitigation engine.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- ANIVA Shoe Store -->
+                                        <div class="cv-event" style="margin-top: 20px;">
+                                            <div class="cv-event-title-wrap">
+                                                <h5 class="cv-event-title">ANIVA Shoe Store</h5>
+                                                <a href="https://shoe-store-smoky.vercel.app/" target="_blank" class="cv-event-link">WEBSITE ↗</a>
+                                            </div>
+                                            <p class="cv-event-sub">React, Vercel, LLM AI Assistant (Aniva Shoe Bot), E-Commerce</p>
+                                            <ul class="cv-event-bullets">
+                                                <li>Designed a premium dark-themed shoe e-commerce store ("ANIVA") featuring high-end Nike sneakers with immersive animations and dynamic layout.</li>
+                                                <li>Integrated "Aniva Shoe Bot" — a dedicated AI assistant powered by LLM orchestration for sizing advice, styling recommendations, and release info.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- NET SCAN -->
+                                        <div class="cv-event" style="margin-top: 20px;">
                                             <div class="cv-event-title-wrap">
                                                 <h5 class="cv-event-title">NET SCAN</h5>
                                                 <a href="https://github.com/MRIDULsinghRAWAT" target="_blank" class="cv-event-link">GITHUB ↗</a>
@@ -2078,7 +2122,148 @@
                     </div>
                 </div>
             </div>
-            <!-- â•â•â• END ABOUT SECTION â•â•â• -->
+            <!-- ═══ END ABOUT SECTION ═══ -->
+
+            <!-- ===== BACKGROUND SECTION: Experience & Skills ===== -->
+            <div class="wp-block-group">
+                <div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+                    <div class="background-section block" id="background-section" data-title="" data-menu="Background">
+                        <!-- Interactive Fluid Background Canvas -->
+                        <canvas id="background-dither-canvas" class="dither-canvas"></canvas>
+
+                        <!-- SVG Noise Filter for film grain texture -->
+                        <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+                            <filter id="skills-noise-filter">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3"
+                                    stitchTiles="stitch" />
+                                <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" />
+                            </filter>
+                            <filter id="experience-noise-filter">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3"
+                                    stitchTiles="stitch" />
+                                <feColorMatrix type="matrix" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.05 0" />
+                            </filter>
+                        </svg>
+
+                        <div class="background-section__header">
+                            <span class="bg-reveal">Background</span>
+                            <span>Experience & Technical Skills</span>
+                        </div>
+
+                        <div class="danish-container">
+                            <!-- ── Section Header ── -->
+                            <div class="danish-header bg-reveal">
+                                <h1 class="danish-header__title">Background</h1>
+                                <span class="danish-header__subtitle">Experience &amp; Technical Skills</span>
+                            </div>
+
+                            <!-- ── Experience Row ── -->
+                            <div class="danish-row bg-reveal">
+                                <div class="danish-label">Experience</div>
+                                <div class="danish-content">
+                                    <h2>Built across scale and complexity.</h2>
+                                    <div class="danish-roles">
+                                        <div class="danish-role">
+                                            <div class="danish-role-title">
+                                                <strong>Ultimez Technology</strong>
+                                                <span>Jun 2026 &ndash; Jul 2026</span>
+                                            </div>
+                                            <p>Web Developer Intern &mdash; Deployed and optimized responsive web interfaces for the On-Device Aesthetic Intelligence Engine (MobileNetV2 + TFLite) and collaborated in remote sprint pipelines.</p>
+                                        </div>
+                                        <div class="danish-role">
+                                            <div class="danish-role-title">
+                                                <strong>Aakriti Foundation Trust</strong>
+                                                <span>Jun 2024 &ndash; Jul 2024</span>
+                                            </div>
+                                            <p>Teaching Outreach Intern &mdash; Engineered interactive learning modules for 50+ students and managed logistics for large-scale community outreach drives.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ── Technical Skills Row ── -->
+                            <div class="danish-row bg-reveal">
+                                <div class="danish-label">Technical Skills</div>
+                                <div class="danish-content">
+                                    <h2>Interactive skill matrix.</h2>
+                                    <!-- Keep exact same technical skills tag cloud -->
+                                    <div class="skills-tagcloud" id="skills-tagcloud" style="margin-top: 10px;">
+                                        <canvas class="skills-tagcloud__network"></canvas>
+                                        <div class="skills-tagcloud__field"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ── Achievements Row ── -->
+                            <div class="danish-row bg-reveal">
+                                <div class="danish-label">Achievements</div>
+                                <div class="danish-content">
+                                    <h2>Proven milestones.</h2>
+                                    <div class="danish-roles">
+                                        <!-- LeetCode Achievement -->
+                                        <div class="danish-role">
+                                            <div class="danish-role-title">
+                                                <strong>LeetCode</strong>
+                                                <span>200+ Solved</span>
+                                            </div>
+                                            <p>Solved 200+ problems in Data Structures and Algorithms, developing strong logic and optimization skills.</p>
+                                            
+                                            <!-- LeetCode-Style Heatmap -->
+                                            <div class="lc-heatmap">
+                                                <div class="lc-heatmap__header">
+                                                    <div class="lc-heatmap__title"><strong>696</strong> submissions in the past one year</div>
+                                                    <div class="lc-heatmap__stats">
+                                                        <span>Total active days: <strong>245</strong></span>
+                                                        <span>Max streak: <strong>146</strong></span>
+                                                    </div>
+                                                </div>
+                                                <div class="lc-heatmap-wrapper" style="overflow-x: auto; width: 100%; scrollbar-width: none; -ms-overflow-style: none;">
+                                                    <div id="leetcode-heatmap-container" style="min-width: 700px;"></div>
+                                                    <div class="lc-heatmap__months" id="leetcode-heatmap-months"></div>
+                                                </div>
+                                                <div class="lc-heatmap__footer">
+                                                    <div class="lc-heatmap__link">
+                                                        <a href="https://leetcode.com/u/Mridul_31/" target="_blank">leetcode.com/u/Mridul_31 ↗</a>
+                                                    </div>
+                                                    <div class="lc-heatmap__legend">
+                                                        <span>Less</span>
+                                                        <div style="width:10px;height:10px;background:#161b22;border-radius:2px;border:1px solid rgba(255,255,255,0.06);"></div>
+                                                        <div style="width:10px;height:10px;background:#0e4429;border-radius:2px;"></div>
+                                                        <div style="width:10px;height:10px;background:#006d32;border-radius:2px;"></div>
+                                                        <div style="width:10px;height:10px;background:#26a641;border-radius:2px;"></div>
+                                                        <div style="width:10px;height:10px;background:#39d353;border-radius:2px;"></div>
+                                                        <span>More</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- IBM × AWS Hackathon -->
+                                        <div class="danish-role">
+                                            <div class="danish-role-title">
+                                                <strong>IBM &times; AWS Hackathon</strong>
+                                                <span>Top 30 Teams</span>
+                                            </div>
+                                            <p>Shortlisted among the Top 30 Teams out of 350+ nationwide competitors for innovative AI application development.</p>
+                                        </div>
+
+                                        <!-- Smart India Hackathon -->
+                                        <div class="danish-role">
+                                            <div class="danish-role-title">
+                                                <strong>Smart India Hackathon (SIH)</strong>
+                                                <span>Top 15 Team</span>
+                                            </div>
+                                            <p>Recognized as a Top 15 Team for delivering high-impact solutions to national-level problem statements.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== END BACKGROUND SECTION ===== -->
+
 </div><!-- #content -->
             <dialog class="site-tltr" inert>
                 <form method="dialog" class="site-tltr__close">
